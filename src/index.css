@@ -1,0 +1,144 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ──────────────────────────────────────────────────────────────────
+   Source-of-truth design tokens. Stored as space-separated RGB channels
+   so Tailwind can inject alpha (e.g. bg-ink/85). Tailwind mirrors these;
+   the 3D ocean and raw-canvas overlays read them too, so colour stays
+   unified. The :root values are the dark (default) theme; [data-theme
+   ='light'] re-points the same tokens for the light theme.
+   ────────────────────────────────────────────────────────────────── */
+:root,
+:root[data-theme='dark'] {
+  --ink: 5 9 15; /* deep navy-black base */
+  --hull: 10 17 25; /* raised surface */
+  --steel: 62 90 120; /* cool steel-blue mid-tone / ocean */
+  --steel-deep: 21 36 58;
+  --mist: 147 161 176; /* secondary text */
+  --foam: 236 241 246; /* primary text */
+  --bronze: 196 154 85; /* single warm accent */
+  --bronze-hi: 230 201 138; /* accent highlight */
+  --hairline: rgb(var(--bronze) / 0.22); /* bronze waterline rules */
+}
+
+/* ── Light theme — a bright "deck in daylight" maritime palette ────── */
+:root[data-theme='light'] {
+  --ink: 244 247 250; /* pale sea-foam paper base */
+  --hull: 255 255 255; /* raised surface (cards) */
+  --steel: 62 90 120; /* steel-blue holds as the brand mid-tone */
+  --steel-deep: 175 192 208; /* light steel for gradients */
+  --mist: 90 107 125; /* secondary text — readable on light */
+  --foam: 18 32 46; /* primary text — near-ink for contrast */
+  --bronze: 147 106 33; /* deepened bronze for AA contrast on light */
+  --bronze-hi: 176 131 47; /* accent highlight */
+  --hairline: rgb(var(--bronze) / 0.28);
+}
+
+@layer base {
+  html {
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+  }
+
+  body {
+    margin: 0;
+    background-color: rgb(var(--ink));
+    color: rgb(var(--foam));
+    font-family: theme('fontFamily.body');
+    font-size: 1rem;
+    line-height: 1.6;
+    overflow-x: hidden;
+    /* Ease the palette swap when the theme toggles */
+    transition: background-color 0.4s ease, color 0.4s ease;
+  }
+
+  /* Display headings: high-contrast optical serif, tight tracking */
+  h1,
+  h2,
+  h3 {
+    font-family: theme('fontFamily.display');
+    font-weight: 400;
+    letter-spacing: theme('letterSpacing.tightest');
+    line-height: 1.02;
+    text-wrap: balance;
+  }
+
+  ::selection {
+    background: rgb(var(--bronze));
+    color: rgb(var(--ink));
+  }
+
+  /* Visible keyboard focus everywhere — quality floor */
+  :focus-visible {
+    outline: 2px solid rgb(var(--bronze-hi));
+    outline-offset: 3px;
+    border-radius: 2px;
+  }
+}
+
+@layer components {
+  /* Page shell — consistent horizontal rhythm */
+  .shell {
+    width: 100%;
+    max-width: theme('maxWidth.shell');
+    margin-inline: auto;
+    padding-inline: 1.5rem;
+  }
+  @media (min-width: 768px) {
+    .shell {
+      padding-inline: 2.5rem;
+    }
+  }
+
+  /* The recurring position-locator eyebrow */
+  .eyebrow {
+    font-family: theme('fontFamily.data');
+    font-size: 0.72rem;
+    letter-spacing: theme('letterSpacing.eyebrow');
+    text-transform: uppercase;
+    color: rgb(var(--bronze));
+  }
+
+  /* Bronze waterline divider used between sections */
+  .waterline {
+    height: 1px;
+    width: 100%;
+    background: linear-gradient(
+      90deg,
+      transparent,
+      var(--hairline) 12%,
+      var(--hairline) 88%,
+      transparent
+    );
+  }
+
+  /* Cinematic grain + vignette overlay (used over the hero) */
+  .vignette {
+    background: radial-gradient(
+      120% 90% at 50% 18%,
+      transparent 38%,
+      rgb(var(--ink) / 0.55) 78%,
+      rgb(var(--ink)) 100%
+    );
+  }
+}
+
+/* Cross-browser film grain via a tiny inline SVG noise texture */
+.grain-layer {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.5'/%3E%3C/svg%3E");
+  mix-blend-mode: overlay;
+  opacity: 0.06;
+}
+
+/* ── Reduced-motion: honour the OS setting globally ───────────────── */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+    scroll-behavior: auto !important;
+  }
+}
