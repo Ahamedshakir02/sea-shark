@@ -1,8 +1,8 @@
 import { defineConfig } from 'vite'
 import react from '@vitejs/plugin-react'
 
-// base './' keeps the built site working from any folder or host
+// Pages use real URLs (/services, /about), so assets load from the site root
 export default defineConfig({
   plugins: [react()],
-  base: './',
+  base: '/',
 })
