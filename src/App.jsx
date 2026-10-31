@@ -11,6 +11,7 @@ import ServiceDetail from './pages/ServiceDetail.jsx'
 import Barge from './pages/Barge.jsx'
 import About from './pages/About.jsx'
 import Contact from './pages/Contact.jsx'
+import Ports from './pages/Ports.jsx'
 import NotFound from './pages/NotFound.jsx'
 
 const TITLES = {
@@ -21,6 +22,7 @@ const TITLES = {
   '/services/ship-agency': 'Ship agency | Sea Shark Shipping',
   '/our-barge': 'Our barge Malik | Sea Shark Shipping',
   '/about': 'About us | Sea Shark Shipping',
+  '/ports-and-faq': 'Ports & FAQ | Sea Shark Shipping',
   '/contact': 'Contact | Sea Shark Shipping',
 }
 
@@ -48,6 +50,7 @@ export default function App() {
           <Route path="/services/:slug" element={<ServiceDetail />} />
           <Route path="/our-barge" element={<Barge />} />
           <Route path="/about" element={<About />} />
+          <Route path="/ports-and-faq" element={<Ports />} />
           <Route path="/contact" element={<Contact />} />
           <Route path="*" element={<NotFound />} />
         </Routes>

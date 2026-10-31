@@ -1,74 +1,82 @@
-import { Link, useParams } from 'react-router-dom'
-import { SERVICES, STEPS, photo } from '../content.js'
+import { useParams } from 'react-router-dom'
+import { SERVICES } from '../content.js'
 import { ServiceIcon } from '../components/Icons.jsx'
-import PageBanner from '../components/PageBanner.jsx'
+import PageHead from '../components/PageHead.jsx'
 import Reveal from '../components/Reveal.jsx'
+import Head from '../components/Head.jsx'
 import WaLink from '../components/WaLink.jsx'
+import ServiceCard from '../components/ServiceCard.jsx'
+import Tbc from '../components/Tbc.jsx'
 import CtaBand from '../components/CtaBand.jsx'
 import NotFound from './NotFound.jsx'
-import malik from '../assets/boat-malik.jpg'
-
-const img = (s, w) => (s === 'malik' ? malik : photo(s, w))
 
 export default function ServiceDetail() {
   const { slug } = useParams()
   const s = SERVICES.find((x) => x.slug === slug)
   if (!s) return <NotFound />
-  const others = SERVICES.filter((x) => x.slug !== slug)
+  const idx = SERVICES.indexOf(s)
 
   return (
     <>
-      <PageBanner image={s.banner} tag="[ Service ]" title={s.title} lead={s.short}
+      <PageHead image={s.banner} label={s.kicker} title={s.title.toLowerCase() + '.'} lead={s.short}
         crumbs={[{ label: 'Services', to: '/services' }, { label: s.title }]} />
 
-      <section className="section">
+      <section className="section grid-bg">
         <div className="wrap detail">
-          <Reveal className="detail__main">
-            <p className="detail__intro">{s.intro}</p>
-            <h2>What's included</h2>
-            <ul className="ticks ticks--big">{s.includes.map((x) => <li key={x}><ServiceIcon id="check" />{x}</li>)}</ul>
-            <div className="detail__img"><img src={img(s.photo, 1400)} alt="" loading="lazy" /></div>
-          </Reveal>
+          <div>
+            <Head n="01" label="The service" title="What it is." />
+            <Reveal as="p" className="lead-big" delay={80}>{s.intro}</Reveal>
+          </div>
           <aside className="detail__side">
-            <Reveal className="sendbox" delay={120}>
+            <Reveal className="sendbox" delay={140}>
+              <p className="idx idx--light"><span>&#8212;</span>To book</p>
               <h3>What to send us</h3>
-              <p>Put these in your WhatsApp message and we can confirm faster:</p>
               <ol>{s.send.map((x) => <li key={x}>{x}</li>)}</ol>
-              <WaLink className="pill pill--wa" message={s.wa}><span className="dot" />{s.cta}</WaLink>
+              <WaLink className="btn btn--white" message={s.wa}><ServiceIcon id="chat" />{s.cta}</WaLink>
             </Reveal>
           </aside>
         </div>
       </section>
 
-      <section className="section section--tint">
+      <section className="section section--ice">
         <div className="wrap">
-          <Reveal className="head"><p className="tag tag--dark">[ How it works ]</p><h2>Three simple steps.</h2></Reveal>
-          <ol className="steps">
-            {STEPS.map((st, i) => (
-              <Reveal as="li" key={st.title} delay={i * 110}>
-                <span className="steps__n">0{i + 1}</span><h3>{st.title}</h3><p>{st.text}</p>
+          <Head n="02" label="What's included" title="What we take care of." />
+          <div className="incl" style={{ '--cols': s.includes.length % 4 === 0 ? 4 : 3 }}>
+            {s.includes.map((x, i) => (
+              <Reveal className="incl__item" key={x.title} delay={(i % 4) * 80}>
+                <span className="incl__n">{String(i + 1).padStart(2, '0')}</span>
+                <h3>{x.title} <Tbc on={x.tbc} /></h3>
+                <p>{x.text}</p>
+              </Reveal>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section className="section grid-bg">
+        <div className="wrap">
+          <Head n="03" label="How it works" title="Step by step." />
+          <ol className="route route--many" style={{ '--n': s.process.length }}>
+            {s.process.map((p, i) => (
+              <Reveal as="li" key={p.title} delay={i * 100}>
+                <span className="route__dot">{`0${i + 1}`}</span><h3>{p.title}</h3><p>{p.text}</p>
               </Reveal>
             ))}
           </ol>
         </div>
       </section>
 
-      <section className="section">
+      <section className="section section--ice">
         <div className="wrap">
-          <Reveal className="head"><p className="tag tag--dark">[ More services ]</p><h2>We can also help with</h2></Reveal>
-          <div className="tiles tiles--two">
-            {others.map((o, i) => (
-              <Reveal key={o.slug} delay={i * 110}>
-                <Link className="tile" to={`/services/${o.slug}`}>
-                  <img src={img(o.photo, 900)} alt="" loading="lazy" />
-                  <div className="tile__body"><h3>{o.title}</h3><p>{o.short}</p><span className="tile__go">Learn more <ServiceIcon id="arrow" /></span></div>
-                </Link>
-              </Reveal>
+          <Head n="04" label="More services" title="We can also help with" />
+          <div className="scards scards--two">
+            {SERVICES.map((o, i) => o.slug !== slug && (
+              <Reveal key={o.slug} delay={i * 100}><ServiceCard s={o} n={`0${i + 1}`} /></Reveal>
             ))}
           </div>
         </div>
       </section>
-      <CtaBand message={s.wa} />
+      <CtaBand title={idx === 0 ? 'Need fresh water for your ship?' : idx === 1 ? 'Calling at Khorfakkan or Fujairah?' : 'Need people or stores moved?'} message={s.wa} />
     </>
   )
 }

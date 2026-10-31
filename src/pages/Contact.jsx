@@ -1,31 +1,56 @@
-import { CONTACTS, HOURS, SERVICES, PHOTOS } from '../content.js'
-import PageBanner from '../components/PageBanner.jsx'
+import { SERVICES, PHOTOS, PHONE_DISPLAY, PHONE_LINK, EMAIL, HOURS_ROWS, OFFICES } from '../content.js'
+import { ServiceIcon, WhatsAppIcon } from '../components/Icons.jsx'
+import PageHead from '../components/PageHead.jsx'
 import Reveal from '../components/Reveal.jsx'
+import Head from '../components/Head.jsx'
 import WaLink from '../components/WaLink.jsx'
 
 export default function Contact() {
   return (
     <>
-      <PageBanner image={PHOTOS.portAerial} tag="[ Contact ]" title="Get in touch."
+      <PageHead image={PHOTOS.tugFront} label="Contact" title="talk to us."
         lead="WhatsApp is the fastest way to reach us. Pick what you need and your message is ready to send."
         crumbs={[{ label: 'Contact' }]} />
-      <section className="section">
+
+      <section className="section grid-bg">
         <div className="wrap">
+          <Head n="01" label="Quick message" title="What do you need?" />
           <div className="quick">
             {SERVICES.map((s, i) => (
               <Reveal key={s.slug} delay={i * 90}>
-                <WaLink className="quick__btn" message={s.wa}><span className="dot" /><span><small>WhatsApp</small>{s.cta}</span></WaLink>
+                <WaLink className="quick__btn" message={s.wa}>
+                  <span className="quick__icon"><ServiceIcon id={s.icon} /></span>
+                  <span><small>WhatsApp</small>{s.cta}</span>
+                  <ServiceIcon id="arrow" />
+                </WaLink>
               </Reveal>
             ))}
+            <Reveal delay={270}>
+              <WaLink className="quick__btn quick__btn--blue" message="Hello Sea Shark, I have an enquiry.">
+                <span className="quick__icon"><WhatsAppIcon /></span>
+                <span><small>WhatsApp</small>Something else</span>
+                <ServiceIcon id="arrow" />
+              </WaLink>
+            </Reveal>
           </div>
+        </div>
+      </section>
+
+      <section className="section section--ice">
+        <div className="wrap">
+          <Head n="02" label="Details" title="Call, email or visit." />
           <div className="contact">
-            {CONTACTS.map((c, i) => (
-              <Reveal className="box" key={c.label} delay={i * 70}>
-                <p>{c.label}</p>
-                <a href={c.href} {...(c.external ? { target: '_blank', rel: 'noopener' } : {})}>{c.text}</a>
+            <Reveal className="box"><p>Phone and WhatsApp</p><a href={PHONE_LINK}>{PHONE_DISPLAY}</a></Reveal>
+            <Reveal className="box" delay={70}><p>Operations email</p><a href={`mailto:${EMAIL}`}>{EMAIL}</a></Reveal>
+            {OFFICES.map((o, i) => (
+              <Reveal className="box" key={o.name} delay={140 + i * 70}>
+                <p>{o.name}</p><a href={o.map} target="_blank" rel="noopener">{o.place}</a>
               </Reveal>
             ))}
-            <Reveal className="box box--wide"><p>Office hours (Sharjah)</p><span>{HOURS}</span></Reveal>
+            <Reveal className="box box--hours" delay={280}>
+              <p>Office hours</p>
+              <table><tbody>{HOURS_ROWS.map(([d, t]) => <tr key={d}><td>{d}</td><td>{t}</td></tr>)}</tbody></table>
+            </Reveal>
           </div>
           <Reveal className="map">
             <iframe title="Map of Khorfakkan Port" loading="lazy" referrerPolicy="no-referrer-when-downgrade"

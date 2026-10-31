@@ -1,12 +1,12 @@
 import { Link } from 'react-router-dom'
-import { PHOTOS } from '../content.js'
-import PageBanner from '../components/PageBanner.jsx'
+import { BoatScene } from '../components/Iso.jsx'
+import PageHead from '../components/PageHead.jsx'
 
 export default function NotFound() {
   return (
     <>
-      <PageBanner image={PHOTOS.stormSunset} tag="[ 404 ]" title="This page has sailed." lead="The page you asked for isn't here." />
-      <section className="section"><div className="wrap"><Link className="pill pill--dark" to="/">Back to home</Link></div></section>
+      <PageHead art={<BoatScene />} label="404" title="this page has sailed." lead="The page you asked for isn't here." />
+      <section className="section"><div className="wrap"><Link className="btn btn--indigo" to="/">Back to home</Link></div></section>
     </>
   )
 }
