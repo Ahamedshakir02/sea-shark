@@ -127,7 +127,7 @@ p:last-child { margin-bottom: 0; }
   padding-bottom: clamp(60px, 7vw, 110px);
 }
 .hero__img {
-  position: absolute; inset: -4% -4% -10%; width: 108%; height: 114%; object-fit: cover; object-position: center 60%;
+  position: absolute; top: -4%; left: -4%; width: 108%; height: 114%; max-width: none; object-fit: cover; object-position: center 60%;
   transform: translateY(var(--py, 0px)); animation: drift 24s ease-in-out infinite alternate;
 }
 @keyframes drift { from { scale: 1; } to { scale: 1.08; } }
