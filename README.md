@@ -13,8 +13,10 @@ npm run build    # static site in dist/, upload that folder to any host
 
 ## Where things live
 
-- `src/content.js`: phone, WhatsApp number, email, services, offices, hours. Edit details here.
-- `src/components/`: page sections (Nav, Sections, Icons, WaLink).
+- `src/content.js`: phone, WhatsApp number, email, services, offices, hours and page copy. Edit details here.
+- `src/pages/`: Home, Services, one page per service, Our barge, About, Contact, 404.
+- `src/components/`: shared parts (menu, footer, page banner, WhatsApp link, scroll reveal).
 - `src/styles.css`: all styling.
-- `src/assets/`: photos (hero and the barge Malik).
-- `legacy-html/`: the earlier plain HTML version of the same design, kept for reference.
+- `src/assets/`: the barge photo (Malik). Other photos are free Unsplash images set in `content.js`.
+- `vercel.json`: sends every page URL to the app so links like /about work on Vercel.
+- `legacy-html/`: the earlier one-page HTML version, kept for reference.
