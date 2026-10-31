@@ -1,9 +1,10 @@
 const stroke = { fill: 'none', stroke: 'currentColor', strokeWidth: 1.6 }
 
+// Sea Shark mark: a water drop with a wave inside it (placeholder until the client sends a logo file).
 export const LogoMark = () => (
   <svg viewBox="0 0 40 40" aria-hidden="true">
-    <path d="M4 27c5 0 7-3 10-3s5 3 10 3 7-3 12-3" fill="none" stroke="currentColor" strokeWidth="2.6" strokeLinecap="round" />
-    <path d="M14 22 22 6l4 16z" fill="currentColor" />
+    <path d="M20 3.5C20 3.5 8.5 16 8.5 24.5a11.5 11.5 0 0 0 23 0C31.5 16 20 3.5 20 3.5z" fill="none" stroke="#306bff" strokeWidth="3.2" strokeLinejoin="round" />
+    <path d="M13.5 25.5c2.2-2.6 4.4-2.6 6.5 0s4.3 2.6 6.5 0" fill="none" stroke="#172b61" strokeWidth="3" strokeLinecap="round" />
   </svg>
 )
 

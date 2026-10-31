@@ -1,23 +1,28 @@
 import { Link } from 'react-router-dom'
 import { imgFor } from './img.js'
-import Wave from './Wave.jsx'
+import { Side } from './Contours.jsx'
 
-// Top of every inner page: a rounded photo card with the title over a deep blue wash.
+// Top of every inner page: white, a big lowercase title, and the photo in a soft blob on the right.
 export default function PageHead({ label, title, lead, crumbs = [], image }) {
   return (
-    <section className="phead">
-      <div className="phead__card">
-        <img className="phead__img" src={imgFor(image, 2000)} alt="" />
-        <div className="phead__in">
-          <nav className="crumbs" aria-label="Breadcrumb">
+    <section className="phead has-side">
+      <Side side="left" />
+      <Side side="right" className="side--hero" />
+      <div className="wrap phead__grid">
+        <div>
+          <nav className="crumbs rise" aria-label="Breadcrumb">
             <Link to="/">Home</Link>
             {crumbs.map((c) => <span key={c.label}>{c.to ? <Link to={c.to}>{c.label}</Link> : c.label}</span>)}
           </nav>
-          {label && <p className="eyebrow eyebrow--light rise"><i />{label}</p>}
-          <h1 className="rise" style={{ '--d': '80ms' }}>{title}</h1>
-          {lead && <p className="phead__lead rise" style={{ '--d': '180ms' }}>{lead}</p>}
+          {label && <p className="eyebrow rise" style={{ '--d': '60ms' }}><i className="ring" />{label}</p>}
+          <h1 className="rise" style={{ '--d': '120ms' }}>{title}</h1>
+          {lead && <p className="phead__lead rise" style={{ '--d': '220ms' }}>{lead}</p>}
         </div>
-        <Wave fill="#fff" className="phead__wave" />
+        <div className="phead__art rise" style={{ '--d': '200ms' }}>
+          <span className="bfill bfill--pale" />
+          <div className="pblob pblob--b"><img src={imgFor(image, 1100)} alt="" /></div>
+          <span className="bfill bfill--light" />
+        </div>
       </div>
     </section>
   )
