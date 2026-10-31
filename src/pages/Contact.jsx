@@ -1,9 +1,9 @@
 import { SERVICES, PHOTOS, PHONE_DISPLAY, PHONE_LINK, EMAIL, HOURS_ROWS, OFFICES } from '../content.js'
 import { ServiceIcon, WhatsAppIcon } from '../components/Icons.jsx'
 import PageHead from '../components/PageHead.jsx'
+import { Side } from '../components/Contours.jsx'
 import Reveal from '../components/Reveal.jsx'
 import Head from '../components/Head.jsx'
-import Wave from '../components/Wave.jsx'
 import WaLink from '../components/WaLink.jsx'
 
 export default function Contact() {
@@ -13,7 +13,8 @@ export default function Contact() {
         lead="WhatsApp is the fastest way to reach us. Pick what you need and your message is ready to send."
         crumbs={[{ label: 'Contact' }]} />
 
-      <section className="section">
+      <section className="section has-side">
+        <Side side="right" />
         <div className="wrap">
           <Head label="Quick message" title="What do you need?" />
           <div className="quick">
@@ -37,20 +38,20 @@ export default function Contact() {
         </div>
       </section>
 
-      <section className="section section--ice">
-        <Wave fill="#eef2fb" flip />
+      <section className="section section--mist has-side">
+        <Side side="left" />
         <div className="wrap">
           <Head label="Details" title="Call, email or visit." />
           <div className="contact">
-            <Reveal className="box"><p>Phone and WhatsApp</p><a href={PHONE_LINK}>{PHONE_DISPLAY}</a></Reveal>
-            <Reveal className="box" delay={70}><p>Operations email</p><a href={`mailto:${EMAIL}`}>{EMAIL}</a></Reveal>
+            <Reveal className="box"><p><i className="ring" />Phone and WhatsApp</p><a href={PHONE_LINK}>{PHONE_DISPLAY}</a></Reveal>
+            <Reveal className="box" delay={70}><p><i className="ring ring--navy" />Operations email</p><a href={`mailto:${EMAIL}`}>{EMAIL}</a></Reveal>
             {OFFICES.map((o, i) => (
               <Reveal className="box" key={o.name} delay={140 + i * 70}>
-                <p>{o.name}</p><a href={o.map} target="_blank" rel="noopener">{o.place}</a>
+                <p><i className="ring ring--light" />{o.name}</p><a href={o.map} target="_blank" rel="noopener">{o.place}</a>
               </Reveal>
             ))}
             <Reveal className="box box--hours" delay={280}>
-              <p>Office hours</p>
+              <p><i className="ring" />Office hours</p>
               <table><tbody>{HOURS_ROWS.map(([d, t]) => <tr key={d}><td>{d}</td><td>{t}</td></tr>)}</tbody></table>
             </Reveal>
           </div>

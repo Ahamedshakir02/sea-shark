@@ -2,13 +2,13 @@ import { useParams } from 'react-router-dom'
 import { SERVICES } from '../content.js'
 import { ServiceIcon } from '../components/Icons.jsx'
 import PageHead from '../components/PageHead.jsx'
+import Contours, { Side } from '../components/Contours.jsx'
 import Reveal from '../components/Reveal.jsx'
 import Head from '../components/Head.jsx'
 import WaLink from '../components/WaLink.jsx'
 import ServiceCard from '../components/ServiceCard.jsx'
 import Tbc from '../components/Tbc.jsx'
 import CtaBand from '../components/CtaBand.jsx'
-import Wave from '../components/Wave.jsx'
 import NotFound from './NotFound.jsx'
 
 export default function ServiceDetail() {
@@ -22,7 +22,8 @@ export default function ServiceDetail() {
       <PageHead image={s.banner} label={s.kicker} title={s.title} lead={s.short}
         crumbs={[{ label: 'Services', to: '/services' }, { label: s.title }]} />
 
-      <section className="section">
+      <section className="section has-side">
+        <Side side="right" />
         <div className="wrap detail">
           <div>
             <Head label="The service" title="What it is." />
@@ -30,7 +31,8 @@ export default function ServiceDetail() {
           </div>
           <aside className="detail__side">
             <Reveal className="sendbox" delay={140}>
-              <p className="eyebrow eyebrow--light"><i />To book</p>
+              <Contours variant="card" />
+              <p className="eyebrow eyebrow--light"><i className="ring" />To book</p>
               <h3>What to send us</h3>
               <ol>{s.send.map((x) => <li key={x}>{x}</li>)}</ol>
               <WaLink className="btn btn--white" message={s.wa}><ServiceIcon id="chat" />{s.cta}</WaLink>
@@ -39,14 +41,14 @@ export default function ServiceDetail() {
         </div>
       </section>
 
-      <section className="section section--ice">
-        <Wave fill="#eef2fb" flip />
+      <section className="section section--mist has-side">
+        <Side side="left" />
         <div className="wrap">
           <Head label="What's included" title="What we take care of." />
           <div className="incl" style={{ '--cols': s.includes.length % 4 === 0 ? 4 : 3 }}>
             {s.includes.map((x, i) => (
               <Reveal className="incl__item" key={x.title} delay={(i % 4) * 80}>
-                <span className="bubble bubble--sm"><ServiceIcon id="check" /></span>
+                <span className="iblob iblob--sm"><ServiceIcon id="check" /></span>
                 <h3>{x.title} <Tbc on={x.tbc} /></h3>
                 <p>{x.text}</p>
               </Reveal>
@@ -55,8 +57,8 @@ export default function ServiceDetail() {
         </div>
       </section>
 
-      <section className="section">
-        <Wave fill="#fff" flip />
+      <section className="section has-side">
+        <Side side="right" />
         <div className="wrap">
           <Head label="How it works" title="Step by step." center />
           <ol className="steps" style={{ '--n': s.process.length }}>
@@ -72,8 +74,8 @@ export default function ServiceDetail() {
         </div>
       </section>
 
-      <section className="section section--ice">
-        <Wave fill="#eef2fb" flip />
+      <section className="section section--mist has-side">
+        <Side side="left" />
         <div className="wrap">
           <Head label="More services" title="We can also help with" />
           <div className="scards scards--two">
