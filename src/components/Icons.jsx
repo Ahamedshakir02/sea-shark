@@ -11,6 +11,9 @@ export const ServiceIcon = ({ id }) => (
   <svg viewBox="0 0 24 24" aria-hidden="true">
     {id === 'water' && <path d="M12 3s6 6.5 6 11a6 6 0 0 1-12 0c0-4.5 6-11 6-11z" {...stroke} />}
     {id === 'crew' && <path d="M3 15h18l-2.5 4h-13zM6 15V9h9l3 6M9 9V6h4v3" {...stroke} strokeLinejoin="round" />}
+    {id === 'check' && <path d="M5 12.5l4.2 4L19 7" {...stroke} strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />}
+    {id === 'arrow' && <path d="M5 12h14M13 6l6 6-6 6" {...stroke} strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />}
+    {id === 'pin' && <><path d="M12 21s7-6.2 7-11.5A7 7 0 0 0 5 9.5C5 14.8 12 21 12 21z" {...stroke} /><circle cx="12" cy="9.5" r="2.4" {...stroke} /></>}
     {id === 'agency' && (
       <>
         <path d="M12 3v15M7 7h10M5 14a7 7 0 0 0 14 0M12 18v3" {...stroke} strokeLinecap="round" />

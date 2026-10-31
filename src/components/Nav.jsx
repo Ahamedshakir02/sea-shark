@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react'
+import { Link, NavLink, useLocation } from 'react-router-dom'
 import { NAV, PHONE_DISPLAY, PHONE_LINK, EMAIL, PORTS_LINE } from '../content.js'
 import { LogoMark } from './Icons.jsx'
 import WaLink from './WaLink.jsx'
@@ -6,8 +7,9 @@ import WaLink from './WaLink.jsx'
 export default function Nav() {
   const [solid, setSolid] = useState(false)
   const [open, setOpen] = useState(false)
+  const { pathname } = useLocation()
 
-  // Nav turns solid once you scroll past the top of the hero
+  // Nav turns solid once you scroll past the top of the page photo
   useEffect(() => {
     const onScroll = () => setSolid(window.scrollY > 40)
     onScroll()
@@ -15,7 +17,7 @@ export default function Nav() {
     return () => window.removeEventListener('scroll', onScroll)
   }, [])
 
-  const close = () => setOpen(false)
+  useEffect(() => setOpen(false), [pathname])
 
   return (
     <header className={`nav${solid ? ' is-solid' : ''}`}>
@@ -29,17 +31,17 @@ export default function Nav() {
         </div>
       </div>
       <div className="wrap nav__in">
-        <a className="logo" href="#top" aria-label="Sea Shark Shipping, home">
+        <Link className="logo" to="/" aria-label="Sea Shark Shipping, home">
           <LogoMark />
           <span>Sea Shark<small>Shipping Services LLC</small></span>
-        </a>
+        </Link>
         <button className="nav__toggle" aria-expanded={open} aria-controls="menu" onClick={() => setOpen(!open)}>
           {open ? 'Close' : 'Menu'}
         </button>
         <nav aria-label="Main">
           <ul id="menu" className={`nav__menu${open ? ' is-open' : ''}`}>
             {NAV.map((item) => (
-              <li key={item.href}><a href={item.href} onClick={close}>{item.label}</a></li>
+              <li key={item.to}><NavLink to={item.to} end={item.end}>{item.label}</NavLink></li>
             ))}
             <li>
               <WaLink className="pill pill--light pill--sm" message="Hello Sea Shark, I have an enquiry.">
