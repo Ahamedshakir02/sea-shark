@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react'
 import { Link, NavLink, useLocation } from 'react-router-dom'
-import { NAV, PHONE_DISPLAY, PHONE_LINK, EMAIL, PORTS_LINE } from '../content.js'
-import { LogoMark } from './Icons.jsx'
+import { NAV } from '../content.js'
+import { LogoMark, WhatsAppIcon } from './Icons.jsx'
 import WaLink from './WaLink.jsx'
 
 export default function Nav() {
@@ -21,15 +21,6 @@ export default function Nav() {
 
   return (
     <header className={`nav${solid ? ' is-solid' : ''}`}>
-      <div className="topbar">
-        <div className="wrap topbar__in">
-          <span>{PORTS_LINE}</span>
-          <span>
-            <a href={PHONE_LINK}>{PHONE_DISPLAY}</a>
-            <a href={`mailto:${EMAIL}`}>{EMAIL}</a>
-          </span>
-        </div>
-      </div>
       <div className="wrap nav__in">
         <Link className="logo" to="/" aria-label="Sea Shark Shipping, home">
           <LogoMark />
@@ -44,8 +35,9 @@ export default function Nav() {
               <li key={item.to}><NavLink to={item.to} end={item.end}>{item.label}</NavLink></li>
             ))}
             <li>
-              <WaLink className="pill pill--light pill--sm" message="Hello Sea Shark, I have an enquiry.">
-                <span className="dot" />WhatsApp
+              <WaLink className="wa-btn" message="Hello Sea Shark, I have an enquiry.">
+                <span className="wa-btn__icon"><WhatsAppIcon /></span>
+                <span className="wa-btn__text"><small>Chat with us</small>WhatsApp</span>
               </WaLink>
             </li>
           </ul>

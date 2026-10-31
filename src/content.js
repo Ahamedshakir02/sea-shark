@@ -5,7 +5,6 @@ export const WHATSAPP_NUMBER = '971566735968'
 export const PHONE_DISPLAY = '+971 56 673 5968'
 export const PHONE_LINK = 'tel:+971566735968'
 export const EMAIL = 'ops@seasharkuae.com'
-export const PORTS_LINE = 'Serving ships at Khorfakkan and Fujairah · Offices in Sharjah and Dubai'
 export const HOURS = 'Mon to Fri 9am to 5pm · Sat 9am to 1pm · Sun closed'
 
 export const waLink = (text) =>
