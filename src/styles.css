@@ -126,7 +126,7 @@ h3{font-weight:600;line-height:1.25}
 /* Feature split (barge) */
 .feature{padding:20px 0 96px}
 .feature__in{display:grid;grid-template-columns:1.2fr 1fr;gap:64px;align-items:center}
-.feature__img{position:relative;border-radius:28px;overflow:hidden;box-shadow:0 40px 80px -40px rgba(10,37,64,.55)}
+.feature__img{position:relative;border-radius:28px;overflow:hidden;box-shadow:0 30px 50px -34px rgba(10,37,64,.5)}
 .feature__img img{width:100%;aspect-ratio:4/3;object-fit:cover}
 .feature__badge{position:absolute;left:20px;bottom:20px;background:#fff;color:var(--navy);font-weight:600;font-size:.9rem;padding:10px 16px;border-radius:999px}
 .feature__text h2{margin-bottom:18px}
@@ -274,7 +274,7 @@ h3{font-weight:600;line-height:1.25}
   .nav__menu.is-open{display:flex}.nav__menu li{width:100%}.nav__menu a{display:block;padding:13px 0}
   .nav__menu a:not(.pill)::after{display:none}
   .nav__menu a.active{color:var(--teal)}
-  .nav__menu .wa-btn{margin-top:10px}
+  .nav__menu a.wa-btn{display:inline-flex;margin-top:10px;padding:6px 20px 6px 6px}
   .pill{width:100%;justify-content:center}
   .feature__cta .pill{width:auto}
   .intro{padding:70px 0 50px}
@@ -327,3 +327,7 @@ h3{font-weight:600;line-height:1.25}
 .wa-btn__text{display:flex;flex-direction:column;line-height:1.1;font-weight:700;font-size:.95rem}
 .wa-btn__text small{font-size:.66rem;font-weight:500;opacity:.85;letter-spacing:.04em;text-transform:uppercase}
 @media (prefers-reduced-motion:reduce){.wa-btn::after,.wa-btn__icon::before{animation:none}}
+
+/* Bigger tap targets for contact details */
+.box a{display:inline-block;padding:6px 0;min-height:24px}
+.foot ul a{display:inline-block;padding:3px 0}
