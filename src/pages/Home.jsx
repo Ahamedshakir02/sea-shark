@@ -2,11 +2,13 @@ import { Link } from 'react-router-dom'
 import { PHONE_DISPLAY, PHONE_LINK, SERVICES, STATS, STEPS, PLACES, PHOTOS, photo } from '../content.js'
 import { ServiceIcon } from '../components/Icons.jsx'
 import Reveal from '../components/Reveal.jsx'
+import CountUp from '../components/CountUp.jsx'
 import WaLink from '../components/WaLink.jsx'
 import CtaBand from '../components/CtaBand.jsx'
 import malik from '../assets/boat-malik.jpg'
 
 const img = (s, w) => (s === 'malik' ? malik : photo(s, w))
+const HEADLINE = 'Fresh water, crew boats and ship agency on the UAE east coast.'
 const TICKER = ['Fresh water supply', 'Khorfakkan', 'Crew boats', 'Fujairah', 'Ship agency', 'Sharjah', 'Husbandry', 'Dubai']
 
 export default function Home() {
@@ -16,11 +18,15 @@ export default function Home() {
         <div className="hero__shade" />
         <div className="wrap hero__in">
           <p className="tag hero__a">[ Khorfakkan · Fujairah · UAE ]</p>
-          <h1 className="hero__a" style={{ '--d': '120ms' }}>Fresh water, crew boats and ship agency on the UAE east coast.</h1>
-          <p className="hero__lead hero__a" style={{ '--d': '240ms' }}>
+          <h1 className="words" aria-label={HEADLINE}>
+            {HEADLINE.split(' ').map((w, i) => (
+              <span key={i} aria-hidden="true"><span style={{ '--d': `${120 + i * 55}ms` }}>{w}</span></span>
+            ))}
+          </h1>
+          <p className="hero__lead hero__a" style={{ '--d': '800ms' }}>
             We run our own water barge, Malik, and act as your agent at Khorfakkan and Fujairah. Send us your vessel name and what you need on WhatsApp, and we take it from there.
           </p>
-          <div className="hero__cta hero__a" style={{ '--d': '360ms' }}>
+          <div className="hero__cta hero__a" style={{ '--d': '950ms' }}>
             <WaLink className="pill pill--light" message="Hello Sea Shark, I need help with a vessel. Vessel name: ... Port: ...">
               <span className="dot" />Chat on WhatsApp
             </WaLink>
@@ -40,7 +46,7 @@ export default function Home() {
             Our own barge, three services we know inside out, and <span>a quick reply</span> when a ship needs us.
           </Reveal>
           <Reveal className="stats" delay={120}>
-            {STATS.map((s) => <div key={s.label}><dd>{s.value}</dd><dt>{s.label}</dt></div>)}
+            {STATS.map((s) => <div key={s.label}><dd><CountUp value={s.value} /></dd><dt>{s.label}</dt></div>)}
           </Reveal>
         </div>
       </section>

@@ -1,6 +1,7 @@
 import { useEffect } from 'react'
 import { Routes, Route, useLocation } from 'react-router-dom'
 import Nav from './components/Nav.jsx'
+import Motion from './components/Motion.jsx'
 import Footer from './components/Footer.jsx'
 import { WhatsAppIcon } from './components/Icons.jsx'
 import WaLink from './components/WaLink.jsx'
@@ -23,23 +24,24 @@ const TITLES = {
   '/contact': 'Contact | Sea Shark Shipping',
 }
 
-// New page: start at the top and set the browser tab title
+// New page: set the browser tab title
 function PageChange() {
   const { pathname } = useLocation()
   useEffect(() => {
-    window.scrollTo(0, 0)
     document.title = TITLES[pathname] || 'Sea Shark Shipping'
   }, [pathname])
   return null
 }
 
 export default function App() {
+  const { pathname } = useLocation()
   return (
     <>
+      <Motion />
       <PageChange />
       <a className="skip" href="#main">Skip to content</a>
       <Nav />
-      <main id="main">
+      <main id="main" key={pathname} className="page">
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/services" element={<Services />} />
