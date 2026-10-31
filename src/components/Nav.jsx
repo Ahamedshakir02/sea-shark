@@ -19,6 +19,16 @@ export default function Nav() {
 
   useEffect(() => setOpen(false), [pathname])
 
+  // Close the phone menu with Escape or a tap outside it
+  useEffect(() => {
+    if (!open) return
+    const onKey = (e) => e.key === 'Escape' && setOpen(false)
+    const onTap = (e) => { if (!e.target.closest('.nav')) setOpen(false) }
+    document.addEventListener('keydown', onKey)
+    document.addEventListener('pointerdown', onTap)
+    return () => { document.removeEventListener('keydown', onKey); document.removeEventListener('pointerdown', onTap) }
+  }, [open])
+
   return (
     <header className={`nav${solid ? ' is-solid' : ''}`}>
       <div className="wrap nav__in">
