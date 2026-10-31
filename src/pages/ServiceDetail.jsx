@@ -8,6 +8,7 @@ import WaLink from '../components/WaLink.jsx'
 import ServiceCard from '../components/ServiceCard.jsx'
 import Tbc from '../components/Tbc.jsx'
 import CtaBand from '../components/CtaBand.jsx'
+import Wave from '../components/Wave.jsx'
 import NotFound from './NotFound.jsx'
 
 export default function ServiceDetail() {
@@ -18,18 +19,18 @@ export default function ServiceDetail() {
 
   return (
     <>
-      <PageHead image={s.banner} label={s.kicker} title={s.title.toLowerCase() + '.'} lead={s.short}
+      <PageHead image={s.banner} label={s.kicker} title={s.title} lead={s.short}
         crumbs={[{ label: 'Services', to: '/services' }, { label: s.title }]} />
 
-      <section className="section grid-bg">
+      <section className="section">
         <div className="wrap detail">
           <div>
-            <Head n="01" label="The service" title="What it is." />
+            <Head label="The service" title="What it is." />
             <Reveal as="p" className="lead-big" delay={80}>{s.intro}</Reveal>
           </div>
           <aside className="detail__side">
             <Reveal className="sendbox" delay={140}>
-              <p className="idx idx--light"><span>&#8212;</span>To book</p>
+              <p className="eyebrow eyebrow--light"><i />To book</p>
               <h3>What to send us</h3>
               <ol>{s.send.map((x) => <li key={x}>{x}</li>)}</ol>
               <WaLink className="btn btn--white" message={s.wa}><ServiceIcon id="chat" />{s.cta}</WaLink>
@@ -39,12 +40,13 @@ export default function ServiceDetail() {
       </section>
 
       <section className="section section--ice">
+        <Wave fill="#eef2fb" flip />
         <div className="wrap">
-          <Head n="02" label="What's included" title="What we take care of." />
+          <Head label="What's included" title="What we take care of." />
           <div className="incl" style={{ '--cols': s.includes.length % 4 === 0 ? 4 : 3 }}>
             {s.includes.map((x, i) => (
               <Reveal className="incl__item" key={x.title} delay={(i % 4) * 80}>
-                <span className="incl__n">{String(i + 1).padStart(2, '0')}</span>
+                <span className="bubble bubble--sm"><ServiceIcon id="check" /></span>
                 <h3>{x.title} <Tbc on={x.tbc} /></h3>
                 <p>{x.text}</p>
               </Reveal>
@@ -53,13 +55,17 @@ export default function ServiceDetail() {
         </div>
       </section>
 
-      <section className="section grid-bg">
+      <section className="section">
+        <Wave fill="#fff" flip />
         <div className="wrap">
-          <Head n="03" label="How it works" title="Step by step." />
-          <ol className="route route--many" style={{ '--n': s.process.length }}>
+          <Head label="How it works" title="Step by step." center />
+          <ol className="steps" style={{ '--n': s.process.length }}>
+            <svg className="steps__line" viewBox="0 0 1000 60" preserveAspectRatio="none" aria-hidden="true">
+              <path d="M0,30 C120,0 210,60 333,30 C456,0 544,60 666,30 C790,0 880,60 1000,30" />
+            </svg>
             {s.process.map((p, i) => (
               <Reveal as="li" key={p.title} delay={i * 100}>
-                <span className="route__dot">{`0${i + 1}`}</span><h3>{p.title}</h3><p>{p.text}</p>
+                <span className="steps__dot">{i + 1}</span><h3>{p.title}</h3><p>{p.text}</p>
               </Reveal>
             ))}
           </ol>
@@ -67,11 +73,12 @@ export default function ServiceDetail() {
       </section>
 
       <section className="section section--ice">
+        <Wave fill="#eef2fb" flip />
         <div className="wrap">
-          <Head n="04" label="More services" title="We can also help with" />
+          <Head label="More services" title="We can also help with" />
           <div className="scards scards--two">
             {SERVICES.map((o, i) => o.slug !== slug && (
-              <Reveal key={o.slug} delay={i * 100}><ServiceCard s={o} n={`0${i + 1}`} /></Reveal>
+              <Reveal key={o.slug} delay={i * 100}><ServiceCard s={o} /></Reveal>
             ))}
           </div>
         </div>

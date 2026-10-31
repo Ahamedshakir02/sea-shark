@@ -3,18 +3,19 @@ import { ServiceIcon, WhatsAppIcon } from '../components/Icons.jsx'
 import PageHead from '../components/PageHead.jsx'
 import Reveal from '../components/Reveal.jsx'
 import Head from '../components/Head.jsx'
+import Wave from '../components/Wave.jsx'
 import WaLink from '../components/WaLink.jsx'
 
 export default function Contact() {
   return (
     <>
-      <PageHead image={PHOTOS.tugFront} label="Contact" title="talk to us."
+      <PageHead image={PHOTOS.tugFront} label="Contact" title="Talk to us."
         lead="WhatsApp is the fastest way to reach us. Pick what you need and your message is ready to send."
         crumbs={[{ label: 'Contact' }]} />
 
-      <section className="section grid-bg">
+      <section className="section">
         <div className="wrap">
-          <Head n="01" label="Quick message" title="What do you need?" />
+          <Head label="Quick message" title="What do you need?" />
           <div className="quick">
             {SERVICES.map((s, i) => (
               <Reveal key={s.slug} delay={i * 90}>
@@ -37,8 +38,9 @@ export default function Contact() {
       </section>
 
       <section className="section section--ice">
+        <Wave fill="#eef2fb" flip />
         <div className="wrap">
-          <Head n="02" label="Details" title="Call, email or visit." />
+          <Head label="Details" title="Call, email or visit." />
           <div className="contact">
             <Reveal className="box"><p>Phone and WhatsApp</p><a href={PHONE_LINK}>{PHONE_DISPLAY}</a></Reveal>
             <Reveal className="box" delay={70}><p>Operations email</p><a href={`mailto:${EMAIL}`}>{EMAIL}</a></Reveal>
