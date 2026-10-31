@@ -11,7 +11,7 @@ export default function Nav() {
 
   // Nav turns solid once you scroll past the top of the page photo
   useEffect(() => {
-    const onScroll = () => setSolid(window.scrollY > 40)
+    const onScroll = () => setSolid(window.scrollY > 24)
     onScroll()
     window.addEventListener('scroll', onScroll, { passive: true })
     return () => window.removeEventListener('scroll', onScroll)
@@ -45,9 +45,8 @@ export default function Nav() {
               <li key={item.to}><NavLink to={item.to} end={item.end}>{item.label}</NavLink></li>
             ))}
             <li>
-              <WaLink className="wa-btn" message="Hello Sea Shark, I have an enquiry.">
-                <span className="wa-btn__icon"><WhatsAppIcon /></span>
-                <span className="wa-btn__text"><small>Chat with us</small>WhatsApp</span>
+              <WaLink className="btn btn--blue nav__wa" message="Hello Sea Shark, I have an enquiry.">
+                <WhatsAppIcon />WhatsApp us
               </WaLink>
             </li>
           </ul>

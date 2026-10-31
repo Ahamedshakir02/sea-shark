@@ -6,7 +6,7 @@ const calm = () => window.matchMedia('(prefers-reduced-motion: reduce)').matches
 
 // Smooth, eased scrolling plus a slow parallax on the page photos.
 export default function Motion() {
-  const { pathname } = useLocation()
+  const { pathname, hash } = useLocation()
 
   useEffect(() => {
     if (calm()) return
@@ -24,11 +24,13 @@ export default function Motion() {
     return () => { cancelAnimationFrame(id); lenis.destroy(); window.__lenis = null }
   }, [])
 
-  // New page: jump to the top instantly
+  // New page: jump to the top, or to the section named in the link (#faq)
   useEffect(() => {
-    if (window.__lenis) window.__lenis.scrollTo(0, { immediate: true })
-    else window.scrollTo(0, 0)
-  }, [pathname])
+    const target = hash && document.querySelector(hash)
+    const top = target ? target.getBoundingClientRect().top + window.scrollY - 76 : 0
+    if (window.__lenis) window.__lenis.scrollTo(top, { immediate: true })
+    else window.scrollTo(0, top)
+  }, [pathname, hash])
 
   return null
 }

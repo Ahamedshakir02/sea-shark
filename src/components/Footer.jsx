@@ -1,14 +1,15 @@
 import { Link } from 'react-router-dom'
-import { NAV, SERVICES, PHONE_DISPLAY, PHONE_LINK, EMAIL, HOURS } from '../content.js'
+import { NAV, SERVICES, PHONE_DISPLAY, PHONE_LINK, EMAIL, HOURS_ROWS, OFFICES } from '../content.js'
 import { LogoMark } from './Icons.jsx'
 
 export default function Footer() {
   return (
     <footer className="foot">
       <div className="wrap foot__grid">
-        <div>
-          <Link className="logo logo--foot" to="/"><LogoMark /><span>Sea Shark<small>Shipping Services LLC</small></span></Link>
-          <p className="foot__about">Fresh water supply, crew boats and ship agency at Khorfakkan and Fujairah, UAE.</p>
+        <div className="foot__brand">
+          <Link className="logo logo--light" to="/"><LogoMark /><span>Sea Shark<small>Shipping Services LLC</small></span></Link>
+          <p>Fresh water from our own barge, crew boats and ship agency at Khorfakkan and Fujairah, UAE.</p>
+          <p className="coords">Khorfakkan 25.35° N · Fujairah 25.17° N</p>
         </div>
         <div>
           <h4>Pages</h4>
@@ -23,8 +24,12 @@ export default function Footer() {
           <ul>
             <li><a href={PHONE_LINK}>{PHONE_DISPLAY}</a></li>
             <li><a href={`mailto:${EMAIL}`}>{EMAIL}</a></li>
-            <li>{HOURS}</li>
+            {OFFICES.map((o) => <li key={o.name}>{o.place}</li>)}
           </ul>
+        </div>
+        <div>
+          <h4>Hours</h4>
+          <ul>{HOURS_ROWS.map(([d, t]) => <li key={d}>{d}<br /><span className="dim">{t}</span></li>)}</ul>
         </div>
       </div>
       <div className="wrap foot__in">
