@@ -42,7 +42,7 @@ export default function Home() {
             <span className="bfill bfill--pale" />
             <div className="pblob"><img src={photo(PHOTOS.tankerSunset, 1400)} alt="A tanker at sea at sunset" /></div>
             <span className="bfill bfill--light" />
-            <span className="chip chip--a"><i className="ring" />Malik, our own water barge</span>
+            <span className="chip chip--a"><i className="ring" />Two ports, one team</span>
             <span className="chip chip--b"><i className="ring ring--navy" />Since 2023</span>
           </div>
         </div>
