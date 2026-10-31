@@ -1,15 +1,15 @@
 import { Link } from 'react-router-dom'
-import { SCENES } from './Iso.jsx'
+import { imgFor } from './img.js'
 import { ServiceIcon } from './Icons.jsx'
 
-// Card with a small drawing on top, used on Home and at the bottom of each service page.
-export default function ServiceCard({ s, n }) {
-  const Art = SCENES[s.scene]
+// Rounded card with a photo, a floating icon bubble and a short description.
+export default function ServiceCard({ s }) {
   return (
     <Link className="scard" to={`/services/${s.slug}`}>
-      <div className="scard__art"><Art /></div>
+      <div className="scard__img"><img src={imgFor(s.photo, 900)} alt="" loading="lazy" /></div>
+      <span className="scard__icon"><ServiceIcon id={s.icon} /></span>
       <div className="scard__body">
-        <p className="scard__kick"><span>{n}</span>{s.kicker}</p>
+        <p className="scard__kick">{s.kicker}</p>
         <h3>{s.title}</h3>
         <p>{s.short}</p>
         <span className="scard__go">See the service <ServiceIcon id="arrow" /></span>

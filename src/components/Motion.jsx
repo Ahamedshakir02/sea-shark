@@ -8,6 +8,14 @@ const calm = () => window.matchMedia('(prefers-reduced-motion: reduce)').matches
 export default function Motion() {
   const { pathname, hash } = useLocation()
 
+  // Show the floating WhatsApp button once the visitor scrolls past the first screen
+  useEffect(() => {
+    const onScroll = () => document.documentElement.classList.toggle('scrolled', window.scrollY > 420)
+    onScroll()
+    window.addEventListener('scroll', onScroll, { passive: true })
+    return () => window.removeEventListener('scroll', onScroll)
+  }, [])
+
   useEffect(() => {
     if (calm()) return
     document.documentElement.style.scrollBehavior = 'auto'

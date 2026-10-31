@@ -1,27 +1,23 @@
 import { Link } from 'react-router-dom'
-import { photo } from '../content.js'
-import Contours from './Contours.jsx'
+import { imgFor } from './img.js'
+import Wave from './Wave.jsx'
 
-// Top of every inner page: dark chart panel with the title, and a photo or drawing beside it.
-export default function PageHead({ label, title, lead, crumbs = [], image, art, coords = '25.35° N · 56.36° E' }) {
-  const src = image && (image.startsWith('photo-') ? photo(image, 1600) : image)
+// Top of every inner page: a rounded photo card with the title over a deep blue wash.
+export default function PageHead({ label, title, lead, crumbs = [], image }) {
   return (
     <section className="phead">
-      <div className="phead__panel">
-        <Contours variant="b" />
+      <div className="phead__card">
+        <img className="phead__img" src={imgFor(image, 2000)} alt="" />
         <div className="phead__in">
           <nav className="crumbs" aria-label="Breadcrumb">
             <Link to="/">Home</Link>
             {crumbs.map((c) => <span key={c.label}>{c.to ? <Link to={c.to}>{c.label}</Link> : c.label}</span>)}
           </nav>
-          <p className="idx idx--light"><span>&#8212;</span>{label}</p>
-          <h1 className="rise">{title}</h1>
-          {lead && <p className="phead__lead rise" style={{ '--d': '160ms' }}>{lead}</p>}
-          <p className="coords">{coords}</p>
+          {label && <p className="eyebrow eyebrow--light rise"><i />{label}</p>}
+          <h1 className="rise" style={{ '--d': '80ms' }}>{title}</h1>
+          {lead && <p className="phead__lead rise" style={{ '--d': '180ms' }}>{lead}</p>}
         </div>
-      </div>
-      <div className={`phead__side${art ? ' phead__side--art' : ''}`}>
-        {art || <img className="phead__img" src={src} alt="" />}
+        <Wave fill="#fff" className="phead__wave" />
       </div>
     </section>
   )

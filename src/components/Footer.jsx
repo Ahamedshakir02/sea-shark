@@ -1,10 +1,12 @@
 import { Link } from 'react-router-dom'
 import { NAV, SERVICES, PHONE_DISPLAY, PHONE_LINK, EMAIL, HOURS_ROWS, OFFICES } from '../content.js'
 import { LogoMark } from './Icons.jsx'
+import Wave from './Wave.jsx'
 
 export default function Footer() {
   return (
     <footer className="foot">
+      <Wave fill="#12152e" flip className="foot__wave" />
       <div className="wrap foot__grid">
         <div className="foot__brand">
           <Link className="logo logo--light" to="/"><LogoMark /><span>Sea Shark<small>Shipping Services LLC</small></span></Link>

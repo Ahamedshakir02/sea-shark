@@ -76,7 +76,7 @@ export const SERVICES = [
   {
     slug: 'fresh-water',
     icon: 'water',
-    scene: 'barge',
+    photo: 'malik',
     title: 'Fresh water supply',
     kicker: 'Our own barge',
     short: 'Drinking water delivered by Malik, the barge we own and run, to ships at Khorfakkan and Fujairah.',
@@ -105,7 +105,7 @@ export const SERVICES = [
   {
     slug: 'ship-agency',
     icon: 'agency',
-    scene: 'agency',
+    photo: PHOTOS.portAerial,
     title: 'Ship agency',
     kicker: 'One team for the port call',
     short: 'Your port call handled on the UAE east coast: arrival, paperwork, husbandry and sailing.',
@@ -135,7 +135,7 @@ export const SERVICES = [
   {
     slug: 'crew-boats',
     icon: 'crew',
-    scene: 'boat',
+    photo: PHOTOS.tugFront,
     title: 'Crew boats',
     kicker: 'Arranged as your agent',
     short: 'We arrange the right boat to move crew, stores and light cargo between shore and ship.',
