@@ -12,36 +12,39 @@ import CtaBand from '../components/CtaBand.jsx'
 import malik from '../assets/boat-malik.jpg'
 
 const WHY_ICONS = ['water', 'chat', 'pin', 'anchor']
+const HEADLINE = 'Fresh water, crew boats and ship agency on the UAE east coast.'
+const TICKER = ['Fresh water supply', 'Khorfakkan', 'Ship agency', 'Fujairah', 'Crew boats', 'Sharjah', 'Husbandry', 'Dubai']
 
 export default function Home() {
   return (
     <>
       <section className="hero">
-        <div className="hero__card">
-          <img className="hero__img" src={photo(PHOTOS.tankerSunset, 2200)} alt="" />
-          <div className="hero__in">
-            <p className="eyebrow eyebrow--light rise"><i />Khorfakkan · Fujairah · UAE</p>
-            <h1 className="rise" style={{ '--d': '100ms' }}>
-              Keep your ship <span className="swash">moving<svg viewBox="0 0 300 24" preserveAspectRatio="none" aria-hidden="true"><path d="M4,16 C40,4 70,22 110,12 C150,2 180,20 220,11 C250,5 275,13 296,9" /></svg></span>.
-            </h1>
-            <p className="hero__lead rise" style={{ '--d': '240ms' }}>
-              Fresh water from our own barge, ship agency by our own team, and crew boats arranged for you on the UAE east coast. One team, one WhatsApp chat.
-            </p>
-            <div className="hero__cta rise" style={{ '--d': '360ms' }}>
-              <WaLink className="btn btn--blue" message="Hello Sea Shark, I need help with a vessel. Vessel: ... Port: ..."><WhatsAppIcon />Chat on WhatsApp</WaLink>
-              <a className="btn btn--glass" href={PHONE_LINK}>Call {PHONE_DISPLAY}</a>
-            </div>
-          </div>
-          <div className="ask rise" style={{ '--d': '520ms' }}>
-            <p className="ask__q">What does your ship need today?</p>
-            {SERVICES.map((s) => (
-              <WaLink key={s.slug} className="ask__opt" message={s.wa}>
-                <span className="ask__icon"><ServiceIcon id={s.icon} /></span><span>{s.title}</span><ServiceIcon id="arrow" />
-              </WaLink>
+        <img className="hero__img" src={photo(PHOTOS.tankerSunset, 2400)} alt="" />
+        <div className="hero__shade" />
+        <div className="wrap hero__in">
+          <p className="eyebrow eyebrow--light rise"><i />Khorfakkan · Fujairah · UAE</p>
+          <h1 className="words" aria-label={HEADLINE}>
+            {HEADLINE.split(' ').map((w, i) => (
+              <span key={i} aria-hidden="true"><span style={{ '--d': `${120 + i * 55}ms` }}>{w}</span></span>
             ))}
+          </h1>
+          <p className="hero__lead rise" style={{ '--d': '800ms' }}>
+            We run our own water barge, Malik, and act as your agent at Khorfakkan and Fujairah. Send us your vessel name and what you need on WhatsApp, and we take it from there.
+          </p>
+          <div className="hero__cta rise" style={{ '--d': '950ms' }}>
+            <WaLink className="btn btn--blue" message="Hello Sea Shark, I need help with a vessel. Vessel: ... Port: ..."><WhatsAppIcon />Chat on WhatsApp</WaLink>
+            <a className="btn btn--glass" href={PHONE_LINK}>Call {PHONE_DISPLAY}</a>
           </div>
-          <Wave fill="#fff" className="hero__wave" />
         </div>
+        <div className="ticker" aria-hidden="true">
+          <div className="ticker__track">
+            {[...TICKER, ...TICKER].map((t, i) => <span key={i}>{t}</span>)}
+          </div>
+        </div>
+        <Wave fill="#fff" className="hero__wave" />
+      </section>
+
+      <section className="stats-wrap">
         <div className="wrap">
           <div className="stats">
             {STATS.map((s, i) => (
