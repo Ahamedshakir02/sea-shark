@@ -496,3 +496,9 @@ h3{font-weight:600;line-height:1.25}
 .wa-float:hover{transform:none}
 html{scroll-behavior:smooth}
 @media (prefers-reduced-motion:reduce){.reveal,.hero__a,.banner__in,.page,.hero h1.words{opacity:1!important;transform:none!important;animation:none!important;transition:none!important}html{scroll-behavior:auto}}
+
+/* Page change: fade out, then fade in (see usePageTransition) */
+.page{animation:pageFade .45s cubic-bezier(.22,1,.36,1) both;transition:opacity .26s ease}
+.page--out{opacity:0}
+@keyframes pageFade{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
+@media (prefers-reduced-motion:reduce){.page{animation:none;transition:none}}

@@ -1,7 +1,7 @@
 import { useEffect } from 'react'
-import { Routes, Route, useLocation } from 'react-router-dom'
+import { Routes, Route } from 'react-router-dom'
 import Nav from './components/Nav.jsx'
-import Motion from './components/Motion.jsx'
+import { usePageTransition } from './components/Motion.jsx'
 import Footer from './components/Footer.jsx'
 import { WhatsAppIcon } from './components/Icons.jsx'
 import WaLink from './components/WaLink.jsx'
@@ -21,13 +21,13 @@ const TITLES = {
   '/services/crew-boats': 'Crew boat service | Sea Shark Shipping',
   '/services/ship-agency': 'Ship agency | Sea Shark Shipping',
   '/our-barge': 'Our barge Malik | Sea Shark Shipping',
+  '/ports-and-faq': 'Ports & FAQ | Sea Shark Shipping',
   '/about': 'About us | Sea Shark Shipping',
   '/contact': 'Contact | Sea Shark Shipping',
 }
 
 // New page: set the browser tab title
-function PageChange() {
-  const { pathname } = useLocation()
+function PageChange({ pathname }) {
   useEffect(() => {
     document.title = TITLES[pathname] || 'Sea Shark Shipping'
   }, [pathname])
@@ -35,15 +35,14 @@ function PageChange() {
 }
 
 export default function App() {
-  const { pathname } = useLocation()
+  const { shown, stage } = usePageTransition()
   return (
     <>
-      <Motion />
-      <PageChange />
+      <PageChange pathname={shown.pathname} />
       <a className="skip" href="#main">Skip to content</a>
       <Nav />
-      <main id="main" key={pathname} className="page">
-        <Routes>
+      <main id="main" key={shown.pathname} className={`page page--${stage}`}>
+        <Routes location={shown}>
           <Route path="/" element={<Home />} />
           <Route path="/services" element={<Services />} />
           <Route path="/services/:slug" element={<ServiceDetail />} />
