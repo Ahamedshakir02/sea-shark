@@ -1,4 +1,4 @@
-import { useEffect } from 'react'
+import { useEffect, useState } from 'react'
 import { Routes, Route } from 'react-router-dom'
 import Nav from './components/Nav.jsx'
 import { usePageTransition } from './components/Motion.jsx'
@@ -34,8 +34,29 @@ function PageChange({ pathname }) {
   return null
 }
 
+// The floating WhatsApp button only shows in the middle of a page: hidden while the top section
+// (which has its own WhatsApp button) or the closing WhatsApp band / footer is on screen.
+function useFloatVisible(pathname) {
+  const [show, setShow] = useState(false)
+  useEffect(() => {
+    setShow(false)
+    const main = document.getElementById('main')
+    const ends = [main && main.firstElementChild, ...document.querySelectorAll('#main .band, footer')].filter(Boolean)
+    if (!ends.length || !('IntersectionObserver' in window)) { setShow(true); return }
+    const seen = new Map()
+    const io = new IntersectionObserver((list) => {
+      list.forEach((e) => seen.set(e.target, e.isIntersecting))
+      setShow(![...seen.values()].some(Boolean))
+    }, { rootMargin: '-80px 0px 0px 0px' })
+    ends.forEach((el) => io.observe(el))
+    return () => io.disconnect()
+  }, [pathname])
+  return show
+}
+
 export default function App() {
   const { shown, stage } = usePageTransition()
+  const floatOn = useFloatVisible(shown.pathname)
   return (
     <>
       <PageChange pathname={shown.pathname} />
@@ -54,7 +75,7 @@ export default function App() {
         </Routes>
       </main>
       <Footer />
-      <WaLink className="wa-float" message="Hello Sea Shark, I have an enquiry." aria-label="Chat with us on WhatsApp">
+      <WaLink className={`wa-float${floatOn ? ' is-on' : ''}`} message="Hello Sea Shark, I have an enquiry." aria-label="Chat with us on WhatsApp" aria-hidden={!floatOn} tabIndex={floatOn ? undefined : -1}>
         <WhatsAppIcon />
       </WaLink>
     </>

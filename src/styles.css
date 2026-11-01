@@ -513,3 +513,14 @@ img.fade.is-loaded{opacity:1}
 .hero.bg-loaded::before,.banner.bg-loaded::before{opacity:1}
 .split__img.bg-loaded,.hb__photo.bg-loaded{opacity:1}
 @media (prefers-reduced-motion:reduce){img.fade,.hero::before,.banner::before,.split__img,.hb__photo{transition:none}}
+
+/* WhatsApp logo inside WhatsApp buttons (replaces the green dot) */
+.wa-ic{display:inline-grid;place-items:center;flex:none;color:var(--wa);line-height:0}
+.wa-ic svg{width:20px;height:20px}
+.pill--wa .wa-ic{color:#fff}
+.quick__btn .wa-ic svg{width:24px;height:24px}
+
+/* Floating WhatsApp button: only in the middle of a page */
+.wa-float{opacity:0;visibility:hidden;transform:translateY(14px) scale(.9);transition:opacity .35s ease,transform .35s cubic-bezier(.22,1,.36,1),visibility .35s}
+.wa-float.is-on{opacity:1;visibility:visible;transform:none}
+.wa-float.is-on:hover{transform:scale(1.06)}
