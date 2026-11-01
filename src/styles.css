@@ -548,3 +548,28 @@ img.fade.is-loaded{opacity:1}
   .foot__grid>:first-child,.foot__grid>:last-child{grid-column:1/-1}
 }
 @media (min-width:721px){.swipe-dots{display:none}}
+
+/* ---- Phone polish: smaller photos, less empty space ---- */
+@media (max-width:720px){
+  /* Headline starts closer to the header */
+  .hb--split,.hb--editorial,.hb--tint{padding-top:100px}
+  .hb--navy{padding-top:110px}.hb__panel{padding-top:110px}.banner__in{padding-top:110px}
+  /* Services top: shorter arched photo, no big gap under it */
+  .hb--split{padding-bottom:28px}
+  .hb__grid{gap:30px}
+  .hb__frame{border-radius:150px 150px 28px 28px;box-shadow:0 26px 40px -30px rgba(10,37,64,.55)}
+  .hb__frame img{aspect-ratio:5/4}
+  .hb--split+.section{padding-top:40px}
+  /* Service rows: wide photos, text comes sooner */
+  .rows{gap:52px}
+  .row{gap:20px}
+  .row__img{border-radius:22px}
+  .row__img img{aspect-ratio:16/10}
+  /* About top: one photo with the 2023 card over its corner */
+  .hb__pair{margin-top:30px;gap:0}
+  .hb__pair-a img{aspect-ratio:4/3}
+  .hb__pair-b{overflow:visible;margin:-56px 16px 0;border-radius:0}
+  .hb__pair-b img{display:none}
+  .hb__pair-b .hb__since{position:relative;inset:auto;margin:0;box-shadow:0 20px 40px -24px rgba(10,37,64,.45)}
+  .hb--editorial+.section{padding-top:50px}
+}
