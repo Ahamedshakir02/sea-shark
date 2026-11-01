@@ -1,84 +1,35 @@
 import { Link } from 'react-router-dom'
-import { COMPANY, OFFICES, NAV } from '../data/site'
-import { SERVICES } from '../data/services'
+import { NAV, SERVICES, PHONE_DISPLAY, PHONE_LINK, EMAIL, HOURS } from '../content.js'
+import { LogoMark } from './Icons.jsx'
 
 export default function Footer() {
-  const year = new Date().getFullYear()
-
   return (
-    <footer className="border-t border-white/5 bg-hull">
-      <div className="shell grid gap-12 py-16 md:grid-cols-[1.4fr_1fr_1fr_1.2fr]">
-        {/* Brand + positioning */}
+    <footer className="foot">
+      <div className="wrap foot__grid">
         <div>
-          <p className="font-data text-sm uppercase tracking-[0.22em] text-foam">
-            Sea&nbsp;Shark
-          </p>
-          <p className="mt-4 max-w-xs text-sm leading-relaxed text-mist">
-            Marine services from {COMPANY.base} — owned and operated, available
-            around the clock.
-          </p>
-          <span className="mt-6 inline-flex items-center gap-2 rounded-full border border-bronze/30 px-3 py-1.5 font-data text-[0.7rem] uppercase tracking-[0.18em] text-bronze">
-            <span className="h-1.5 w-1.5 rounded-full bg-bronze" />
-            24/7 Operations
-          </span>
+          <Link className="logo logo--foot" to="/"><LogoMark /><span>Sea Shark<small>Shipping Services LLC</small></span></Link>
+          <p className="foot__about">Fresh water supply, crew boats and ship agency at Khorfakkan and Fujairah, UAE.</p>
         </div>
-
-        {/* Nav */}
-        <nav aria-label="Footer">
-          <h2 className="eyebrow mb-4" >Navigate</h2>
-          <ul className="space-y-2.5">
-            {NAV.map((n) => (
-              <li key={n.to}>
-                <Link to={n.to} className="text-sm text-mist transition-colors hover:text-foam">
-                  {n.label}
-                </Link>
-              </li>
-            ))}
-          </ul>
-        </nav>
-
-        {/* Services */}
         <div>
-          <h2 className="eyebrow mb-4">Services</h2>
-          <ul className="space-y-2.5">
-            {SERVICES.map((s) => (
-              <li key={s.slug}>
-                <Link to={`/services/${s.slug}`} className="text-sm text-mist transition-colors hover:text-foam">
-                  {s.title}
-                </Link>
-              </li>
-            ))}
-          </ul>
+          <h4>Pages</h4>
+          <ul>{NAV.map((n) => <li key={n.to}><Link to={n.to}>{n.label}</Link></li>)}</ul>
         </div>
-
-        {/* Contact */}
         <div>
-          <h2 className="eyebrow mb-4">Contact</h2>
-          <ul className="space-y-2.5 text-sm text-mist">
-            <li>
-              <a href={`mailto:${COMPANY.email}`} className="transition-colors hover:text-foam">
-                {COMPANY.email}
-              </a>
-            </li>
-            <li>
-              <a href={`tel:${COMPANY.phoneHref}`} className="transition-colors hover:text-foam">
-                {COMPANY.phone}
-              </a>
-            </li>
-            {OFFICES.map((o) => (
-              <li key={o.label} className="pt-1 leading-relaxed">
-                {o.label}
-              </li>
-            ))}
+          <h4>Services</h4>
+          <ul>{SERVICES.map((s) => <li key={s.slug}><Link to={`/services/${s.slug}`}>{s.title}</Link></li>)}</ul>
+        </div>
+        <div>
+          <h4>Contact</h4>
+          <ul>
+            <li><a href={PHONE_LINK}>{PHONE_DISPLAY}</a></li>
+            <li><a href={`mailto:${EMAIL}`}>{EMAIL}</a></li>
+            <li>{HOURS}</li>
           </ul>
         </div>
       </div>
-
-      <div className="border-t border-white/5">
-        <div className="shell flex flex-col items-start justify-between gap-2 py-6 text-xs text-mist md:flex-row md:items-center">
-          <p>© {year} {COMPANY.legalName}. All rights reserved.</p>
-          <p className="font-data tracking-[0.14em] text-bronze/70">{COMPANY.coords}</p>
-        </div>
+      <div className="wrap foot__in">
+        <span>&copy; {new Date().getFullYear()} Sea Shark Shipping Services LLC</span>
+        <a href="#top" onClick={(e) => { e.preventDefault(); window.scrollTo({ top: 0, behavior: 'smooth' }) }}>Back to top &uarr;</a>
       </div>
     </footer>
   )

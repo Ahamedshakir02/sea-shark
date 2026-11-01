@@ -1,64 +1,38 @@
-<!doctype html>
-<html lang="en" data-theme="dark">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-
-    <!-- ── Primary SEO ─────────────────────────────────────────────── -->
-    <title>Sea Shark Shipping Services LLC — Marine Services, Khorfakkan</title>
-    <meta
-      name="description"
-      content="Sea Shark Shipping Services LLC — a UAE marine services provider operating out of Khorfakkan Port. Barge fresh-water supply, crew boat transfers, and ship agency. Owned and operated vessels, 24/7."
-    />
-    <meta
-      name="keywords"
-      content="shipping company UAE, Khorfakkan ship agency, barge fresh water supply, crew boat service, marine services Sharjah, ship agency Dubai"
-    />
-    <meta name="theme-color" content="#05090F" />
-    <link rel="canonical" href="https://www.seasharkuae.com/" />
-
-    <!-- ── Open Graph / social ─────────────────────────────────────── -->
-    <meta property="og:type" content="website" />
-    <meta property="og:site_name" content="Sea Shark Shipping Services LLC" />
-    <meta property="og:title" content="Sea Shark Shipping Services LLC — Marine Services, Khorfakkan" />
-    <meta
-      property="og:description"
-      content="Bespoke survey, technical, agency and commercial marine services from Khorfakkan Port. Owned and operated vessels, 24/7."
-    />
-    <!-- ASSET SLOT: replace with a 1200×630 cinematic ocean/vessel still -->
-    <meta property="og:image" content="/og-cover.jpg" />
-    <meta property="og:url" content="https://www.seasharkuae.com/" />
-    <meta name="twitter:card" content="summary_large_image" />
-
-    <!-- ── Fonts ───────────────────────────────────────────────────── -->
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300;9..144,400;9..144,500;9..144,600&family=Hanken+Grotesk:wght@400;500;600&family=Space+Grotesk:wght@400;500&display=swap"
-      rel="stylesheet"
-    />
-
-    <!-- ── Structured data ─────────────────────────────────────────── -->
-    <script type="application/ld+json">
-      {
-        "@context": "https://schema.org",
-        "@type": "Organization",
-        "name": "Sea Shark Shipping Services LLC",
-        "foundingDate": "2023",
-        "areaServed": "AE",
-        "email": "ops@seasharkuae.com",
-        "telephone": "+971 56 673 5968",
-        "address": [
-          { "@type": "PostalAddress", "streetAddress": "Al Bada'a", "addressLocality": "Dubai", "addressCountry": "AE" },
-          { "@type": "PostalAddress", "streetAddress": "Al Fisht 1", "addressLocality": "Sharjah", "addressCountry": "AE" }
-        ]
-      }
-    </script>
-  </head>
-  <body>
-    <!-- Fallback background so first paint is never a white flash before React mounts -->
-    <div id="root"></div>
-    <script type="module" src="/src/main.jsx"></script>
-  </body>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Sea Shark Shipping Services LLC | Khorfakkan &amp; Fujairah, UAE</title>
+<meta name="description" content="Fresh water supply from our own barge, plus crew boats and ship agency at Khorfakkan and Fujairah, UAE. Chat with us on WhatsApp.">
+<meta name="theme-color" content="#0a2540">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<style>
+#loader{position:fixed;inset:0;z-index:9999;display:grid;place-items:center;background:#0a2540;color:#fff;transition:opacity .6s cubic-bezier(.22,1,.36,1),visibility .6s;font-family:'Plus Jakarta Sans',system-ui,sans-serif}
+#loader.is-done{opacity:0;visibility:hidden}
+.ld__in{display:grid;justify-items:center;gap:6px;animation:ldIn .7s cubic-bezier(.22,1,.36,1) both}
+.ld__wave{color:#5fd0d8;margin-bottom:10px}
+.ld__wave path{stroke-dasharray:140;stroke-dashoffset:140;animation:ldDraw 1.4s cubic-bezier(.65,0,.35,1) infinite alternate}
+.ld__name{margin:0;font-size:1.5rem;font-weight:700;letter-spacing:.01em}
+.ld__sub{margin:0;font-size:.78rem;letter-spacing:.14em;text-transform:uppercase;opacity:.6}
+.ld__bar{position:relative;width:140px;height:2px;margin-top:18px;background:rgba(255,255,255,.15);border-radius:2px;overflow:hidden}
+.ld__bar span{position:absolute;inset:0;background:#5fd0d8;transform-origin:left;animation:ldBar 1.6s cubic-bezier(.65,0,.35,1) infinite}
+@keyframes ldIn{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
+@keyframes ldDraw{to{stroke-dashoffset:0}}
+@keyframes ldBar{0%{transform:translateX(-100%) scaleX(.4)}100%{transform:translateX(250%) scaleX(.4)}}
+@media (prefers-reduced-motion:reduce){.ld__in,.ld__wave path,.ld__bar span{animation:none}.ld__wave path{stroke-dashoffset:0}}
+</style>
+</head>
+<body>
+<div id="loader" aria-hidden="true">
+  <div class="ld__in">
+    <svg class="ld__wave" viewBox="0 0 120 24" width="120" height="24"><path d="M2 14 C 17 4, 27 4, 42 14 S 67 24, 82 14 S 107 4, 118 14" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"/></svg>
+    <p class="ld__name">Sea Shark</p>
+    <p class="ld__sub">Shipping Services LLC</p>
+    <span class="ld__bar"><span></span></span>
+  </div>
+</div>
+<div id="root"></div>
+<script type="module" src="/src/main.jsx"></script>
+</body>
 </html>

@@ -1,43 +1,62 @@
-import { Routes, Route, useLocation } from 'react-router-dom'
-import { AnimatePresence } from 'framer-motion'
-import SmoothScroll from './components/SmoothScroll'
-import Navbar from './components/Navbar'
-import Footer from './components/Footer'
-import Home from './pages/Home'
-import Services from './pages/Services'
-import ServiceDetail from './pages/ServiceDetail'
-import Fleet from './pages/Fleet'
-import Contact from './pages/Contact'
-import NotFound from './pages/NotFound'
+import { useEffect } from 'react'
+import { Routes, Route } from 'react-router-dom'
+import Nav from './components/Nav.jsx'
+import { usePageTransition } from './components/Motion.jsx'
+import Footer from './components/Footer.jsx'
+import { WhatsAppIcon } from './components/Icons.jsx'
+import WaLink from './components/WaLink.jsx'
+import Home from './pages/Home.jsx'
+import Services from './pages/Services.jsx'
+import ServiceDetail from './pages/ServiceDetail.jsx'
+import Barge from './pages/Barge.jsx'
+import About from './pages/About.jsx'
+import Contact from './pages/Contact.jsx'
+import NotFound from './pages/NotFound.jsx'
+import PortsFaq from './pages/PortsFaq.jsx'
+
+const TITLES = {
+  '/': 'Sea Shark Shipping Services LLC | Khorfakkan & Fujairah, UAE',
+  '/services': 'Services | Sea Shark Shipping',
+  '/services/fresh-water': 'Fresh water supply | Sea Shark Shipping',
+  '/services/crew-boats': 'Crew boat service | Sea Shark Shipping',
+  '/services/ship-agency': 'Ship agency | Sea Shark Shipping',
+  '/our-barge': 'Our barge Malik | Sea Shark Shipping',
+  '/ports-and-faq': 'Ports & FAQ | Sea Shark Shipping',
+  '/about': 'About us | Sea Shark Shipping',
+  '/contact': 'Contact | Sea Shark Shipping',
+}
+
+// New page: set the browser tab title
+function PageChange({ pathname }) {
+  useEffect(() => {
+    document.title = TITLES[pathname] || 'Sea Shark Shipping'
+  }, [pathname])
+  return null
+}
 
 export default function App() {
-  const location = useLocation()
-
+  const { shown, stage } = usePageTransition()
   return (
-    <SmoothScroll>
-      {/* Accessibility: jump straight to content */}
-      <a
-        href="#main"
-        className="sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-[60] focus:rounded-full focus:bg-bronze focus:px-5 focus:py-2.5 focus:font-data focus:text-sm focus:text-ink"
-      >
-        Skip to content
-      </a>
-
-      <Navbar />
-
-      {/* mode="wait" runs the exit transition before the next page enters */}
-      <AnimatePresence mode="wait">
-        <Routes location={location} key={location.pathname}>
+    <>
+      <PageChange pathname={shown.pathname} />
+      <a className="skip" href="#main">Skip to content</a>
+      <Nav />
+      <main id="main" key={shown.pathname} className={`page page--${stage}`}>
+        <Routes location={shown}>
           <Route path="/" element={<Home />} />
           <Route path="/services" element={<Services />} />
           <Route path="/services/:slug" element={<ServiceDetail />} />
-          <Route path="/fleet" element={<Fleet />} />
+          <Route path="/our-barge" element={<Barge />} />
+          <Route path="/ports-and-faq" element={<PortsFaq />} />
+          <Route path="/about" element={<About />} />
           <Route path="/contact" element={<Contact />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
-      </AnimatePresence>
-
+      </main>
       <Footer />
-    </SmoothScroll>
+      <WaLink className="wa-float" message="Hello Sea Shark, I have an enquiry." aria-label="Chat with us on WhatsApp">
+        <WhatsAppIcon />
+      </WaLink>
+    </>
   )
 }

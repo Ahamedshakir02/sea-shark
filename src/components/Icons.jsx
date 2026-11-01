@@ -1,0 +1,30 @@
+const stroke = { fill: 'none', stroke: 'currentColor', strokeWidth: 1.6 }
+
+export const LogoMark = () => (
+  <svg viewBox="0 0 40 40" aria-hidden="true">
+    <path d="M4 27c5 0 7-3 10-3s5 3 10 3 7-3 12-3" fill="none" stroke="currentColor" strokeWidth="2.6" strokeLinecap="round" />
+    <path d="M14 22 22 6l4 16z" fill="currentColor" />
+  </svg>
+)
+
+export const ServiceIcon = ({ id }) => (
+  <svg viewBox="0 0 24 24" aria-hidden="true">
+    {id === 'water' && <path d="M12 3s6 6.5 6 11a6 6 0 0 1-12 0c0-4.5 6-11 6-11z" {...stroke} />}
+    {id === 'crew' && <path d="M3 15h18l-2.5 4h-13zM6 15V9h9l3 6M9 9V6h4v3" {...stroke} strokeLinejoin="round" />}
+    {id === 'check' && <path d="M5 12.5l4.2 4L19 7" {...stroke} strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />}
+    {id === 'arrow' && <path d="M5 12h14M13 6l6 6-6 6" {...stroke} strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />}
+    {id === 'pin' && <><path d="M12 21s7-6.2 7-11.5A7 7 0 0 0 5 9.5C5 14.8 12 21 12 21z" {...stroke} /><circle cx="12" cy="9.5" r="2.4" {...stroke} /></>}
+    {id === 'agency' && (
+      <>
+        <path d="M12 3v15M7 7h10M5 14a7 7 0 0 0 14 0M12 18v3" {...stroke} strokeLinecap="round" />
+        <circle cx="12" cy="4" r="1.6" {...stroke} />
+      </>
+    )}
+  </svg>
+)
+
+export const WhatsAppIcon = () => (
+  <svg viewBox="0 0 32 32" aria-hidden="true">
+    <path fill="currentColor" d="M16 3a13 13 0 0 0-11.2 19.6L3 29l6.6-1.7A13 13 0 1 0 16 3zm0 23.7c-2 0-4-.6-5.7-1.6l-.4-.2-3.9 1 1-3.8-.3-.4A10.7 10.7 0 1 1 16 26.7zm5.9-8c-.3-.2-1.9-1-2.2-1s-.5-.2-.7.2-.8 1-1 1.2-.4.2-.7 0a8.8 8.8 0 0 1-4.4-3.8c-.3-.6.3-.5 1-1.7.1-.2 0-.4 0-.6l-1-2.4c-.3-.6-.5-.5-.7-.5h-.6c-.2 0-.6.1-.9.4s-1.2 1.1-1.2 2.8 1.2 3.3 1.4 3.5 2.4 3.6 5.8 5c2.1.9 3 1 4 .8.7-.1 1.9-.8 2.2-1.5s.3-1.3.2-1.5-.3-.2-.6-.4z" />
+  </svg>
+)
