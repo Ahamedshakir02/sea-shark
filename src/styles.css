@@ -502,3 +502,14 @@ html{scroll-behavior:smooth}
 .page--out{opacity:0}
 @keyframes pageFade{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
 @media (prefers-reduced-motion:reduce){.page{animation:none;transition:none}}
+
+/* Photos fade in once loaded, over the tinted placeholder (no blank flash, no pop-in) */
+.hero,.banner{background-color:#0a2540}
+.hb__frame,.hb__pair-a,.hb__pair-b,.row__img,.feature__img,.port__img{background-color:#dfe8ef}
+img.fade{opacity:0;transition:opacity .6s cubic-bezier(.22,1,.36,1)}
+img.fade.is-loaded{opacity:1}
+.hero::before,.banner::before{opacity:0;transition:opacity .7s cubic-bezier(.22,1,.36,1)}
+.split__img,.hb__photo{opacity:0;transition:opacity .7s cubic-bezier(.22,1,.36,1)}
+.hero.bg-loaded::before,.banner.bg-loaded::before{opacity:1}
+.split__img.bg-loaded,.hb__photo.bg-loaded{opacity:1}
+@media (prefers-reduced-motion:reduce){img.fade,.hero::before,.banner::before,.split__img,.hb__photo{transition:none}}
