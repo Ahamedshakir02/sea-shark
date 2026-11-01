@@ -78,7 +78,7 @@ export default function ServiceDetail() {
             {others.map((o, i) => (
               <Reveal key={o.slug} delay={i * 110}>
                 <Link className="tile" to={`/services/${o.slug}`}>
-                  <img src={img(o.tile, 900)} alt="" loading="lazy" />
+                  <img src={img(o.tile, 900)} alt="" loading="lazy" decoding="async" />
                   <div className="tile__body"><h3>{o.title}</h3><p>{o.short}</p><span className="tile__go">Learn more <ServiceIcon id="arrow" /></span></div>
                 </Link>
               </Reveal>

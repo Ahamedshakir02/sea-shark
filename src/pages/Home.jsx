@@ -55,7 +55,7 @@ export default function Home() {
             {SERVICES.map((s, i) => (
               <Reveal key={s.slug} delay={i * 110}>
                 <Link className="tile" to={`/services/${s.slug}`}>
-                  <img src={img(s.photo, 900)} alt="" loading="lazy" />
+                  <img src={img(s.photo, 900)} alt="" loading="lazy" decoding="async" />
                   <div className="tile__body">
                     <span className="tile__num">0{i + 1}</span>
                     <h3>{s.title}</h3>
@@ -72,7 +72,7 @@ export default function Home() {
       <section className="feature">
         <div className="wrap feature__in">
           <Reveal className="feature__img">
-            <img src={malik} alt="Malik, our fresh water barge, alongside in port" loading="lazy" />
+            <img src={malik} alt="Malik, our fresh water barge, alongside in port" loading="lazy" decoding="async" />
             <span className="feature__badge">Owned and run by us</span>
           </Reveal>
           <Reveal className="feature__text" delay={120}>

@@ -19,7 +19,7 @@ export default function PortsFaq() {
           <div className="ports">
             {PORTS.map((p, i) => (
               <Reveal className="port" id={p.id} key={p.id} delay={i * 120}>
-                <div className="port__img"><img src={photo(p.photo, 1200)} alt="" /><span className="port__coords">{p.coords}</span></div>
+                <div className="port__img"><img src={photo(p.photo, 900)} alt="" loading="lazy" decoding="async" /><span className="port__coords">{p.coords}</span></div>
                 <div className="port__body">
                   <h3>{p.name}</h3><p>{p.lead}</p>
                   <ul className="ticks">{p.work.map((w) => <li key={w.text}><ServiceIcon id="check" /><span>{w.text}{w.tbc && <> <Tbc /></>}</span></li>)}</ul>

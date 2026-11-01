@@ -23,7 +23,7 @@ export default function Barge() {
       </PageBanner>
       <section className="section">
         <div className="wrap feature__in">
-          <Reveal className="feature__img"><img src={malik} alt="Malik, our fresh water barge, alongside in port" /></Reveal>
+          <Reveal className="feature__img"><img src={malik} alt="Malik, our fresh water barge, alongside in port" loading="lazy" decoding="async" /></Reveal>
           <Reveal className="feature__text" delay={120}>
             <p className="tag tag--dark">[ Malik ]</p>
             <h2>Why owning the barge matters.</h2>
