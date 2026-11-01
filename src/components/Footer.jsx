@@ -29,7 +29,7 @@ export default function Footer() {
       </div>
       <div className="wrap foot__in">
         <span>&copy; {new Date().getFullYear()} Sea Shark Shipping Services LLC</span>
-        <a href="#top" onClick={(e) => { e.preventDefault(); window.__lenis ? window.__lenis.scrollTo(0) : window.scrollTo({ top: 0, behavior: 'smooth' }) }}>Back to top &uarr;</a>
+        <a href="#top" onClick={(e) => { e.preventDefault(); window.scrollTo({ top: 0, behavior: 'smooth' }) }}>Back to top &uarr;</a>
       </div>
     </footer>
   )
