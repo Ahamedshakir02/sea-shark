@@ -1,5 +1,4 @@
 import { PHOTOS, BARGE_SPECS } from '../content.js'
-import Tbc from '../components/Tbc.jsx'
 import { ServiceIcon, WhatsAppIcon } from '../components/Icons.jsx'
 import PageBanner from '../components/PageBanner.jsx'
 import Reveal from '../components/Reveal.jsx'
@@ -38,10 +37,10 @@ export default function Barge() {
       <section className="section section--navy">
         <div className="wrap specs__in">
           <Reveal className="head"><p className="tag">[ Malik at a glance ]</p><h2>The barge in numbers.</h2>
-            <p className="head__note">Exact figures are being confirmed with our operations team.</p></Reveal>
+            <p className="head__note">Need capacity or pump details for your ship? Ask us on WhatsApp.</p></Reveal>
           <dl className="specs">
             {BARGE_SPECS.map((f, i) => (
-              <Reveal key={f.k} delay={i * 50}><dt>{f.k}</dt><dd>{f.v}{f.tbc && <Tbc />}</dd></Reveal>
+              <Reveal key={f.k} delay={i * 50}><dt>{f.k}</dt><dd>{f.v}</dd></Reveal>
             ))}
           </dl>
         </div>

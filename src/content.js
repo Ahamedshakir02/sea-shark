@@ -77,10 +77,10 @@ export const SERVICES = [
     includes: [
       { title: 'Our own barge', text: 'Every delivery is made by Malik, which we own and look after ourselves.' },
       { title: 'At anchor', text: 'We take the water out to ships waiting at anchor.' },
-      { title: 'Alongside', text: 'Supply to ships at berth.', tbc: true },
+      { title: 'Alongside on request', text: 'Ship at a berth? Ask us on WhatsApp and we will tell you what we can arrange.' },
       { title: 'Two ports', text: 'Deliveries at Khorfakkan and Fujairah.' },
       { title: 'Ahead or short notice', text: 'Book days ahead, or message us when the need comes up.' },
-      { title: 'Paperwork and quality', text: 'Delivery note signed on board for the quantity supplied, and a water test certificate on request.', tbc: true },
+      { title: 'Clear paperwork', text: 'A delivery note signed on board for the quantity supplied.' },
     ],
     process: [
       { title: 'You message us', text: 'Vessel, position, quantity and when you need it.' },
@@ -114,13 +114,12 @@ export const SERVICES = [
     includes: [
       { title: 'Port call coordination', text: 'We line up the port, authorities and local parties before the ship arrives.' },
       { title: 'Documents and clearance', text: 'Arrival and departure paperwork prepared and filed for you.' },
-      { title: 'Husbandry', text: 'Stores, provisions, spare parts and mail brought to the ship.', tbc: true },
-      { title: 'Ship supplies', text: 'Stores and provisions ordered for you before the ship arrives.', tbc: true },
-      { title: 'Crew change support', text: 'Sign-on and sign-off, transport and hotel for the crew.', tbc: true },
+      { title: 'Husbandry and supplies', text: 'Stores, provisions, spare parts and mail arranged and brought to the ship.' },
+      { title: 'Crew change support', text: 'Sign-on and sign-off, transport and hotel for the crew.' },
       { title: 'Surveys arranged', text: 'We book surveyors and inspectors and get them out to the vessel.' },
       { title: 'Technical and commercial support', text: 'Help for owners and operators with what the call needs.' },
-      { title: 'Cash to master', text: 'Cash delivered to the master on request.', tbc: true },
-      { title: 'Waste removal', text: 'Garbage and sludge removal arranged with licensed contractors.', tbc: true },
+      { title: 'Cash to master', text: 'Cash delivered to the master on request.' },
+      { title: 'Waste removal', text: 'Garbage and sludge removal arranged with licensed contractors.' },
     ],
     process: [
       { title: 'Appoint us', text: 'Send the vessel, ETA and what the call involves.' },
@@ -134,7 +133,7 @@ export const SERVICES = [
     urgent: 'Ship arriving soon?',
     faq: [
       { q: 'Which ports do you cover?', a: 'Khorfakkan and Fujairah on the UAE east coast.' },
-      { q: 'Can you arrange a crew change?', a: 'Yes. We arrange the boat out to the ship and can help with the rest of the crew change.', tbc: true },
+      { q: 'Can you arrange a crew change?', a: 'We arrange the boat out to the ship. Message us on WhatsApp with the details and we will tell you what else we can handle.' },
     ],
   },
   {
@@ -225,10 +224,10 @@ export const HOURS_ROWS = [
 export const PORTS = [
   { id: 'khorfakkan', name: 'Khorfakkan', coords: '25.35° N · 56.36° E', photo: PHOTOS.terminalDusk,
     lead: 'A deep-water port on the Gulf of Oman, inside the Emirate of Sharjah.',
-    work: [{ text: 'Fresh water from Malik to ships at anchor' }, { text: 'Fresh water to ships alongside', tbc: true }, { text: 'Crew boats arranged for crew changes and stores' }, { text: 'Ship agency for port calls' }] },
+    work: [{ text: 'Fresh water from Malik to ships at anchor' }, { text: 'Crew boats arranged for crew changes and stores' }, { text: 'Ship agency for port calls' }] },
   { id: 'fujairah', name: 'Fujairah', coords: '25.17° N · 56.36° E', photo: PHOTOS.tankersAnchor,
     lead: 'One of the busiest anchorages in the region, south of Khorfakkan on the same coast.',
-    work: [{ text: 'Fresh water from Malik to ships at anchor' }, { text: 'Fresh water to ships alongside', tbc: true }, { text: 'Crew boats arranged for crew changes and stores' }, { text: 'Ship agency for port calls' }] },
+    work: [{ text: 'Fresh water from Malik to ships at anchor' }, { text: 'Crew boats arranged for crew changes and stores' }, { text: 'Ship agency for port calls' }] },
 ]
 
 export const SAFETY = [
@@ -243,27 +242,22 @@ export const BARGE_SPECS = [
   { k: 'Type', v: 'Fresh water supply barge' },
   { k: 'Owner', v: 'Sea Shark Shipping Services LLC' },
   { k: 'Works at', v: 'Khorfakkan and Fujairah' },
-  { k: 'Water capacity', v: '', tbc: true },
-  { k: 'Length overall', v: '', tbc: true },
-  { k: 'Pump rate', v: '', tbc: true },
-  { k: 'Hose connection', v: '', tbc: true },
 ]
 
 export const FAQ = [
   { q: 'How quickly can you deliver fresh water?', a: 'It depends on where the ship is and how much water is needed. Send us the vessel, position and quantity on WhatsApp and we will give you a time straight away.' },
   { q: 'What do you need from us to book?', a: 'Vessel name and IMO, where the ship is, what you need and when. For water add the quantity, for crew boats add the number of people and any cargo.' },
   { q: 'Do you deliver water to ships at anchor?', a: 'Yes. Malik takes water out to ships at anchor at Khorfakkan and Fujairah.' },
-  { q: 'Can you deliver to ships alongside?', a: 'Ask us on WhatsApp for your berth and we will confirm.', tbc: true },
+  { q: 'Can you deliver to ships alongside?', a: 'Ask us on WhatsApp for your berth and we will confirm.' },
   { q: 'Do you own crew boats?', a: 'No. We own one vessel, the water barge Malik. For crew boats we act as your agent and book the right boat for the job.' },
-  { q: 'Can you arrange a crew change?', a: 'Yes. We arrange the boat out to the ship and can help with the rest of the crew change.', tbc: true },
+  { q: 'Can you arrange a crew change?', a: 'We arrange the boat out to the ship. Message us on WhatsApp with the details and we will tell you what else we can handle.' },
   { q: 'What are your office hours?', a: 'Monday to Friday 9:00 to 17:00, Saturday 9:00 to 13:00, closed Sunday.' },
-  { q: 'How do we pay?', a: 'We agree payment terms with you before the job.', tbc: true },
+  { q: 'How do we pay?', a: 'We agree payment terms with you before the job.' },
 ]
 
-// Which service runs at which port (shown as a table on Ports & FAQ). tbc = still to confirm with the client.
+// Which service runs at which port (shown as a table on Ports & FAQ).
 export const PORT_TABLE = [
   { service: 'Fresh water at anchor', khorfakkan: 'yes', fujairah: 'yes' },
-  { service: 'Fresh water alongside', khorfakkan: 'tbc', fujairah: 'tbc' },
   { service: 'Crew boats (arranged)', khorfakkan: 'yes', fujairah: 'yes' },
   { service: 'Ship agency', khorfakkan: 'yes', fujairah: 'yes' },
 ]
