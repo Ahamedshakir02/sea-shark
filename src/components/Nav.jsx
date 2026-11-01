@@ -4,6 +4,9 @@ import { NAV } from '../content.js'
 import { LogoMark, WhatsAppIcon } from './Icons.jsx'
 import WaLink from './WaLink.jsx'
 
+// Pages whose top section is light, so the header text starts dark
+const LIGHT_TOP = ['/services', '/about', '/contact']
+
 export default function Nav() {
   const [solid, setSolid] = useState(false)
   const [open, setOpen] = useState(false)
@@ -30,7 +33,7 @@ export default function Nav() {
   }, [open])
 
   return (
-    <header className={`nav${solid ? ' is-solid' : ''}`}>
+    <header className={`nav${solid ? ' is-solid' : ''}${LIGHT_TOP.includes(pathname) ? ' nav--ink' : ''}`}>
       <div className="wrap nav__in">
         <Link className="logo" to="/" aria-label="Sea Shark Shipping, home">
           <LogoMark />
@@ -44,12 +47,6 @@ export default function Nav() {
             {NAV.map((item) => (
               <li key={item.to}><NavLink to={item.to} end={item.end}>{item.label}</NavLink></li>
             ))}
-            <li>
-              <WaLink className="wa-btn" message="Hello Sea Shark, I have an enquiry.">
-                <span className="wa-btn__icon"><WhatsAppIcon /></span>
-                <span className="wa-btn__text"><small>Chat with us</small>WhatsApp</span>
-              </WaLink>
-            </li>
           </ul>
         </nav>
       </div>

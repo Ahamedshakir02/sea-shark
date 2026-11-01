@@ -12,6 +12,7 @@ import Barge from './pages/Barge.jsx'
 import About from './pages/About.jsx'
 import Contact from './pages/Contact.jsx'
 import NotFound from './pages/NotFound.jsx'
+import PortsFaq from './pages/PortsFaq.jsx'
 
 const TITLES = {
   '/': 'Sea Shark Shipping Services LLC | Khorfakkan & Fujairah, UAE',
@@ -47,6 +48,7 @@ export default function App() {
           <Route path="/services" element={<Services />} />
           <Route path="/services/:slug" element={<ServiceDetail />} />
           <Route path="/our-barge" element={<Barge />} />
+          <Route path="/ports-and-faq" element={<PortsFaq />} />
           <Route path="/about" element={<About />} />
           <Route path="/contact" element={<Contact />} />
           <Route path="*" element={<NotFound />} />
