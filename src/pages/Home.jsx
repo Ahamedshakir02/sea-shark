@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom'
 import { PHONE_DISPLAY, PHONE_LINK, SERVICES, STATS, STEPS, PLACES, PHOTOS, WHY, FAQ, photo } from '../content.js'
-import { ServiceIcon } from '../components/Icons.jsx'
+import { ServiceIcon, WhatsAppIcon } from '../components/Icons.jsx'
 import Reveal from '../components/Reveal.jsx'
 import CountUp from '../components/CountUp.jsx'
 import WaLink from '../components/WaLink.jsx'
@@ -27,7 +27,7 @@ export default function Home() {
           </p>
           <div className="hero__cta hero__a" style={{ '--d': '950ms' }}>
             <WaLink className="pill pill--light" message="Hello Sea Shark, I need help with a vessel. Vessel name: ... Port: ...">
-              <span className="dot" />Chat on WhatsApp
+              <span className="wa-ic"><WhatsAppIcon /></span>Chat on WhatsApp
             </WaLink>
             <a className="pill pill--ghost" href={PHONE_LINK}>Call {PHONE_DISPLAY}</a>
           </div>

@@ -1,6 +1,6 @@
 import { PHOTOS, BARGE_SPECS } from '../content.js'
 import Tbc from '../components/Tbc.jsx'
-import { ServiceIcon } from '../components/Icons.jsx'
+import { ServiceIcon, WhatsAppIcon } from '../components/Icons.jsx'
 import PageBanner from '../components/PageBanner.jsx'
 import Reveal from '../components/Reveal.jsx'
 import WaLink from '../components/WaLink.jsx'
@@ -30,7 +30,7 @@ export default function Barge() {
             <p>Most of the delays in fresh water supply come from waiting on someone else's boat. We own Malik, so when you book water we plan the delivery around your ship, not around a third party's timetable.</p>
             <p>We also look after the barge ourselves, which means we know its condition and keep it to the standard our clients expect.</p>
             <WaLink className="pill pill--wa" message="Hello Sea Shark, I need fresh water from Malik. Vessel: ... Location: ... Quantity: ...">
-              <span className="dot" />Order water on WhatsApp
+              <span className="wa-ic"><WhatsAppIcon /></span>Order water on WhatsApp
             </WaLink>
           </Reveal>
         </div>

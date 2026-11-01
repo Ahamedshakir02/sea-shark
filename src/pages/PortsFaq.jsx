@@ -1,5 +1,5 @@
 import { PORTS, FAQ, PHOTOS, HOURS_ROWS, PORT_TABLE, photo } from '../content.js'
-import { ServiceIcon } from '../components/Icons.jsx'
+import { ServiceIcon, WhatsAppIcon } from '../components/Icons.jsx'
 import PageBanner from '../components/PageBanner.jsx'
 import Reveal from '../components/Reveal.jsx'
 import WaLink from '../components/WaLink.jsx'
@@ -43,7 +43,7 @@ export default function PortsFaq() {
           <Reveal>
             <p className="tag tag--dark">[ FAQ ]</p><h2>Questions ships ask us.</h2>
             <p className="head__note faq__note">Not here? Ask us on WhatsApp and we will reply during office hours.</p>
-            <WaLink className="pill pill--wa faq__ask" message="Hello Sea Shark, I have a question: ..."><span className="dot" />Ask us on WhatsApp</WaLink>
+            <WaLink className="pill pill--wa faq__ask" message="Hello Sea Shark, I have a question: ..."><span className="wa-ic"><WhatsAppIcon /></span>Ask us on WhatsApp</WaLink>
             <dl className="hours">{HOURS_ROWS.map(([d, t]) => <div key={d}><dt>{d}</dt><dd>{t}</dd></div>)}</dl>
           </Reveal>
           <div className="faq">

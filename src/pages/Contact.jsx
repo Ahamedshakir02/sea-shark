@@ -1,4 +1,5 @@
 import { CONTACTS, HOURS, SERVICES, PHOTOS } from '../content.js'
+import { WhatsAppIcon } from '../components/Icons.jsx'
 import PageBanner from '../components/PageBanner.jsx'
 import Reveal from '../components/Reveal.jsx'
 import WaLink from '../components/WaLink.jsx'
@@ -11,7 +12,7 @@ export default function Contact() {
         crumbs={[{ label: 'Contact' }]}>
         <div className="quick hb__quick">
           {SERVICES.map((s) => (
-            <WaLink key={s.slug} className="quick__btn" message={s.wa}><span className="dot" /><span><small>WhatsApp</small>{s.cta}</span></WaLink>
+            <WaLink key={s.slug} className="quick__btn" message={s.wa}><span className="wa-ic"><WhatsAppIcon /></span><span><small>WhatsApp</small>{s.cta}</span></WaLink>
           ))}
         </div>
       </PageBanner>

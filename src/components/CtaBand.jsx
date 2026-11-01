@@ -1,4 +1,5 @@
 import { photo, PHOTOS, PHONE_DISPLAY, PHONE_LINK } from '../content.js'
+import { WhatsAppIcon } from './Icons.jsx'
 import WaLink from './WaLink.jsx'
 
 export default function CtaBand({
@@ -12,7 +13,7 @@ export default function CtaBand({
     <section className="band band--plain"><div className="wrap band__plain">
       <h2>{title}</h2><p>{text}</p>
       <div className="band__cta">
-        <WaLink className="pill pill--wa" message={message}><span className="dot" />Message us on WhatsApp</WaLink>
+        <WaLink className="pill pill--wa" message={message}><span className="wa-ic"><WhatsAppIcon /></span>Message us on WhatsApp</WaLink>
         <a className="pill pill--outline" href={PHONE_LINK}>Call {PHONE_DISPLAY}</a>
       </div>
     </div></section>
@@ -24,7 +25,7 @@ export default function CtaBand({
           <h2>{title}</h2>
           <p>{text}</p>
           <div className="band__cta">
-            <WaLink className="pill pill--light" message={message}><span className="dot" />Message us on WhatsApp</WaLink>
+            <WaLink className="pill pill--light" message={message}><span className="wa-ic"><WhatsAppIcon /></span>Message us on WhatsApp</WaLink>
             <a className="pill pill--ghost" href={PHONE_LINK}>Call {PHONE_DISPLAY}</a>
           </div>
         </div>
