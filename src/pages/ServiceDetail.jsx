@@ -1,7 +1,7 @@
 import Tbc, { itemText } from '../components/Tbc.jsx'
 import { Link, useParams } from 'react-router-dom'
 import { SERVICES, STEPS, photo, PHONE_DISPLAY, PHONE_LINK } from '../content.js'
-import { ServiceIcon } from '../components/Icons.jsx'
+import { ServiceIcon, WhatsAppIcon } from '../components/Icons.jsx'
 import PageBanner from '../components/PageBanner.jsx'
 import Reveal from '../components/Reveal.jsx'
 import WaLink from '../components/WaLink.jsx'
@@ -36,7 +36,7 @@ export default function ServiceDetail() {
               <h3>What to send us</h3>
               <p>Put these in your WhatsApp message and we can confirm faster:</p>
               <ol>{s.send.map((x) => <li key={x}>{x}</li>)}</ol>
-              <WaLink className="pill pill--wa" message={s.wa}><span className="dot" />{s.cta}</WaLink>
+              <WaLink className="pill pill--wa" message={s.wa}><span className="wa-ic"><WhatsAppIcon /></span>{s.cta}</WaLink>
             </Reveal>
           </aside>
         </div>
@@ -78,7 +78,7 @@ export default function ServiceDetail() {
             {others.map((o, i) => (
               <Reveal key={o.slug} delay={i * 110}>
                 <Link className="tile" to={`/services/${o.slug}`}>
-                  <img src={img(o.tile, 900)} alt="" loading="lazy" />
+                  <img src={img(o.tile, 900)} alt="" loading="lazy" decoding="async" />
                   <div className="tile__body"><h3>{o.title}</h3><p>{o.short}</p><span className="tile__go">Learn more <ServiceIcon id="arrow" /></span></div>
                 </Link>
               </Reveal>

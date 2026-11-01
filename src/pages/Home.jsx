@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom'
 import { PHONE_DISPLAY, PHONE_LINK, SERVICES, STATS, STEPS, PLACES, PHOTOS, WHY, FAQ, photo } from '../content.js'
-import { ServiceIcon } from '../components/Icons.jsx'
+import { ServiceIcon, WhatsAppIcon } from '../components/Icons.jsx'
 import Reveal from '../components/Reveal.jsx'
 import CountUp from '../components/CountUp.jsx'
 import WaLink from '../components/WaLink.jsx'
@@ -27,7 +27,7 @@ export default function Home() {
           </p>
           <div className="hero__cta hero__a" style={{ '--d': '950ms' }}>
             <WaLink className="pill pill--light" message="Hello Sea Shark, I need help with a vessel. Vessel name: ... Port: ...">
-              <span className="dot" />Chat on WhatsApp
+              <span className="wa-ic"><WhatsAppIcon /></span>Chat on WhatsApp
             </WaLink>
             <a className="pill pill--ghost" href={PHONE_LINK}>Call {PHONE_DISPLAY}</a>
           </div>
@@ -55,7 +55,7 @@ export default function Home() {
             {SERVICES.map((s, i) => (
               <Reveal key={s.slug} delay={i * 110}>
                 <Link className="tile" to={`/services/${s.slug}`}>
-                  <img src={img(s.photo, 900)} alt="" loading="lazy" />
+                  <img src={img(s.photo, 900)} alt="" loading="lazy" decoding="async" />
                   <div className="tile__body">
                     <span className="tile__num">0{i + 1}</span>
                     <h3>{s.title}</h3>
@@ -72,7 +72,7 @@ export default function Home() {
       <section className="feature">
         <div className="wrap feature__in">
           <Reveal className="feature__img">
-            <img src={malik} alt="Malik, our fresh water barge, alongside in port" loading="lazy" />
+            <img src={malik} alt="Malik, our fresh water barge, alongside in port" loading="lazy" decoding="async" />
             <span className="feature__badge">Owned and run by us</span>
           </Reveal>
           <Reveal className="feature__text" delay={120}>

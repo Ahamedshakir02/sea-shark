@@ -14,7 +14,7 @@ export default function Services() {
   return (
     <>
       <PageBanner variant="split"
-        image={PHOTOS.bulkCarrierWake}
+        image={PHOTOS.tugWaves}
         tag="[ Services ]"
         title="Everything a ship needs on the east coast."
         lead="Fresh water from our own barge, crew boats arranged as your agent, and full ship agency at Khorfakkan and Fujairah."
@@ -25,7 +25,7 @@ export default function Services() {
         <div className="wrap rows">
           {SERVICES.map((s, i) => (
             <div className={`row${i % 2 ? ' row--flip' : ''}`} key={s.slug}>
-              <Reveal className="row__img"><img src={img(s.row, 1200)} alt="" loading="lazy" /></Reveal>
+              <Reveal className="row__img"><img src={img(s.row, 1200)} alt="" loading="lazy" decoding="async" /></Reveal>
               <Reveal className="row__text" delay={120}>
                 <div className="card__icon"><ServiceIcon id={s.icon} /></div>
                 <span className="tile__num">0{i + 1} · {s.kicker}</span>
