@@ -573,3 +573,5 @@ img.fade.is-loaded{opacity:1}
   .hb__pair-b .hb__since{position:relative;inset:auto;margin:0;box-shadow:0 20px 40px -24px rgba(10,37,64,.45)}
   .hb--editorial+.section{padding-top:50px}
 }
+/* Phone: in service rows, text comes before the photo, so the top photo is never followed by another photo */
+@media (max-width:720px){.row__img,.row--flip .row__img{order:2}}
