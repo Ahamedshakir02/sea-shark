@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom'
-import { PHONE_DISPLAY, PHONE_LINK, SERVICES, STATS, STEPS, PLACES, PHOTOS, photo } from '../content.js'
+import { PHONE_DISPLAY, PHONE_LINK, SERVICES, STATS, STEPS, PLACES, PHOTOS, WHY, FAQ, photo } from '../content.js'
 import { ServiceIcon } from '../components/Icons.jsx'
 import Reveal from '../components/Reveal.jsx'
 import CountUp from '../components/CountUp.jsx'
@@ -9,7 +9,6 @@ import malik from '../assets/boat-malik.jpg'
 
 const img = (s, w) => (s === 'malik' ? malik : photo(s, w))
 const HEADLINE = 'Fresh water, crew boats and ship agency on the UAE east coast.'
-const TICKER = ['Fresh water supply', 'Khorfakkan', 'Crew boats', 'Fujairah', 'Ship agency', 'Sharjah', 'Husbandry', 'Dubai']
 
 export default function Home() {
   return (
@@ -31,11 +30,6 @@ export default function Home() {
               <span className="dot" />Chat on WhatsApp
             </WaLink>
             <a className="pill pill--ghost" href={PHONE_LINK}>Call {PHONE_DISPLAY}</a>
-          </div>
-        </div>
-        <div className="ticker" aria-hidden="true">
-          <div className="ticker__track">
-            {[...TICKER, ...TICKER].map((t, i) => <span key={i}>{t}</span>)}
           </div>
         </div>
       </section>
@@ -84,7 +78,7 @@ export default function Home() {
           <Reveal className="feature__text" delay={120}>
             <p className="tag tag--dark">[ Our barge ]</p>
             <h2>Meet Malik.</h2>
-            <p>Malik is our own fresh water barge. It delivers clean drinking water to ships at anchor or alongside at Khorfakkan and Fujairah. Because the barge is ours, we control the schedule, the upkeep and the standard of every delivery.</p>
+            <p>Malik is our own fresh water barge. It delivers clean drinking water to ships at Khorfakkan and Fujairah. Because the barge is ours, we control the schedule, the upkeep and the standard of every delivery.</p>
             <div className="feature__cta">
               <Link className="pill pill--dark" to="/our-barge">About the barge</Link>
               <WaLink className="link" message="Hello Sea Shark, I need fresh water from Malik. Vessel: ... Location: ... Quantity: ...">Order water on WhatsApp &rarr;</WaLink>
@@ -124,6 +118,24 @@ export default function Home() {
               </Reveal>
             ))}
           </div>
+        </div>
+      </section>
+
+      <section className="section">
+        <div className="wrap why-faq">
+          <div>
+            <Reveal className="head"><p className="tag tag--dark">[ Why ships call us ]</p><h2>Clear answers, no runaround.</h2></Reveal>
+            <div className="why why--two">
+              {WHY.map((w, i) => (
+                <Reveal className="why__item" key={w.title} delay={i * 80}><span className="steps__n">0{i + 1}</span><h3>{w.title}</h3><p>{w.text}</p></Reveal>
+              ))}
+            </div>
+          </div>
+          <Reveal className="faq-peek">
+            <p className="tag tag--dark">[ Quick answers ]</p>
+            {FAQ.filter((f) => !f.tbc).slice(0, 3).map((f) => <div className="faq-peek__item" key={f.q}><h3>{f.q}</h3><p>{f.a}</p></div>)}
+            <Link className="more" to="/ports-and-faq">All questions <ServiceIcon id="arrow" /></Link>
+          </Reveal>
         </div>
       </section>
 

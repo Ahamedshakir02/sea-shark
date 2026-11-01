@@ -1,4 +1,5 @@
-import { PHOTOS } from '../content.js'
+import { PHOTOS, BARGE_SPECS } from '../content.js'
+import Tbc from '../components/Tbc.jsx'
 import { ServiceIcon } from '../components/Icons.jsx'
 import PageBanner from '../components/PageBanner.jsx'
 import Reveal from '../components/Reveal.jsx'
@@ -16,8 +17,10 @@ const FACTS = [
 export default function Barge() {
   return (
     <>
-      <PageBanner image={malik} tag="[ Our barge ]" title="Our own barge, not hired."
-        lead="Malik is the fresh water barge we own and run ourselves." crumbs={[{ label: 'Our barge' }]} />
+      <PageBanner image={PHOTOS.bargeAerial} tag="[ Our barge ]" title="Our own barge, not hired."
+        lead="Malik is the fresh water barge we own and run ourselves." crumbs={[{ label: 'Our barge' }]}>
+        <dl className="hb__chips">{BARGE_SPECS.slice(1, 4).map((f) => <div key={f.k}><dt>{f.k}</dt><dd>{f.v}</dd></div>)}</dl>
+      </PageBanner>
       <section className="section">
         <div className="wrap feature__in">
           <Reveal className="feature__img"><img src={malik} alt="Malik, our fresh water barge, alongside in port" /></Reveal>
@@ -26,11 +29,21 @@ export default function Barge() {
             <h2>Why owning the barge matters.</h2>
             <p>Most of the delays in fresh water supply come from waiting on someone else's boat. We own Malik, so when you book water we plan the delivery around your ship, not around a third party's timetable.</p>
             <p>We also look after the barge ourselves, which means we know its condition and keep it to the standard our clients expect.</p>
-            <dl className="facts">{FACTS.map((f) => <div key={f.k}><dt>{f.k}</dt><dd>{f.v}</dd></div>)}</dl>
             <WaLink className="pill pill--wa" message="Hello Sea Shark, I need fresh water from Malik. Vessel: ... Location: ... Quantity: ...">
               <span className="dot" />Order water on WhatsApp
             </WaLink>
           </Reveal>
+        </div>
+      </section>
+      <section className="section section--navy">
+        <div className="wrap specs__in">
+          <Reveal className="head"><p className="tag">[ Malik at a glance ]</p><h2>The barge in numbers.</h2>
+            <p className="head__note">Exact figures are being confirmed with our operations team.</p></Reveal>
+          <dl className="specs">
+            {BARGE_SPECS.map((f, i) => (
+              <Reveal key={f.k} delay={i * 50}><dt>{f.k}</dt><dd>{f.v}{f.tbc && <Tbc />}</dd></Reveal>
+            ))}
+          </dl>
         </div>
       </section>
       <section className="section section--tint">
@@ -39,7 +52,7 @@ export default function Barge() {
           <div className="cards">
             {[
               ['Book ahead or same day', 'Tell us when your ship needs water and we plan Malik around it.'],
-              ['At anchor or alongside', 'We deliver to vessels at anchor or alongside at Khorfakkan and Fujairah.'],
+              ['Two ports', 'We deliver to ships at anchor at Khorfakkan and Fujairah. Alongside delivery is being confirmed.'],
               ['One contact', 'Message us on WhatsApp and the same team handles the job from start to finish.'],
             ].map(([t, x], i) => (
               <Reveal className="card" key={t} delay={i * 110}>
@@ -51,7 +64,7 @@ export default function Barge() {
           <p className="note">Ask us for capacity and availability on WhatsApp.</p>
         </div>
       </section>
-      <CtaBand title="Need fresh water for your ship?" message="Hello Sea Shark, I need fresh water from Malik. Vessel: ... Location: ... Quantity: ..." />
+      <CtaBand image={PHOTOS.shipRedSky} title="Need fresh water for your ship?" message="Hello Sea Shark, I need fresh water from Malik. Vessel: ... Location: ... Quantity: ..." />
     </>
   )
 }

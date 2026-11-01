@@ -1,4 +1,5 @@
-import { PHOTOS, VALUES, WHY, photo } from '../content.js'
+import { PHOTOS, VALUES, WHY, SAFETY, photo } from '../content.js'
+import { ServiceIcon } from '../components/Icons.jsx'
 import PageBanner from '../components/PageBanner.jsx'
 import Reveal from '../components/Reveal.jsx'
 import CtaBand from '../components/CtaBand.jsx'
@@ -6,8 +7,10 @@ import CtaBand from '../components/CtaBand.jsx'
 export default function About() {
   return (
     <>
-      <PageBanner image={PHOTOS.ropeDeck} tag="[ About us ]" title="Young company, experienced hands."
-        lead="A UAE marine services company built on local knowledge and our own vessel." crumbs={[{ label: 'About' }]} />
+      <PageBanner variant="editorial" image={PHOTOS.tankerDeckDusk} image2={PHOTOS.ropeDeck} tag="[ About us ]" title="Young company, experienced hands."
+        lead="A UAE marine services company built on local knowledge and our own vessel." crumbs={[{ label: 'About' }]}>
+        <p className="hb__since"><strong>2023</strong>founded, with 20+ years of combined marine experience behind it</p>
+      </PageBanner>
 
       <section className="section">
         <div className="wrap about">
@@ -24,7 +27,7 @@ export default function About() {
       </section>
 
       <section className="split">
-        <div className="split__img" style={{ '--img': `url(${photo(PHOTOS.tankerSunset, 1600)})` }} />
+        <div className="split__img" style={{ '--img': `url(${photo(PHOTOS.boatWake, 1600)})` }} />
         <div className="split__text">
           <Reveal>
             <p className="tag">[ Mission ]</p>
@@ -47,6 +50,20 @@ export default function About() {
         </div>
       </section>
 
+      <section className="section section--navy">
+        <div className="wrap">
+          <Reveal className="head head--row"><div><p className="tag">[ Safety ]</p><h2>Safety comes first, on every job.</h2></div>
+            <p className="head__note">Ships, crews and water: how we keep each one safe.</p></Reveal>
+          <div className="safety">
+            {SAFETY.map((x, i) => (
+              <Reveal className="safety__item" key={x.title} delay={i * 90}>
+                <span className="safety__icon"><ServiceIcon id="check" /></span><h3>{x.title}</h3><p>{x.text}</p>
+              </Reveal>
+            ))}
+          </div>
+        </div>
+      </section>
+
       <section className="section section--tint">
         <div className="wrap">
           <Reveal className="head"><p className="tag tag--dark">[ Our values ]</p><h2>How we work.</h2></Reveal>
@@ -57,7 +74,7 @@ export default function About() {
           </div>
         </div>
       </section>
-      <CtaBand />
+      <CtaBand variant="plain" title="Want to work with us?" text="Tell us about your ship and what it needs. We reply during office hours." />
     </>
   )
 }
