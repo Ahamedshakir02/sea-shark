@@ -56,10 +56,13 @@ export function startImageLoading(root) {
   }).observe(root, { childList: true, subtree: true, attributes: true, attributeFilter: ['style'] })
 }
 
-// The first big photo on screen, so the loader can wait for it (the caller caps the wait).
+// The photo at the top of the page, so the loader can wait for it (the caller caps the wait).
 export const firstPhoto = (root) => {
-  const el = root.querySelector('[style*="--img"]')
-  const url = el && urlOf(el)
+  const main = root.id === 'main' ? root : root.querySelector('#main') || root
+  const top = main.firstElementChild
+  if (!top) return Promise.resolve()
+  const bg = top.matches('[style*="--img"]') ? top : top.querySelector('[style*="--img"]')
+  const url = bg ? urlOf(bg) : (top.querySelector('img') || {}).src
   return url ? preload(url) : Promise.resolve()
 }
 
@@ -68,7 +71,7 @@ export function warmOtherPages() {
   const c = navigator.connection
   if (c && (c.saveData || /2g/.test(c.effectiveType || ''))) return
   // Same widths the page tops ask for, so the browser cache serves them later.
-  const tops = [[PHOTOS.bulkCarrierWake, 1400], [PHOTOS.bargeAerial, 2000], [PHOTOS.tankerDeckDusk, 1400],
+  const tops = [[PHOTOS.tugWaves, 1400], [PHOTOS.bargeAerial, 2000], [PHOTOS.tankerDeckDusk, 1400],
     ...SERVICES.map((s) => [s.banner, 1600])]
   const run = () => tops.filter(([id]) => id && id.startsWith('photo-')).forEach(([id, w], n) =>
     setTimeout(() => preload(photo(id, w)), n * 400))

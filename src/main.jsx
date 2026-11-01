@@ -7,10 +7,12 @@ import { createRoot } from 'react-dom/client'
 import { BrowserRouter } from 'react-router-dom'
 import App from './App.jsx'
 import './styles.css'
+import { startSwipeDots } from './swipe.js'
 import { startImageLoading, firstPhoto, warmOtherPages } from './imageLoading.js'
 
 const root = document.getElementById('root')
 startImageLoading(root)
+startSwipeDots(root)
 createRoot(root).render(
   <StrictMode>
     <BrowserRouter>
@@ -28,7 +30,7 @@ if (loader) {
     if (done) return
     done = true
     const wait = Math.max(0, 700 - (performance.now() - start))
-    setTimeout(() => { loader.classList.add('is-done'); setTimeout(() => loader.remove(), 700) }, wait)
+    setTimeout(() => loader.classList.add('is-done'), wait) // kept: it is reused on page changes
   }
   // Also wait for the first big photo, so the page opens with its photo already in place.
   const ready = () => Promise.all([document.fonts ? document.fonts.ready : null, firstPhoto(root)])
