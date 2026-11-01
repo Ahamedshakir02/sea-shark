@@ -524,3 +524,29 @@ img.fade.is-loaded{opacity:1}
 .wa-float{opacity:0;visibility:hidden;transform:translateY(14px) scale(.9);transition:opacity .35s ease,transform .35s cubic-bezier(.22,1,.36,1),visibility .35s}
 .wa-float.is-on{opacity:1;visibility:visible;transform:none}
 .wa-float.is-on:hover{transform:scale(1.06)}
+
+/* ---- Phone layout: easier to take in ----
+   Long stacks of cards become swipe rows (next card peeks in), spacing is tighter,
+   the footer is two columns. */
+@media (max-width:720px){
+  .section{padding:54px 0}
+  .intro{padding:54px 0 40px}
+  .head{margin-bottom:26px}
+  h2{font-size:clamp(1.65rem,7vw,2rem)}
+  .tiles,.steps,.steps--flow,.incl,.why,.why--two,.ports,.safety,.cards{
+    display:grid!important;grid-template-columns:none!important;grid-auto-flow:column;grid-auto-columns:84%;
+    gap:14px;overflow-x:auto;overscroll-behavior-x:contain;scroll-snap-type:x mandatory;
+    margin-inline:-20px;padding:4px 20px 6px;scroll-padding-inline:20px;scrollbar-width:none}
+  :is(.tiles,.steps,.steps--flow,.incl,.why,.why--two,.ports,.safety,.cards)::-webkit-scrollbar{display:none}
+  :is(.tiles,.steps,.steps--flow,.incl,.why,.why--two,.ports,.safety,.cards)>*{scroll-snap-align:start;min-width:0}
+  :is(.tiles,.steps,.steps--flow,.incl,.why,.why--two,.ports,.safety,.cards) :is(.reveal,.reveal img),
+  :is(.tiles,.steps,.steps--flow,.incl,.why,.why--two,.ports,.safety,.cards)>.reveal{opacity:1;transform:none;clip-path:none}
+  .tile{height:340px}
+  .swipe-dots{display:flex;justify-content:center;gap:7px;margin-top:16px}
+  .swipe-dots i{width:7px;height:7px;border-radius:7px;background:currentColor;opacity:.22;transition:width .3s,opacity .3s}
+  .swipe-dots i.on{width:22px;opacity:.8}
+  .foot{padding:50px 0 90px;margin-top:40px}
+  .foot__grid{grid-template-columns:1fr 1fr!important;gap:28px 18px;padding-bottom:30px}
+  .foot__grid>:first-child,.foot__grid>:last-child{grid-column:1/-1}
+}
+@media (min-width:721px){.swipe-dots{display:none}}
