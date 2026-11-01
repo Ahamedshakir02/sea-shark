@@ -14,7 +14,7 @@ export default function Services() {
   return (
     <>
       <PageBanner variant="split"
-        image={PHOTOS.bulkCarrierWake}
+        image={PHOTOS.tugWaves}
         tag="[ Services ]"
         title="Everything a ship needs on the east coast."
         lead="Fresh water from our own barge, crew boats arranged as your agent, and full ship agency at Khorfakkan and Fujairah."

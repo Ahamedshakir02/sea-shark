@@ -45,6 +45,7 @@ export const PHOTOS = {
   tankerAerialRed: 'photo-1582517378602-f109b395ce40',
   shipBlueSea: 'photo-1642864835712-a9e172ceeafe',
   tankerAerialGreen: 'photo-1699588999922-730553a918d0',
+  tugWaves: 'photo-1614894970666-40d6db9c7d55',
   shipFrontSea: 'photo-1598625802173-8ff2d54dde02',
   shipNight: 'photo-1502621737164-fb78cb47e276',
   shipRedSky: 'photo-1530890448995-4d82724f702c',
