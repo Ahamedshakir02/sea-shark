@@ -11,8 +11,14 @@ export const waLink = (text) =>
   `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(text)}`
 
 // Photos: free Unsplash images (hotlinked, sized per use) plus the client's own barge photo.
+// Width is capped to what this screen can show (larger side, for cover photos), so small screens download smaller files.
+const screenCap = () => {
+  if (typeof window === 'undefined') return 2000
+  const dpr = Math.min(window.devicePixelRatio || 1, 2)
+  return Math.ceil((Math.max(window.innerWidth, window.innerHeight) * dpr) / 200) * 200
+}
 export const photo = (id, w = 1600) =>
-  `https://images.unsplash.com/${id}?w=${w}&q=72&auto=format&fit=crop`
+  `https://images.unsplash.com/${id}?w=${Math.min(w, screenCap())}&q=60&auto=format&fit=crop`
 
 export const PHOTOS = {
   tankerSunset: 'photo-1496347326319-2935d381b307',
