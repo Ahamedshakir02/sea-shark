@@ -1,4 +1,4 @@
-import Tbc, { itemText } from '../components/Tbc.jsx'
+import { itemText } from '../components/Tbc.jsx'
 import { Link } from 'react-router-dom'
 import { SERVICES, PHOTOS, photo } from '../content.js'
 import { ServiceIcon } from '../components/Icons.jsx'
@@ -31,7 +31,7 @@ export default function Services() {
                 <span className="tile__num">0{i + 1} · {s.kicker}</span>
                 <h2>{s.title}</h2>
                 <p>{s.intro}</p>
-                <ul className="ticks">{s.includes.slice(0, 4).map((x) => <li key={itemText(x)}><ServiceIcon id="check" /><span>{itemText(x)}{x.tbc && <> <Tbc /></>}</span></li>)}</ul>
+                <ul className="ticks">{s.includes.slice(0, 4).map((x) => <li key={itemText(x)}><ServiceIcon id="check" /><span>{itemText(x)}</span></li>)}</ul>
                 <div className="feature__cta">
                   <Link className="pill pill--dark" to={`/services/${s.slug}`}>See details</Link>
                   <WaLink className="link" message={s.wa}>{s.cta} &rarr;</WaLink>

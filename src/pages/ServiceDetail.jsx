@@ -1,4 +1,4 @@
-import Tbc, { itemText } from '../components/Tbc.jsx'
+import { itemText } from '../components/Tbc.jsx'
 import { Link, useParams } from 'react-router-dom'
 import { SERVICES, STEPS, photo, PHONE_DISPLAY, PHONE_LINK } from '../content.js'
 import { ServiceIcon, WhatsAppIcon } from '../components/Icons.jsx'
@@ -28,7 +28,7 @@ export default function ServiceDetail() {
             <p className="detail__intro">{s.intro}</p>
             <h2>What's included</h2>
             <ul className="incl">{s.includes.map((x, i) => (
-              <li key={x.title}><span className="incl__n">{String(i + 1).padStart(2, '0')}</span><h3>{x.title}{x.tbc && <> <Tbc /></>}</h3><p>{x.text}</p></li>
+              <li key={x.title}><span className="incl__n">{String(i + 1).padStart(2, '0')}</span><h3>{x.title}</h3><p>{x.text}</p></li>
             ))}</ul>
           </Reveal>
           <aside className="detail__side">
@@ -66,7 +66,7 @@ export default function ServiceDetail() {
         <div className="wrap qa">
           <Reveal><p className="tag tag--dark">[ Quick answers ]</p><h2>Asked about {s.title.toLowerCase()}.</h2><Link className="link" to="/ports-and-faq">All questions &rarr;</Link></Reveal>
           <div className="faq">{s.faq.map((f, i) => (
-            <Reveal className="faq__item" key={f.q} delay={i * 80}><h3><span className="faq__n">0{i + 1}</span>{f.q}</h3><p>{f.a}{f.tbc && <> <Tbc /></>}</p></Reveal>
+            <Reveal className="faq__item" key={f.q} delay={i * 80}><h3><span className="faq__n">0{i + 1}</span>{f.q}</h3><p>{f.a}</p></Reveal>
           ))}</div>
         </div>
       </section>

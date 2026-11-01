@@ -3,7 +3,6 @@ import { ServiceIcon, WhatsAppIcon } from '../components/Icons.jsx'
 import PageBanner from '../components/PageBanner.jsx'
 import Reveal from '../components/Reveal.jsx'
 import WaLink from '../components/WaLink.jsx'
-import Tbc from '../components/Tbc.jsx'
 
 export default function PortsFaq() {
   return (
@@ -22,7 +21,7 @@ export default function PortsFaq() {
                 <div className="port__img"><img src={photo(p.photo, 900)} alt="" loading="lazy" decoding="async" /><span className="port__coords">{p.coords}</span></div>
                 <div className="port__body">
                   <h3>{p.name}</h3><p>{p.lead}</p>
-                  <ul className="ticks">{p.work.map((w) => <li key={w.text}><ServiceIcon id="check" /><span>{w.text}{w.tbc && <> <Tbc /></>}</span></li>)}</ul>
+                  <ul className="ticks">{p.work.map((w) => <li key={w.text}><ServiceIcon id="check" /><span>{w.text}</span></li>)}</ul>
                 </div>
               </Reveal>
             ))}
@@ -32,7 +31,7 @@ export default function PortsFaq() {
             <table>
               <thead><tr><th>Service</th><th>Khorfakkan</th><th>Fujairah</th></tr></thead>
               <tbody>{PORT_TABLE.map((r) => (
-                <tr key={r.service}><td>{r.service}</td>{[r.khorfakkan, r.fujairah].map((v, i) => <td key={i}>{v === 'yes' ? <span className="ptable__yes"><ServiceIcon id="check" />Yes</span> : <Tbc />}</td>)}</tr>
+                <tr key={r.service}><td>{r.service}</td>{[r.khorfakkan, r.fujairah].map((v, i) => <td key={i}>{v === 'yes' ? <span className="ptable__yes"><ServiceIcon id="check" />Yes</span> : '-'}</td>)}</tr>
               ))}</tbody>
             </table>
           </Reveal>
@@ -50,7 +49,7 @@ export default function PortsFaq() {
             {FAQ.map((f, i) => (
               <Reveal className="faq__item" key={f.q} delay={i * 50}>
                 <h3><span className="faq__n">{String(i + 1).padStart(2, '0')}</span>{f.q}</h3>
-                <p>{f.a}{f.tbc && <> <Tbc /></>}</p>
+                <p>{f.a}</p>
               </Reveal>
             ))}
           </div>

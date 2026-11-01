@@ -133,7 +133,7 @@ export default function Home() {
           </div>
           <Reveal className="faq-peek">
             <p className="tag tag--dark">[ Quick answers ]</p>
-            {FAQ.filter((f) => !f.tbc).slice(0, 3).map((f) => <div className="faq-peek__item" key={f.q}><h3>{f.q}</h3><p>{f.a}</p></div>)}
+            {FAQ.slice(0, 3).map((f) => <div className="faq-peek__item" key={f.q}><h3>{f.q}</h3><p>{f.a}</p></div>)}
             <Link className="more" to="/ports-and-faq">All questions <ServiceIcon id="arrow" /></Link>
           </Reveal>
         </div>
