@@ -17,7 +17,7 @@ export default function Services() {
         image={PHOTOS.tugWaves}
         tag="[ Services ]"
         title="Everything a ship needs on the east coast."
-        lead="Fresh water from our own barge, crew boats arranged as your agent, and full ship agency at Khorfakkan and Fujairah."
+        lead="Fresh water from our own barge, crew boats arranged as your agent, and full ship agency at Khorfakkan."
         crumbs={[{ label: 'Services' }]}>
         <ol className="hb__index">{SERVICES.map((s, i) => <li key={s.slug}><Link to={`/services/${s.slug}`}><span>0{i + 1}</span>{s.title}<ServiceIcon id="arrow" /></Link></li>)}</ol>
       </PageBanner>
@@ -34,7 +34,7 @@ export default function Services() {
                 <ul className="ticks">{s.includes.slice(0, 4).map((x) => <li key={itemText(x)}><ServiceIcon id="check" /><span>{itemText(x)}</span></li>)}</ul>
                 <div className="feature__cta">
                   <Link className="pill pill--dark" to={`/services/${s.slug}`}>See details</Link>
-                  <WaLink className="link" message={s.wa}>{s.cta} &rarr;</WaLink>
+                  <WaLink className="link" message={s.wa} number={s.number}>{s.cta} &rarr;</WaLink>
                 </div>
               </Reveal>
             </div>

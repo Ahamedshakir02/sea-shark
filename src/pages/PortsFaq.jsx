@@ -8,13 +8,13 @@ export default function PortsFaq() {
   return (
     <>
       <PageBanner variant="navy" tag="[ Ports & FAQ ]" title="Where we work, and what ships ask us."
-        lead="Two ports on the UAE east coast, and straight answers to the questions we hear most." crumbs={[{ label: 'Ports & FAQ' }]}>
+        lead="Khorfakkan on the UAE east coast, and straight answers to the questions we hear most." crumbs={[{ label: 'Ports & FAQ' }]}>
         <div className="hb__coords">{PORTS.map((p) => <a key={p.id} href={`#${p.id}`}><ServiceIcon id="pin" /><span><strong>{p.name}</strong>{p.coords}</span></a>)}</div>
       </PageBanner>
       <section className="section">
         <div className="wrap">
-          <Reveal className="head head--row"><div><p className="tag tag--dark">[ Our ports ]</p><h2>Two ports, one team.</h2></div>
-            <p className="head__note">Khorfakkan and Fujairah sit on the same coast, on the Gulf of Oman, and the same team covers both.</p></Reveal>
+          <Reveal className="head head--row"><div><p className="tag tag--dark">[ Our ports ]</p><h2>Khorfakkan, on the Gulf of Oman.</h2></div>
+            <p className="head__note">One port, covered by one team from the first message to the moment the ship sails.</p></Reveal>
           <div className="ports">
             {PORTS.map((p, i) => (
               <Reveal className="port" id={p.id} key={p.id} delay={i * 120}>
@@ -27,11 +27,11 @@ export default function PortsFaq() {
             ))}
           </div>
           <Reveal className="ptable">
-            <h3>What we do at each port</h3>
+            <h3>What we do at Khorfakkan</h3>
             <table>
-              <thead><tr><th>Service</th><th>Khorfakkan</th><th>Fujairah</th></tr></thead>
+              <thead><tr><th>Service</th><th>Khorfakkan</th></tr></thead>
               <tbody>{PORT_TABLE.map((r) => (
-                <tr key={r.service}><td>{r.service}</td>{[r.khorfakkan, r.fujairah].map((v, i) => <td key={i}>{v === 'yes' ? <span className="ptable__yes"><ServiceIcon id="check" />Yes</span> : '-'}</td>)}</tr>
+                <tr key={r.service}><td>{r.service}</td>{[r.khorfakkan].map((v, i) => <td key={i}>{v === 'yes' ? <span className="ptable__yes"><ServiceIcon id="check" />Yes</span> : '-'}</td>)}</tr>
               ))}</tbody>
             </table>
           </Reveal>

@@ -7,14 +7,17 @@ export default function CtaBand({
   text = "Send us your vessel name and location on WhatsApp, and we'll sort it out.",
   message = 'Hello Sea Shark, I have an enquiry.',
   variant,
+  number,
+  phone = PHONE_DISPLAY,
+  phoneLink = PHONE_LINK,
   image = PHOTOS.stormSunset,
 }) {
   if (variant === 'plain') return (
     <section className="band band--plain"><div className="wrap band__plain">
       <h2>{title}</h2><p>{text}</p>
       <div className="band__cta">
-        <WaLink className="pill pill--wa" message={message}><span className="wa-ic"><WhatsAppIcon /></span>Message us on WhatsApp</WaLink>
-        <a className="pill pill--outline" href={PHONE_LINK}>Call {PHONE_DISPLAY}</a>
+        <WaLink className="pill pill--wa" message={message} number={number}><span className="wa-ic"><WhatsAppIcon /></span>Message us on WhatsApp</WaLink>
+        <a className="pill pill--outline" href={phoneLink}>Call {phone}</a>
       </div>
     </div></section>
   )
@@ -25,8 +28,8 @@ export default function CtaBand({
           <h2>{title}</h2>
           <p>{text}</p>
           <div className="band__cta">
-            <WaLink className="pill pill--light" message={message}><span className="wa-ic"><WhatsAppIcon /></span>Message us on WhatsApp</WaLink>
-            <a className="pill pill--ghost" href={PHONE_LINK}>Call {PHONE_DISPLAY}</a>
+            <WaLink className="pill pill--light" message={message} number={number}><span className="wa-ic"><WhatsAppIcon /></span>Message us on WhatsApp</WaLink>
+            <a className="pill pill--ghost" href={phoneLink}>Call {phone}</a>
           </div>
         </div>
       </div>

@@ -36,7 +36,7 @@ export default function ServiceDetail() {
               <h3>What to send us</h3>
               <p>Put these in your WhatsApp message and we can confirm faster:</p>
               <ol>{s.send.map((x) => <li key={x}>{x}</li>)}</ol>
-              <WaLink className="pill pill--wa" message={s.wa}><span className="wa-ic"><WhatsAppIcon /></span>{s.cta}</WaLink>
+              <WaLink className="pill pill--wa" message={s.wa} number={s.number}><span className="wa-ic"><WhatsAppIcon /></span>{s.cta}</WaLink>
             </Reveal>
           </aside>
         </div>
@@ -44,8 +44,8 @@ export default function ServiceDetail() {
 
       <section className="urgent">
         <div className="wrap urgent__in">
-          <p><strong>{s.urgent}</strong> Call us during office hours (Mon to Fri 9 to 5, Sat 9 to 1) or send a WhatsApp message.</p>
-          <div className="urgent__cta"><a className="pill pill--light" href={PHONE_LINK}>Call {PHONE_DISPLAY}</a><WaLink className="pill pill--ghost" message={s.wa}>WhatsApp us</WaLink></div>
+          <p><strong>{s.urgent}</strong> Our crews work 24 hours. Call us or send a WhatsApp message.</p>
+          <div className="urgent__cta"><a className="pill pill--light" href={s.phoneLink || PHONE_LINK}>Call {s.phone || PHONE_DISPLAY}</a><WaLink className="pill pill--ghost" message={s.wa} number={s.number}>WhatsApp us</WaLink></div>
         </div>
       </section>
 
@@ -86,7 +86,7 @@ export default function ServiceDetail() {
           </div>
         </div>
       </section>
-      <CtaBand message={s.wa} image={s.band} />
+      <CtaBand message={s.wa} number={s.number} phone={s.phone} phoneLink={s.phoneLink} image={s.band} />
     </>
   )
 }

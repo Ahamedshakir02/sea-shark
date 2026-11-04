@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom'
-import { PHONE_DISPLAY, PHONE_LINK, SERVICES, STATS, STEPS, PLACES, PHOTOS, WHY, FAQ, photo } from '../content.js'
+import { PHONE_DISPLAY, PHONE_LINK, SERVICES, STATS, STEPS, PLACES, PHOTOS, WHY, FAQ, photo, WATER_MESSAGE } from '../content.js'
 import { ServiceIcon, WhatsAppIcon } from '../components/Icons.jsx'
 import Reveal from '../components/Reveal.jsx'
 import CountUp from '../components/CountUp.jsx'
@@ -16,14 +16,14 @@ export default function Home() {
       <section className="hero" style={{ '--img': `url(${photo(PHOTOS.tankerSunset, 2200)})` }}>
         <div className="hero__shade" />
         <div className="wrap hero__in">
-          <p className="tag hero__a">[ Khorfakkan · Fujairah · UAE ]</p>
+          <p className="tag hero__a">[ Khorfakkan Port · UAE ]</p>
           <h1 className="words" aria-label={HEADLINE}>
             {HEADLINE.split(' ').map((w, i) => (
               <span key={i} aria-hidden="true"><span style={{ '--d': `${120 + i * 55}ms` }}>{w}</span></span>
             ))}
           </h1>
           <p className="hero__lead hero__a" style={{ '--d': '800ms' }}>
-            We run our own water barge, Malik, and act as your agent at Khorfakkan and Fujairah. Send us your vessel name and what you need on WhatsApp, and we take it from there.
+            We run our own water barge, Malik, and act as your agent at Khorfakkan. Send us your vessel name and what you need on WhatsApp, and we take it from there.
           </p>
           <div className="hero__cta hero__a" style={{ '--d': '950ms' }}>
             <WaLink className="pill pill--light" message="Hello Sea Shark, I need help with a vessel. Vessel name: ... Port: ...">
@@ -78,10 +78,10 @@ export default function Home() {
           <Reveal className="feature__text" delay={120}>
             <p className="tag tag--dark">[ Our barge ]</p>
             <h2>Meet Malik.</h2>
-            <p>Malik is our own fresh water barge. It delivers clean drinking water to ships at Khorfakkan and Fujairah. Because the barge is ours, we control the schedule, the upkeep and the standard of every delivery.</p>
+            <p>Malik is our own fresh water barge. It delivers clean drinking water to ships at Khorfakkan. Because the barge is ours, we control the schedule, the upkeep and the standard of every delivery.</p>
             <div className="feature__cta">
               <Link className="pill pill--dark" to="/our-barge">About the barge</Link>
-              <WaLink className="link" message="Hello Sea Shark, I need fresh water from Malik. Vessel: ... Location: ... Quantity: ...">Order water on WhatsApp &rarr;</WaLink>
+              <WaLink className="link" message={WATER_MESSAGE}>Check water availability &rarr;</WaLink>
             </div>
           </Reveal>
         </div>
@@ -106,7 +106,7 @@ export default function Home() {
         <div className="wrap">
           <Reveal className="head head--row">
             <div><p className="tag">[ Where we work ]</p><h2>On the UAE east coast.</h2></div>
-            <p className="head__note">Two ports for our ships, two offices for our clients.</p>
+            <p className="head__note">Khorfakkan for our ships, Sharjah and Dubai for our clients.</p>
           </Reveal>
           <div className="places">
             {PLACES.map((p, i) => (

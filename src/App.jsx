@@ -15,7 +15,7 @@ import NotFound from './pages/NotFound.jsx'
 import PortsFaq from './pages/PortsFaq.jsx'
 
 const TITLES = {
-  '/': 'Sea Shark Shipping Services LLC | Khorfakkan & Fujairah, UAE',
+  '/': 'Sea Shark Shipping Services LLC | Khorfakkan, UAE',
   '/services': 'Services | Sea Shark Shipping',
   '/services/fresh-water': 'Fresh water supply | Sea Shark Shipping',
   '/services/crew-boats': 'Crew boat service | Sea Shark Shipping',

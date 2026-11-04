@@ -577,3 +577,23 @@ img.fade.is-loaded{opacity:1}
 @media (max-width:720px){.row__img,.row--flip .row__img{order:2}}
 /* Grid columns must not grow wider than the screen because of a swipe row inside them */
 .detail>*,.detail__main,.detail__side,.row>*,.about>*,.contact-grid>*{min-width:0}
+
+/* Client logo (transparent PNG): light version on dark tops and footer, dark version on white */
+.logo__img{display:block;height:44px;width:auto}
+.logo__img--dark{display:none}
+.nav.is-solid .logo__img--light,.nav--ink .logo__img--light{display:none}
+.nav.is-solid .logo__img--dark,.nav--ink .logo__img--dark{display:block}
+.logo--foot .logo__img{height:56px}
+@media (max-width:720px){.logo__img{height:34px}.logo--foot .logo__img{height:46px}}
+/* One port (Khorfakkan) and three places: layouts sized to match */
+.places{grid-template-columns:repeat(3,1fr)}
+.ports{grid-template-columns:1fr}
+.port{display:grid;grid-template-columns:1.1fr 1fr;align-items:stretch}
+.port__img{height:100%}.port__img img{height:100%;min-height:320px;aspect-ratio:auto}
+@media (max-width:1024px){.places{grid-template-columns:1fr 1fr 1fr}}
+@media (max-width:720px){.places{grid-template-columns:1fr}.ports{grid-auto-columns:100%;margin-inline:0;padding-inline:0}.port{grid-template-columns:1fr}.port__img img{min-height:0;aspect-ratio:16/9}}
+.hours--box{background:none;padding:6px 0 0;max-width:420px;gap:10px}
+.hours--box div{border-bottom:1px solid var(--line);padding-bottom:10px}
+.hours--box div:last-child{border-bottom:0;padding-bottom:0}
+.foot__hours{display:flex;flex-direction:column;gap:2px;margin-top:6px}
+.foot__hours span:first-child{opacity:.7;font-size:.85em}
