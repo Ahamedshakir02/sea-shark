@@ -35,7 +35,7 @@ export default function Nav() {
     <header className={`nav${solid ? ' is-solid' : ''}${LIGHT_TOP.includes(pathname) ? ' nav--ink' : ''}`}>
       <div className="wrap nav__in">
         <Link className="logo" to="/" aria-label="Sea Shark Shipping, home">
-          <img className="logo__img logo__img--light" src="/logo-light.png" alt="Sea Shark Shipping Services" width="992" height="197" />
+          <img className="logo__img logo__img--light" src="/logo-light.png" alt="Sea Shark Shipping Services LLC" width="992" height="197" />
           <img className="logo__img logo__img--dark" src="/logo.png" alt="" aria-hidden="true" width="992" height="197" />
         </Link>
         <button className="nav__toggle" aria-expanded={open} aria-controls="menu" onClick={() => setOpen(!open)}>
