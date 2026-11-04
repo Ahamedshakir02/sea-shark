@@ -34,7 +34,7 @@ export default function Services() {
                 <ul className="ticks">{s.includes.slice(0, 4).map((x) => <li key={itemText(x)}><ServiceIcon id="check" /><span>{itemText(x)}</span></li>)}</ul>
                 <div className="feature__cta">
                   <Link className="pill pill--dark" to={`/services/${s.slug}`}>See details</Link>
-                  <WaLink className="link" message={s.wa}>{s.cta} &rarr;</WaLink>
+                  <WaLink className="link" message={s.wa} number={s.number}>{s.cta} &rarr;</WaLink>
                 </div>
               </Reveal>
             </div>

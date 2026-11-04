@@ -1,14 +1,21 @@
 // All business details and page copy in one place, so updates never touch the layout.
 // Only facts the client has confirmed go here: no invented numbers, reviews or 24/7 claims.
 
-export const WHATSAPP_NUMBER = '971566735968'
-export const PHONE_DISPLAY = '+971 56 673 5968'
-export const PHONE_LINK = 'tel:+971566735968'
+// Main line: fresh water and crew boats.
+export const WHATSAPP_NUMBER = '971545439022'
+export const PHONE_DISPLAY = '+971 54 543 9022'
+export const PHONE_LINK = 'tel:+971545439022'
+// Ship agency line.
+export const AGENT_WHATSAPP = '971566735968'
+export const AGENT_PHONE_DISPLAY = '+971 56 673 5968'
+export const AGENT_PHONE_LINK = 'tel:+971566735968'
 export const EMAIL = 'ops@seasharkuae.com'
-export const HOURS = 'Mon to Fri 9am to 5pm · Sat 9am to 1pm · Sun closed'
 
-export const waLink = (text) =>
-  `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(text)}`
+// Clients usually open with this question, so the message starts with it.
+export const WATER_MESSAGE = 'Hello Sea Shark, is fresh water available? Vessel: ... Location: ... Quantity: ... When: ...'
+
+export const waLink = (text, number = WHATSAPP_NUMBER) =>
+  `https://wa.me/${number}?text=${encodeURIComponent(text)}`
 
 // Photos: free Unsplash images (hotlinked, sized per use) plus the client's own barge photo.
 // Width is capped to what this screen can show (larger side, for cover photos), so small screens download smaller files.
@@ -90,8 +97,8 @@ export const SERVICES = [
       { title: 'Signed off', text: 'Paperwork signed and the barge casts off.' },
     ],
     send: ['Vessel name and IMO', 'Position (port, berth or anchorage)', 'Quantity of water', 'Date and time needed', 'Agent or master contact'],
-    wa: 'Hello Sea Shark, I need fresh water. Vessel: ... Position: ... Quantity: ... When: ...',
-    cta: 'Order water on WhatsApp',
+    wa: WATER_MESSAGE,
+    cta: 'Check water availability',
     urgent: 'Need water today?',
     faq: [
       { q: 'Do you deliver water to ships at anchor?', a: 'Yes. Malik takes water out to ships at anchor at Khorfakkan.' },
@@ -130,6 +137,9 @@ export const SERVICES = [
     send: ['Vessel name and IMO', 'Port and ETA', 'What the call involves', 'Owner or operator contact'],
     wa: 'Hello Sea Shark, I need ship agency support. Vessel: ... Port: ... ETA: ...',
     cta: 'Appoint us as agent',
+    number: AGENT_WHATSAPP,
+    phone: AGENT_PHONE_DISPLAY,
+    phoneLink: AGENT_PHONE_LINK,
     urgent: 'Ship arriving soon?',
     faq: [
       { q: 'Which port do you cover?', a: 'Khorfakkan, on the UAE east coast.' },
@@ -189,7 +199,7 @@ export const STEPS = [
 
 export const PLACES = [
   { name: 'Khorfakkan Port', type: 'Port', text: 'Fresh water, crew boats and agency for ships calling at Khorfakkan.' },
-  { name: 'Al Fisht 1, Sharjah', type: 'Office', text: 'Our Sharjah office. Open Mon to Fri 9 to 5, Sat 9 to 1.' },
+  { name: 'Al Fisht 1, Sharjah', type: 'Office', text: 'Our Sharjah office. Open 9 AM to 5 PM.' },
   { name: "Al Bada'a, Dubai", type: 'Office', text: 'Our Dubai office.' },
 ]
 
@@ -208,16 +218,16 @@ export const WHY = [
 ]
 
 export const CONTACTS = [
-  { label: 'Phone', text: PHONE_DISPLAY, href: PHONE_LINK },
+  { label: 'Fresh water and crew boats', text: PHONE_DISPLAY, href: PHONE_LINK },
+  { label: 'Ship agency', text: AGENT_PHONE_DISPLAY, href: AGENT_PHONE_LINK },
   { label: 'Operations email', text: EMAIL, href: `mailto:${EMAIL}` },
   { label: 'Sharjah office', text: 'Al Fisht 1, Sharjah', href: 'https://maps.google.com/?q=Al+Fisht+1+Sharjah', external: true },
   { label: 'Dubai office', text: "Al Bada'a, Dubai", href: "https://maps.google.com/?q=Al+Bada'a+Dubai", external: true },
 ]
 
 export const HOURS_ROWS = [
-  ['Monday to Friday', '9:00 to 17:00'],
-  ['Saturday', '9:00 to 13:00'],
-  ['Sunday', 'Closed'],
+  ['Office', '9 AM to 5 PM'],
+  ['Crews', '24 hours'],
 ]
 
 export const PORTS = [
@@ -247,7 +257,7 @@ export const FAQ = [
   { q: 'Can you deliver to ships alongside?', a: 'Ask us on WhatsApp for your berth and we will confirm.' },
   { q: 'Do you own crew boats?', a: 'No. We own one vessel, the water barge Malik. For crew boats we act as your agent and book the right boat for the job.' },
   { q: 'Can you arrange a crew change?', a: 'We arrange the boat out to the ship. Message us on WhatsApp with the details and we will tell you what else we can handle.' },
-  { q: 'What are your office hours?', a: 'Monday to Friday 9:00 to 17:00, Saturday 9:00 to 13:00, closed Sunday.' },
+  { q: 'What are your working hours?', a: 'The office is open 9 AM to 5 PM. Our crews work 24 hours.' },
   { q: 'How do we pay?', a: 'We agree payment terms with you before the job.' },
 ]
 

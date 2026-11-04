@@ -1,4 +1,4 @@
-import { PHOTOS, BARGE_SPECS } from '../content.js'
+import { PHOTOS, BARGE_SPECS, WATER_MESSAGE } from '../content.js'
 import { ServiceIcon, WhatsAppIcon } from '../components/Icons.jsx'
 import PageBanner from '../components/PageBanner.jsx'
 import Reveal from '../components/Reveal.jsx'
@@ -28,8 +28,8 @@ export default function Barge() {
             <h2>Why owning the barge matters.</h2>
             <p>Most of the delays in fresh water supply come from waiting on someone else's boat. We own Malik, so when you book water we plan the delivery around your ship, not around a third party's timetable.</p>
             <p>We also look after the barge ourselves, which means we know its condition and keep it to the standard our clients expect.</p>
-            <WaLink className="pill pill--wa" message="Hello Sea Shark, I need fresh water from Malik. Vessel: ... Location: ... Quantity: ...">
-              <span className="wa-ic"><WhatsAppIcon /></span>Order water on WhatsApp
+            <WaLink className="pill pill--wa" message={WATER_MESSAGE}>
+              <span className="wa-ic"><WhatsAppIcon /></span>Check water availability
             </WaLink>
           </Reveal>
         </div>
@@ -63,7 +63,7 @@ export default function Barge() {
           <p className="note">Ask us for capacity and availability on WhatsApp.</p>
         </div>
       </section>
-      <CtaBand image={PHOTOS.shipRedSky} title="Need fresh water for your ship?" message="Hello Sea Shark, I need fresh water from Malik. Vessel: ... Location: ... Quantity: ..." />
+      <CtaBand image={PHOTOS.shipRedSky} title="Need fresh water for your ship?" message={WATER_MESSAGE} />
     </>
   )
 }

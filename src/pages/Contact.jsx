@@ -1,4 +1,4 @@
-import { CONTACTS, HOURS, SERVICES, PHOTOS } from '../content.js'
+import { CONTACTS, HOURS_ROWS, SERVICES, PHOTOS } from '../content.js'
 import { WhatsAppIcon } from '../components/Icons.jsx'
 import PageBanner from '../components/PageBanner.jsx'
 import Reveal from '../components/Reveal.jsx'
@@ -12,7 +12,7 @@ export default function Contact() {
         crumbs={[{ label: 'Contact' }]}>
         <div className="quick hb__quick">
           {SERVICES.map((s) => (
-            <WaLink key={s.slug} className="quick__btn" message={s.wa}><span className="wa-ic"><WhatsAppIcon /></span><span><small>WhatsApp</small>{s.cta}</span></WaLink>
+            <WaLink key={s.slug} className="quick__btn" message={s.wa} number={s.number}><span className="wa-ic"><WhatsAppIcon /></span><span><small>WhatsApp</small>{s.cta}</span></WaLink>
           ))}
         </div>
       </PageBanner>
@@ -25,7 +25,7 @@ export default function Contact() {
                 <a href={c.href} {...(c.external ? { target: '_blank', rel: 'noopener' } : {})}>{c.text}</a>
               </Reveal>
             ))}
-            <Reveal className="box box--wide"><p>Office hours (Sharjah)</p><span>{HOURS}</span></Reveal>
+            <Reveal className="box"><p>Working hours</p><dl className="hours hours--box">{HOURS_ROWS.map(([d, t]) => <div key={d}><dt>{d}</dt><dd>{t}</dd></div>)}</dl></Reveal>
           </div>
           <Reveal className="map">
             <iframe title="Map of Khorfakkan Port" loading="lazy" referrerPolicy="no-referrer-when-downgrade"

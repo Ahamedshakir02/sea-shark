@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom'
-import { PHONE_DISPLAY, PHONE_LINK, SERVICES, STATS, STEPS, PLACES, PHOTOS, WHY, FAQ, photo } from '../content.js'
+import { PHONE_DISPLAY, PHONE_LINK, SERVICES, STATS, STEPS, PLACES, PHOTOS, WHY, FAQ, photo, WATER_MESSAGE } from '../content.js'
 import { ServiceIcon, WhatsAppIcon } from '../components/Icons.jsx'
 import Reveal from '../components/Reveal.jsx'
 import CountUp from '../components/CountUp.jsx'
@@ -81,7 +81,7 @@ export default function Home() {
             <p>Malik is our own fresh water barge. It delivers clean drinking water to ships at Khorfakkan. Because the barge is ours, we control the schedule, the upkeep and the standard of every delivery.</p>
             <div className="feature__cta">
               <Link className="pill pill--dark" to="/our-barge">About the barge</Link>
-              <WaLink className="link" message="Hello Sea Shark, I need fresh water from Malik. Vessel: ... Location: ... Quantity: ...">Order water on WhatsApp &rarr;</WaLink>
+              <WaLink className="link" message={WATER_MESSAGE}>Check water availability &rarr;</WaLink>
             </div>
           </Reveal>
         </div>
