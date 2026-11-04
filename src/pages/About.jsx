@@ -1,4 +1,4 @@
-import { PHOTOS, VALUES, WHY, SAFETY, photo } from '../content.js'
+import { PHOTOS, VALUES, WHY, SAFETY, PRINCIPLES, photo } from '../content.js'
 import { ServiceIcon } from '../components/Icons.jsx'
 import PageBanner from '../components/PageBanner.jsx'
 import Reveal from '../components/Reveal.jsx'
@@ -50,6 +50,18 @@ export default function About() {
         </div>
       </section>
 
+      <section className="section section--tint">
+        <div className="wrap">
+          <Reveal className="head"><p className="tag tag--dark">[ Our promise ]</p><h2>What you can expect from us.</h2></Reveal>
+          <ol className="steps">
+            {PRINCIPLES.map((st, i) => (
+              <Reveal as="li" key={st.title} delay={i * 110}>
+                <span className="steps__n">0{i + 1}</span><h3>{st.title}</h3><p>{st.text}</p>
+              </Reveal>
+            ))}
+          </ol>
+        </div>
+      </section>
       <section className="section section--navy">
         <div className="wrap">
           <Reveal className="head head--row"><div><p className="tag">[ Safety ]</p><h2>Safety comes first, on every job.</h2></div>

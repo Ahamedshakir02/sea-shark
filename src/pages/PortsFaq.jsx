@@ -1,4 +1,4 @@
-import { PORTS, FAQ, PHOTOS, HOURS_ROWS, PORT_TABLE, photo } from '../content.js'
+import { PORTS, FAQ, PHOTOS, HOURS_ROWS, PORT_TABLE, CALL_TIPS, photo } from '../content.js'
 import { ServiceIcon, WhatsAppIcon } from '../components/Icons.jsx'
 import PageBanner from '../components/PageBanner.jsx'
 import Reveal from '../components/Reveal.jsx'
@@ -35,6 +35,18 @@ export default function PortsFaq() {
               ))}</tbody>
             </table>
           </Reveal>
+        </div>
+      </section>
+      <section className="section">
+        <div className="wrap">
+          <Reveal className="head"><p className="tag tag--dark">[ Planning a call ]</p><h2>Getting the most from your call at Khorfakkan.</h2></Reveal>
+          <div className="why">
+            {CALL_TIPS.map((w, i) => (
+              <Reveal className="why__item" key={w.title} delay={i * 90}>
+                <span className="steps__n">0{i + 1}</span><h3>{w.title}</h3><p>{w.text}</p>
+              </Reveal>
+            ))}
+          </div>
         </div>
       </section>
       <section className="section section--tint">
