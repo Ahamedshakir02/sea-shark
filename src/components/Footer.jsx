@@ -6,7 +6,7 @@ export default function Footer() {
     <footer className="foot">
       <div className="wrap foot__grid">
         <div>
-          <Link className="logo logo--foot" to="/" aria-label="Sea Shark Shipping Services, home"><img className="logo__img" src="/logo-light.png" alt="Sea Shark Shipping Services LLC" width="992" height="197" /></Link>
+          <Link className="logo logo--foot" to="/" aria-label="Sea Shark Shipping Services, home"><img className="logo__img" src="/logo-light.png" alt="Sea Shark Shipping Services LLC" width="992" height="211" /></Link>
           <p className="foot__about">Fresh water supply, crew boats and ship agency at Khorfakkan, UAE.</p>
         </div>
         <div>
