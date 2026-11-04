@@ -1,14 +1,13 @@
 import { Link } from 'react-router-dom'
 import { NAV, SERVICES, PHONE_DISPLAY, PHONE_LINK, EMAIL, HOURS } from '../content.js'
-import { LogoMark } from './Icons.jsx'
 
 export default function Footer() {
   return (
     <footer className="foot">
       <div className="wrap foot__grid">
         <div>
-          <Link className="logo logo--foot" to="/"><LogoMark /><span>Sea Shark<small>Shipping Services LLC</small></span></Link>
-          <p className="foot__about">Fresh water supply, crew boats and ship agency at Khorfakkan and Fujairah, UAE.</p>
+          <Link className="logo logo--foot" to="/" aria-label="Sea Shark Shipping Services, home"><img className="logo__img" src="/logo-light.png" alt="Sea Shark Shipping Services" width="992" height="197" /></Link>
+          <p className="foot__about">Fresh water supply, crew boats and ship agency at Khorfakkan, UAE.</p>
         </div>
         <div>
           <h4>Pages</h4>

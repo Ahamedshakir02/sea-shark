@@ -1,7 +1,6 @@
 import { useEffect, useState } from 'react'
 import { Link, NavLink, useLocation } from 'react-router-dom'
 import { NAV } from '../content.js'
-import { LogoMark, WhatsAppIcon } from './Icons.jsx'
 import WaLink from './WaLink.jsx'
 
 // Pages whose top section is light, so the header text starts dark
@@ -36,8 +35,8 @@ export default function Nav() {
     <header className={`nav${solid ? ' is-solid' : ''}${LIGHT_TOP.includes(pathname) ? ' nav--ink' : ''}`}>
       <div className="wrap nav__in">
         <Link className="logo" to="/" aria-label="Sea Shark Shipping, home">
-          <LogoMark />
-          <span>Sea Shark<small>Shipping Services LLC</small></span>
+          <img className="logo__img logo__img--light" src="/logo-light.png" alt="Sea Shark Shipping Services" width="992" height="197" />
+          <img className="logo__img logo__img--dark" src="/logo.png" alt="" aria-hidden="true" width="992" height="197" />
         </Link>
         <button className="nav__toggle" aria-expanded={open} aria-controls="menu" onClick={() => setOpen(!open)}>
           {open ? 'Close' : 'Menu'}
