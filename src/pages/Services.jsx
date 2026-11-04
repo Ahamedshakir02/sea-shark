@@ -17,7 +17,7 @@ export default function Services() {
         image={PHOTOS.tugWaves}
         tag="[ Services ]"
         title="Everything a ship needs on the east coast."
-        lead="Fresh water from our own barge, crew boats arranged as your agent, and full ship agency at Khorfakkan and Fujairah."
+        lead="Fresh water from our own barge, crew boats arranged as your agent, and full ship agency at Khorfakkan."
         crumbs={[{ label: 'Services' }]}>
         <ol className="hb__index">{SERVICES.map((s, i) => <li key={s.slug}><Link to={`/services/${s.slug}`}><span>0{i + 1}</span>{s.title}<ServiceIcon id="arrow" /></Link></li>)}</ol>
       </PageBanner>

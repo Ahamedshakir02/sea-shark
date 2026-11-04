@@ -70,15 +70,15 @@ export const SERVICES = [
     band: PHOTOS.wakeAerial,
     title: 'Fresh water supply',
     kicker: 'Our own barge',
-    short: 'Drinking water delivered by Malik, the barge we own and run, to ships at Khorfakkan and Fujairah.',
+    short: 'Drinking water delivered by Malik, the barge we own and run, to ships at Khorfakkan.',
     banner: PHOTOS.tankerAerial,
     intro:
-      'Running low on fresh water should never hold a ship up. Malik, our own water barge, brings drinking water out to vessels at Khorfakkan and Fujairah. Because we own the barge, we plan the delivery around your ship, not around someone else\'s timetable.',
+      'Running low on fresh water should never hold a ship up. Malik, our own water barge, brings drinking water out to vessels at Khorfakkan. Because we own the barge, we plan the delivery around your ship, not around someone else\'s timetable.',
     includes: [
       { title: 'Our own barge', text: 'Every delivery is made by Malik, which we own and look after ourselves.' },
       { title: 'At anchor', text: 'We take the water out to ships waiting at anchor.' },
       { title: 'Alongside on request', text: 'Ship at a berth? Ask us on WhatsApp and we will tell you what we can arrange.' },
-      { title: 'Two ports', text: 'Deliveries at Khorfakkan and Fujairah.' },
+      { title: 'At Khorfakkan', text: 'Deliveries to ships calling at Khorfakkan.' },
       { title: 'Ahead or short notice', text: 'Book days ahead, or message us when the need comes up.' },
       { title: 'Clear paperwork', text: 'A delivery note signed on board for the quantity supplied.' },
     ],
@@ -94,7 +94,7 @@ export const SERVICES = [
     cta: 'Order water on WhatsApp',
     urgent: 'Need water today?',
     faq: [
-      { q: 'Do you deliver water to ships at anchor?', a: 'Yes. Malik takes water out to ships at anchor at Khorfakkan and Fujairah.' },
+      { q: 'Do you deliver water to ships at anchor?', a: 'Yes. Malik takes water out to ships at anchor at Khorfakkan.' },
       { q: 'How quickly can you deliver?', a: 'It depends on where the ship is and how much water is needed. Send us the vessel, position and quantity and we give you a time straight away.' },
     ],
   },
@@ -110,7 +110,7 @@ export const SERVICES = [
     short: 'Your port call handled on the UAE east coast: arrival, paperwork, husbandry and sailing.',
     banner: PHOTOS.containerTugs,
     intro:
-      'A port call has many moving parts. As your agent at Khorfakkan and Fujairah, we are the one team that owners, operators and masters deal with, from the first ETA message to the moment the ship sails.',
+      'A port call has many moving parts. As your agent at Khorfakkan, we are the one team that owners, operators and masters deal with, from the first ETA message to the moment the ship sails.',
     includes: [
       { title: 'Port call coordination', text: 'We line up the port, authorities and local parties before the ship arrives.' },
       { title: 'Documents and clearance', text: 'Arrival and departure paperwork prepared and filed for you.' },
@@ -132,7 +132,7 @@ export const SERVICES = [
     cta: 'Appoint us as agent',
     urgent: 'Ship arriving soon?',
     faq: [
-      { q: 'Which ports do you cover?', a: 'Khorfakkan and Fujairah on the UAE east coast.' },
+      { q: 'Which port do you cover?', a: 'Khorfakkan, on the UAE east coast.' },
       { q: 'Can you arrange a crew change?', a: 'We arrange the boat out to the ship. Message us on WhatsApp with the details and we will tell you what else we can handle.' },
     ],
   },
@@ -148,7 +148,7 @@ export const SERVICES = [
     short: 'We arrange the right boat to move crew, stores and light cargo between shore and ship.',
     banner: PHOTOS.tugCity,
     intro:
-      'We don\'t own crew boats, and we don\'t pretend to. As your agent, we book the right boat for the job at Khorfakkan or Fujairah, plan it around your ship and stay with it until everyone and everything is where it should be.',
+      'We don\'t own crew boats, and we don\'t pretend to. As your agent, we book the right boat for the job at Khorfakkan, plan it around your ship and stay with it until everyone and everything is where it should be.',
     includes: [
       { title: 'Crew changes at anchor', text: 'People moved safely between shore and ship.' },
       { title: 'Stores and spares', text: 'Ship stores and spare parts delivered to the vessel.' },
@@ -178,7 +178,7 @@ export const STATS = [
   { label: 'Founded', value: '2023' },
   { label: 'Combined marine experience', value: '20+ yrs' },
   { label: 'Own water barge', value: '1' },
-  { label: 'Ports served', value: '2' },
+  { label: 'Offices, Sharjah and Dubai', value: '2' },
 ]
 
 export const STEPS = [
@@ -189,7 +189,6 @@ export const STEPS = [
 
 export const PLACES = [
   { name: 'Khorfakkan Port', type: 'Port', text: 'Fresh water, crew boats and agency for ships calling at Khorfakkan.' },
-  { name: 'Fujairah', type: 'Port and anchorage', text: 'Supply and support for vessels at Fujairah.' },
   { name: 'Al Fisht 1, Sharjah', type: 'Office', text: 'Our Sharjah office. Open Mon to Fri 9 to 5, Sat 9 to 1.' },
   { name: "Al Bada'a, Dubai", type: 'Office', text: 'Our Dubai office.' },
 ]
@@ -204,7 +203,7 @@ export const VALUES = [
 export const WHY = [
   { title: 'We own the barge', text: 'Malik is ours, so fresh water runs on our schedule, not a third party\'s.' },
   { title: 'Easy to reach', text: 'Message us on WhatsApp or call during office hours.' },
-  { title: 'Two ports, one team', text: 'Khorfakkan and Fujairah, handled by the same people.' },
+  { title: 'One team, start to finish', text: 'The same people handle your job from first message to done.' },
   { title: 'Experienced hands', text: 'Founders with more than 20 years of combined marine experience.' },
 ]
 
@@ -225,15 +224,12 @@ export const PORTS = [
   { id: 'khorfakkan', name: 'Khorfakkan', coords: '25.35° N · 56.36° E', photo: PHOTOS.terminalDusk,
     lead: 'A deep-water port on the Gulf of Oman, inside the Emirate of Sharjah.',
     work: [{ text: 'Fresh water from Malik to ships at anchor' }, { text: 'Crew boats arranged for crew changes and stores' }, { text: 'Ship agency for port calls' }] },
-  { id: 'fujairah', name: 'Fujairah', coords: '25.17° N · 56.36° E', photo: PHOTOS.tankersAnchor,
-    lead: 'One of the busiest anchorages in the region, south of Khorfakkan on the same coast.',
-    work: [{ text: 'Fresh water from Malik to ships at anchor' }, { text: 'Crew boats arranged for crew changes and stores' }, { text: 'Ship agency for port calls' }] },
 ]
 
 export const SAFETY = [
   { title: 'Safe transfers', text: 'Every crew move and delivery is planned around people first, then weather and sea state.' },
   { title: 'Clean water handling', text: "Malik's tanks and hoses are kept for drinking water only and looked after by us." },
-  { title: 'Port rules followed', text: 'We work inside the rules of each port and keep the right people informed.' },
+  { title: 'Port rules followed', text: 'We work inside the port's rules and keep the right people informed.' },
   { title: 'Clear paperwork', text: 'Quantities, times and jobs recorded, so there are no surprises later.' },
 ]
 
@@ -241,13 +237,13 @@ export const BARGE_SPECS = [
   { k: 'Name', v: 'Malik' },
   { k: 'Type', v: 'Fresh water supply barge' },
   { k: 'Owner', v: 'Sea Shark Shipping Services LLC' },
-  { k: 'Works at', v: 'Khorfakkan and Fujairah' },
+  { k: 'Works at', v: 'Khorfakkan' },
 ]
 
 export const FAQ = [
   { q: 'How quickly can you deliver fresh water?', a: 'It depends on where the ship is and how much water is needed. Send us the vessel, position and quantity on WhatsApp and we will give you a time straight away.' },
   { q: 'What do you need from us to book?', a: 'Vessel name and IMO, where the ship is, what you need and when. For water add the quantity, for crew boats add the number of people and any cargo.' },
-  { q: 'Do you deliver water to ships at anchor?', a: 'Yes. Malik takes water out to ships at anchor at Khorfakkan and Fujairah.' },
+  { q: 'Do you deliver water to ships at anchor?', a: 'Yes. Malik takes water out to ships at anchor at Khorfakkan.' },
   { q: 'Can you deliver to ships alongside?', a: 'Ask us on WhatsApp for your berth and we will confirm.' },
   { q: 'Do you own crew boats?', a: 'No. We own one vessel, the water barge Malik. For crew boats we act as your agent and book the right boat for the job.' },
   { q: 'Can you arrange a crew change?', a: 'We arrange the boat out to the ship. Message us on WhatsApp with the details and we will tell you what else we can handle.' },
@@ -257,7 +253,7 @@ export const FAQ = [
 
 // Which service runs at which port (shown as a table on Ports & FAQ).
 export const PORT_TABLE = [
-  { service: 'Fresh water at anchor', khorfakkan: 'yes', fujairah: 'yes' },
-  { service: 'Crew boats (arranged)', khorfakkan: 'yes', fujairah: 'yes' },
-  { service: 'Ship agency', khorfakkan: 'yes', fujairah: 'yes' },
+  { service: 'Fresh water at anchor', khorfakkan: 'yes' },
+  { service: 'Crew boats (arranged)', khorfakkan: 'yes' },
+  { service: 'Ship agency', khorfakkan: 'yes' },
 ]

@@ -10,7 +10,7 @@ const FACTS = [
   { k: 'Name', v: 'Malik' },
   { k: 'Type', v: 'Fresh water barge' },
   { k: 'Owned by', v: 'Sea Shark Shipping Services LLC' },
-  { k: 'Works at', v: 'Khorfakkan and Fujairah' },
+  { k: 'Works at', v: 'Khorfakkan' },
 ]
 
 export default function Barge() {
@@ -51,7 +51,7 @@ export default function Barge() {
           <div className="cards">
             {[
               ['Book ahead or same day', 'Tell us when your ship needs water and we plan Malik around it.'],
-              ['Two ports', 'We deliver to ships at anchor at Khorfakkan and Fujairah. Alongside delivery is being confirmed.'],
+              ['At Khorfakkan', 'We deliver to ships at anchor at Khorfakkan. Ask us about ships alongside.'],
               ['One contact', 'Message us on WhatsApp and the same team handles the job from start to finish.'],
             ].map(([t, x], i) => (
               <Reveal className="card" key={t} delay={i * 110}>
