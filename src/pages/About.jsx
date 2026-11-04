@@ -20,7 +20,7 @@ export default function About() {
           </Reveal>
           <Reveal className="about__text" delay={120}>
             <p>Sea Shark Shipping Services LLC was founded in 2023 by people who have spent their careers around ships. Between them, our founders bring more than 20 years of combined marine experience.</p>
-            <p>We work from Khorfakkan Port on the UAE east coast, with offices in Sharjah and Dubai. We supply fresh water from our own barge, arrange crew boats and act as ship agent for owners, operators and masters.</p>
+            <p>We work from Khorfakkan Port on the UAE east coast, with offices in Sharjah and Dubai. We run our own vessel, the fresh water barge Malik, so water deliveries never wait on someone else's boat. We also arrange crew boats and act as ship agent for owners, operators and masters.</p>
             <p>We keep our list of services short on purpose, so we can do each one properly and answer quickly when a ship needs us.</p>
           </Reveal>
         </div>
