@@ -229,7 +229,7 @@ export const PORTS = [
 export const SAFETY = [
   { title: 'Safe transfers', text: 'Every crew move and delivery is planned around people first, then weather and sea state.' },
   { title: 'Clean water handling', text: "Malik's tanks and hoses are kept for drinking water only and looked after by us." },
-  { title: 'Port rules followed', text: 'We work inside the port's rules and keep the right people informed.' },
+  { title: 'Port rules followed', text: 'We work inside the port rules and keep the right people informed.' },
   { title: 'Clear paperwork', text: 'Quantities, times and jobs recorded, so there are no surprises later.' },
 ]
 
