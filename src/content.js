@@ -81,6 +81,9 @@ export const SERVICES = [
     banner: PHOTOS.tankerAerial,
     intro:
       'Running low on fresh water should never hold a ship up. Malik, our own water barge, brings drinking water out to vessels at Khorfakkan. Because we own the barge, we plan the delivery around your ship, not around someone else\'s timetable.',
+    more:
+      'Fresh water is one of the first things a crew checks before the next passage. Whether you are topping up at anchor before sailing on or running low after a long voyage, tell us what you need and we plan Malik around your ship.',
+    who: ['Ships waiting at anchor', 'Ships about to sail on', 'Owners and operators planning a call', 'Agents booking for their principals'],
     includes: [
       { title: 'Our own barge', text: 'Every delivery is made by Malik, which we own and look after ourselves.' },
       { title: 'At anchor', text: 'We take the water out to ships waiting at anchor.' },
@@ -103,6 +106,9 @@ export const SERVICES = [
     faq: [
       { q: 'Do you deliver water to ships at anchor?', a: 'Yes. Malik takes water out to ships at anchor at Khorfakkan.' },
       { q: 'How quickly can you deliver?', a: 'It depends on where the ship is and how much water is needed. Send us the vessel, position and quantity and we give you a time straight away.' },
+      { q: 'Is the water for drinking?', a: "Yes. Malik carries fresh drinking water only, and its tanks and hoses are kept for that use." },
+      { q: 'Can we book before the ship arrives?', a: 'Yes. Send us the ETA and the quantity, and we plan the delivery for when your ship is in position.' },
+      { q: 'What if our plans change?', a: 'Tell us as soon as you know. We move the delivery with you wherever we can.' },
     ],
   },
   {
@@ -118,6 +124,9 @@ export const SERVICES = [
     banner: PHOTOS.containerTugs,
     intro:
       'A port call has many moving parts. As your agent at Khorfakkan, we are the one team that owners, operators and masters deal with, from the first ETA message to the moment the ship sails.',
+    more:
+      'Good agency is about the small things being done before anyone has to ask. We prepare ahead of arrival, keep you updated during the call and send a short report when the ship sails, so you always know where things stand.',
+    who: ['Ship owners', 'Operators and ship managers', 'Charterers', 'Masters and crews'],
     includes: [
       { title: 'Port call coordination', text: 'We line up the port, authorities and local parties before the ship arrives.' },
       { title: 'Documents and clearance', text: 'Arrival and departure paperwork prepared and filed for you.' },
@@ -144,6 +153,8 @@ export const SERVICES = [
     faq: [
       { q: 'Which port do you cover?', a: 'Khorfakkan, on the UAE east coast.' },
       { q: 'Can you arrange a crew change?', a: 'We arrange the boat out to the ship. Message us on WhatsApp with the details and we will tell you what else we can handle.' },
+      { q: 'When should we appoint you?', a: 'As early as you can, ideally once the ETA is known. The more notice we have, the more we can prepare before the ship arrives.' },
+      { q: 'Will you keep us updated?', a: 'Yes. We update you as things happen during the call and send a short report when the ship sails.' },
     ],
   },
   {
@@ -159,6 +170,9 @@ export const SERVICES = [
     banner: PHOTOS.tugCity,
     intro:
       'We don\'t own crew boats, and we don\'t pretend to. As your agent, we book the right boat for the job at Khorfakkan, plan it around your ship and stay with it until everyone and everything is where it should be.',
+    more:
+      'Moving people and goods between shore and ship takes planning: the right boat, the right time and the right sea conditions. We handle that planning, so your crew and your cargo get across safely.',
+    who: ['Crews signing on or off', 'Surveyors and inspectors', 'Agents visiting the ship', 'Ships waiting for stores or spares'],
     includes: [
       { title: 'Crew changes at anchor', text: 'People moved safely between shore and ship.' },
       { title: 'Stores and spares', text: 'Ship stores and spare parts delivered to the vessel.' },
@@ -180,6 +194,8 @@ export const SERVICES = [
     faq: [
       { q: 'Do you own crew boats?', a: 'No. We own one vessel, the water barge Malik. For crew boats we act as your agent and book the right boat for the job.' },
       { q: 'How many people can a boat take?', a: 'It depends on the boat we book. Tell us how many people and how much cargo, and we pick a boat that fits.' },
+      { q: 'Can we book at short notice?', a: 'Yes. Message us and we will tell you what we can arrange and when.' },
+      { q: 'What if the sea is too rough?', a: 'Safety comes first. If conditions are not safe we tell you early and agree a new time with you.' },
     ],
   },
 ]
@@ -259,6 +275,28 @@ export const FAQ = [
   { q: 'Can you arrange a crew change?', a: 'We arrange the boat out to the ship. Message us on WhatsApp with the details and we will tell you what else we can handle.' },
   { q: 'What are your working hours?', a: 'The office is open 9 AM to 5 PM. Our crews work 24 hours.' },
   { q: 'How do we pay?', a: 'We agree payment terms with you before the job.' },
+  { q: 'Can we book more than one service for the same ship?', a: 'Yes. Water, a crew boat and agency can all be arranged together. Send everything in one message and one team handles it.' },
+  { q: 'Who do we contact for ship agency?', a: 'Call or WhatsApp our agency line, +971 56 673 5968. For fresh water and crew boats use +971 54 543 9022.' },
+]
+
+export const CLIENTS = [
+  { title: 'Ship owners', text: 'One local team at Khorfakkan looking after your ship while it is in port.' },
+  { title: 'Operators and managers', text: 'Water, boats and port paperwork handled, with updates at each step.' },
+  { title: 'Masters and crews', text: 'A direct line on WhatsApp for what the ship needs, when it needs it.' },
+  { title: 'Charterers and agents', text: 'Fresh water and crew boats booked on behalf of your principals.' },
+]
+
+export const CALL_TIPS = [
+  { title: 'Send your ETA early', text: 'More notice means water, boats and paperwork can be ready before the ship arrives.' },
+  { title: 'Share the position', text: 'Anchorage or berth: tell us where the ship will be so we plan the right approach.' },
+  { title: 'One message for everything', text: 'Water, a crew change and agency can all go in the same WhatsApp chat.' },
+  { title: 'Tell us when plans change', text: 'If the ETA moves, let us know and we move the plan with you.' },
+]
+
+export const PRINCIPLES = [
+  { title: 'We answer quickly', text: 'Ships do not wait, so neither do we. Messages are answered as soon as we can, and urgent jobs are picked up by our crews around the clock.' },
+  { title: 'We say what we can do', text: 'We own one vessel, the barge Malik, and we arrange the rest as your agent. We tell you plainly what we will do and when.' },
+  { title: 'We follow through', text: 'The person who takes your message stays with the job until it is done and you have heard back from us.' },
 ]
 
 // Which service runs at which port (shown as a table on Ports & FAQ).

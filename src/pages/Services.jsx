@@ -1,6 +1,6 @@
 import { itemText } from '../components/Tbc.jsx'
 import { Link } from 'react-router-dom'
-import { SERVICES, PHOTOS, photo } from '../content.js'
+import { SERVICES, PHOTOS, CLIENTS, STEPS, photo } from '../content.js'
 import { ServiceIcon } from '../components/Icons.jsx'
 import PageBanner from '../components/PageBanner.jsx'
 import Reveal from '../components/Reveal.jsx'
@@ -39,6 +39,30 @@ export default function Services() {
               </Reveal>
             </div>
           ))}
+        </div>
+      </section>
+      <section className="section section--tint">
+        <div className="wrap">
+          <Reveal className="head"><p className="tag tag--dark">[ Who we work with ]</p><h2>Built for the people behind every port call.</h2></Reveal>
+          <div className="why">
+            {CLIENTS.map((w, i) => (
+              <Reveal className="why__item" key={w.title} delay={i * 90}>
+                <span className="steps__n">0{i + 1}</span><h3>{w.title}</h3><p>{w.text}</p>
+              </Reveal>
+            ))}
+          </div>
+        </div>
+      </section>
+      <section className="section">
+        <div className="wrap">
+          <Reveal className="head"><p className="tag tag--dark">[ How it works ]</p><h2>Three steps, whatever the job.</h2></Reveal>
+          <ol className="steps">
+            {STEPS.map((st, i) => (
+              <Reveal as="li" key={st.title} delay={i * 110}>
+                <span className="steps__n">0{i + 1}</span><h3>{st.title}</h3><p>{st.text}</p>
+              </Reveal>
+            ))}
+          </ol>
         </div>
       </section>
       <CtaBand image={PHOTOS.shipBlueSea} title="Not sure which service you need?" text="Tell us the ship and the job on WhatsApp, and we'll sort out the rest." />

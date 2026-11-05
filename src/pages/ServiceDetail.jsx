@@ -26,10 +26,13 @@ export default function ServiceDetail() {
         <div className="wrap detail">
           <Reveal className="detail__main">
             <p className="detail__intro">{s.intro}</p>
+            {s.more && <p className="detail__more">{s.more}</p>}
             <h2>What's included</h2>
             <ul className="incl">{s.includes.map((x, i) => (
               <li key={x.title}><span className="incl__n">{String(i + 1).padStart(2, '0')}</span><h3>{x.title}</h3><p>{x.text}</p></li>
             ))}</ul>
+            {s.who && <><h2 className="detail__who">Who it's for</h2>
+            <ul className="ticks">{s.who.map((w) => <li key={w}><ServiceIcon id="check" /><span>{w}</span></li>)}</ul></>}
           </Reveal>
           <aside className="detail__side">
             <Reveal className="sendbox" delay={120}>

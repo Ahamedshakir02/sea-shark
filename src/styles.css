@@ -568,7 +568,7 @@ img.fade.is-loaded{opacity:1}
   /* About top: one photo with the 2023 card over its corner */
   .hb__pair{margin-top:30px;gap:0}
   .hb__pair-a img{aspect-ratio:4/3}
-  .hb__pair-b{overflow:visible;margin:-56px 16px 0;border-radius:0}
+  .hb__pair-b{overflow:visible;margin:-56px 16px 0;border-radius:0;background:none}
   .hb__pair-b img{display:none}
   .hb__pair-b .hb__since{position:relative;inset:auto;margin:0;box-shadow:0 20px 40px -24px rgba(10,37,64,.45)}
   .hb--editorial+.section{padding-top:50px}
@@ -597,3 +597,5 @@ img.fade.is-loaded{opacity:1}
 .hours--box div:last-child{border-bottom:0;padding-bottom:0}
 .foot__hours{display:flex;flex-direction:column;gap:2px;margin-top:6px}
 .foot__hours span:first-child{opacity:.7;font-size:.85em}
+.detail__more{color:var(--muted);margin:-8px 0 28px;max-width:62ch}
+.detail__who{margin-top:44px}
