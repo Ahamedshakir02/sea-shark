@@ -63,7 +63,7 @@ export default function About() {
       <section className="sec sec--navy on-dark">
         <div className="wrap">
           <Head split eyebrow="Safety" title="Safety comes first, on every job." lead="Vessels, crews, divers and water: how we keep each one safe." />
-          <div className="cards cards--3">
+          <div className="cards cards--fit">
             {SAFETY.map((x, i) => (
               <Reveal className="card" key={x.title} delay={(i % 3) * 90}>
                 <span className="card__icon"><ServiceIcon id="shield" /></span><h3>{x.title}</h3><p>{x.text}</p>
