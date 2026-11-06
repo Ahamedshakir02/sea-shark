@@ -1,6 +1,6 @@
 import { itemText } from '../components/Tbc.jsx'
 import { Link } from 'react-router-dom'
-import { MAIN_SERVICES as SERVICES, MINOR_SERVICES, PHOTOS, CLIENTS, STEPS, photo } from '../content.js'
+import { ALL_SERVICES as SERVICES, PHOTOS, CLIENTS, STEPS, photo } from '../content.js'
 import { ServiceIcon } from '../components/Icons.jsx'
 import PageBanner from '../components/PageBanner.jsx'
 import Reveal from '../components/Reveal.jsx'
@@ -17,7 +17,7 @@ export default function Services() {
         image={PHOTOS.tugWaves}
         tag="Services"
         title="Ship agency, marine survey and underwater services."
-        lead="Three core services for vessels calling at Khorfakkan, coordinated by one team from appointment to sailing."
+        lead="Three core services for vessels calling at Khorfakkan, supported by fresh water supply and crew boats, all coordinated by one team."
         crumbs={[{ label: 'Services' }]}>
         <ol className="hb__index">{SERVICES.map((s, i) => <li key={s.slug}><Link to={`/services/${s.slug}`}><span>0{i + 1}</span>{s.title}<ServiceIcon id="arrow" /></Link></li>)}</ol>
       </PageBanner>
@@ -39,7 +39,6 @@ export default function Services() {
               </Reveal>
             </div>
           ))}
-          <p className="also">Also available: {MINOR_SERVICES.map((m, i) => <span key={m.slug}>{i ? ' and ' : ''}<Link to={`/services/${m.slug}`}>{m.title.toLowerCase()}</Link></span>)}, arranged with your port call.</p>
         </div>
       </section>
       <section className="section section--tint">

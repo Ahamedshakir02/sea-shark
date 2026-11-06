@@ -15,7 +15,7 @@ export default function Footer() {
         </div>
         <div>
           <h4>Services</h4>
-          <ul>{SERVICES.map((s) => <li key={s.slug}><Link to={`/services/${s.slug}`}>{s.title}</Link></li>)}<li><Link to="/services/fresh-water">Fresh water supply</Link></li></ul>
+          <ul>{SERVICES.map((s) => <li key={s.slug}><Link to={`/services/${s.slug}`}>{s.title}</Link></li>)}<li><Link to="/services/fresh-water">Fresh water supply</Link></li><li><Link to="/services/crew-boats">Crew boats</Link></li><li><Link to="/our-barge">Our barge Malik</Link></li></ul>
         </div>
         <div>
           <h4>Contact</h4>

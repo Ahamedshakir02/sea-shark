@@ -4,6 +4,7 @@ import { ServiceIcon } from '../components/Icons.jsx'
 import Reveal from '../components/Reveal.jsx'
 import WaLink from '../components/WaLink.jsx'
 import CtaBand from '../components/CtaBand.jsx'
+import malik from '../assets/boat-malik.jpg'
 
 const agency = MAIN_SERVICES.find((s) => s.slug === 'ship-agency')
 
@@ -52,7 +53,6 @@ export default function Home() {
               </Reveal>
             ))}
           </div>
-          <p className="also">Also available on request: {MINOR_SERVICES.map((m, i) => <span key={m.slug}>{i ? ' and ' : ''}<Link to={`/services/${m.slug}`}>{m.title.toLowerCase()}</Link></span>)}.</p>
         </div>
       </section>
 
@@ -104,6 +104,29 @@ export default function Home() {
 
       <section className="section">
         <div className="wrap">
+          <Reveal className="head head--row">
+            <div><p className="tag tag--dark">Marine support</p><h2>Supporting services at Khorfakkan.</h2></div>
+            <p className="head__note">Available on their own, or arranged together with your port call.</p>
+          </Reveal>
+          <div className="support">
+            {MINOR_SERVICES.map((s, i) => (
+              <Reveal key={s.slug} delay={i * 100}>
+                <Link className="support__card" to={`/services/${s.slug}`}>
+                  <div className="support__img"><img src={s.photo === 'malik' ? malik : photo(s.photo, 900)} alt="" loading="lazy" decoding="async" /></div>
+                  <div className="support__body">
+                    <h3>{s.title}</h3>
+                    <p>{s.short}</p>
+                    <span className="more">Learn more <ServiceIcon id="arrow" /></span>
+                  </div>
+                </Link>
+              </Reveal>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section className="section section--tint">
+        <div className="wrap">
           <Reveal className="head"><p className="tag tag--dark">Who we act for</p><h2>Trusted with the vessel, on behalf of every party.</h2></Reveal>
           <div className="why">
             {CLIENTS.map((w, i) => (
@@ -113,7 +136,7 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="section section--tint">
+      <section className="section">
         <div className="wrap why-faq">
           <div>
             <Reveal className="head"><p className="tag tag--dark">Why Sea Shark</p><h2>A dependable partner in port.</h2></Reveal>
