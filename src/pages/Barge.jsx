@@ -1,84 +1,69 @@
-import { PHOTOS, BARGE_SPECS, WATER_MESSAGE, SERVICES } from '../content.js'
-
-const water = SERVICES.find((s) => s.slug === 'fresh-water')
+import { PHOTOS, BARGE_SPECS, WATER_MESSAGE, SERVICES, PHONE_DISPLAY, PHONE_LINK, WHATSAPP_NUMBER } from '../content.js'
 import { ServiceIcon, WhatsAppIcon } from '../components/Icons.jsx'
-import PageBanner from '../components/PageBanner.jsx'
+import PageHead from '../components/PageHead.jsx'
 import Reveal from '../components/Reveal.jsx'
 import WaLink from '../components/WaLink.jsx'
 import CtaBand from '../components/CtaBand.jsx'
+import { Head, Timeline } from '../components/Blocks.jsx'
 import malik from '../assets/boat-malik.jpg'
 
-const FACTS = [
-  { k: 'Name', v: 'Malik' },
-  { k: 'Type', v: 'Fresh water barge' },
-  { k: 'Owned by', v: 'Sea Shark Shipping Services LLC' },
-  { k: 'Works at', v: 'Khorfakkan' },
+const water = SERVICES.find((s) => s.slug === 'fresh-water')
+const BENEFITS = [
+  ['Book ahead or same day', 'Tell us when your ship needs water and we plan Malik around it.'],
+  ['At Khorfakkan', 'We deliver to ships at anchor at Khorfakkan. Ask us about ships alongside.'],
+  ['One contact', 'Message us on WhatsApp and the same team handles the job from start to finish.'],
 ]
 
 export default function Barge() {
   return (
     <>
-      <PageBanner image={PHOTOS.bargeAerial} tag="Our barge" title="Our own barge, not hired."
+      <PageHead variant="photo" image={PHOTOS.bargeAerial} eyebrow="Our barge" title="Our own barge, not hired."
         lead="Malik is the fresh water barge we own and run ourselves." crumbs={[{ label: 'Our barge' }]}>
-        <dl className="hb__chips">{BARGE_SPECS.slice(1, 4).map((f) => <div key={f.k}><dt>{f.k}</dt><dd>{f.v}</dd></div>)}</dl>
-      </PageBanner>
-      <section className="section">
-        <div className="wrap feature__in">
-          <Reveal className="feature__img"><img src={malik} alt="Malik, our fresh water barge, alongside in port" loading="lazy" decoding="async" /></Reveal>
+        <dl className="facts" style={{ '--n': 3 }}>{BARGE_SPECS.slice(1, 4).map((f) => <div key={f.k}><dt>{f.k}</dt><dd>{f.v}</dd></div>)}</dl>
+      </PageHead>
+
+      <section className="sec">
+        <div className="wrap feature">
+          <Reveal className="feature__img"><img src={malik} alt="Malik, our fresh water barge, alongside in port" loading="lazy" decoding="async" width="1424" height="612" /></Reveal>
           <Reveal className="feature__text" delay={120}>
-            <p className="tag tag--dark">Malik</p>
+            <p className="eyebrow">Malik</p>
             <h2>Why owning the barge matters.</h2>
             <p>Most of the delays in fresh water supply come from waiting on someone else's boat. We own Malik, so when you book water we plan the delivery around your ship, not around a third party's timetable.</p>
             <p>We also look after the barge ourselves, which means we know its condition and keep it to the standard our clients expect.</p>
-            <WaLink className="pill pill--wa" message={WATER_MESSAGE}>
-              <span className="wa-ic"><WhatsAppIcon /></span>Check water availability
-            </WaLink>
+            <WaLink className="btn btn--wa" message={WATER_MESSAGE}><WhatsAppIcon />Check water availability</WaLink>
           </Reveal>
         </div>
       </section>
-      <section className="section section--navy">
-        <div className="wrap specs__in">
-          <Reveal className="head"><p className="tag">Malik at a glance</p><h2>The barge in numbers.</h2>
-            <p className="head__note">Need capacity or pump details for your ship? Ask us on WhatsApp.</p></Reveal>
-          <dl className="specs">
-            {BARGE_SPECS.map((f, i) => (
-              <Reveal key={f.k} delay={i * 50}><dt>{f.k}</dt><dd>{f.v}</dd></Reveal>
-            ))}
-          </dl>
+
+      <section className="sec sec--navy on-dark">
+        <div className="wrap">
+          <Head split eyebrow="Malik at a glance" title="The barge in brief." lead="Need capacity or pump details for your ship? Ask us on WhatsApp." />
+          <Reveal as="dl" className="spec">{BARGE_SPECS.map((f) => <div key={f.k}><dt>{f.k}</dt><dd>{f.v}</dd></div>)}</Reveal>
         </div>
       </section>
-      <section className="section section--tint">
+
+      <section className="sec sec--mist">
         <div className="wrap">
-          <Reveal className="head"><p className="tag tag--dark">What it means for you</p><h2>Water on your schedule.</h2></Reveal>
-          <div className="cards">
-            {[
-              ['Book ahead or same day', 'Tell us when your ship needs water and we plan Malik around it.'],
-              ['At Khorfakkan', 'We deliver to ships at anchor at Khorfakkan. Ask us about ships alongside.'],
-              ['One contact', 'Message us on WhatsApp and the same team handles the job from start to finish.'],
-            ].map(([t, x], i) => (
-              <Reveal className="card" key={t} delay={i * 110}>
-                <div className="card__icon"><ServiceIcon id="water" /></div>
-                <h3>{t}</h3><p>{x}</p>
+          <Head eyebrow="What it means for you" title="Water on your schedule." />
+          <div className="cards cards--3">
+            {BENEFITS.map(([t, x], i) => (
+              <Reveal className="card" key={t} delay={i * 100}>
+                <span className="card__icon"><ServiceIcon id="water" /></span><h3>{t}</h3><p>{x}</p>
               </Reveal>
             ))}
           </div>
-          <p className="note">Ask us for capacity and availability on WhatsApp.</p>
         </div>
       </section>
-      <section className="section">
+
+      <section className="sec">
         <div className="wrap">
-          <Reveal className="head"><p className="tag tag--dark">A delivery, step by step</p><h2>How Malik delivers your water.</h2></Reveal>
-          <ol className="steps steps--flow" style={{ '--n': water.process.length }}>
-            {water.process.map((st, i) => (
-              <Reveal as="li" key={st.title} delay={i * 110}>
-                <span className="steps__n">0{i + 1}</span><h3>{st.title}</h3><p>{st.text}</p>
-              </Reveal>
-            ))}
-          </ol>
+          <Head eyebrow="A delivery, step by step" title="How Malik delivers your water." />
+          <Timeline steps={water.process} />
           <p className="note">Keeping the water clean: Malik's tanks and hoses are used for drinking water only, and we look after them ourselves.</p>
         </div>
       </section>
-      <CtaBand image={PHOTOS.shipRedSky} title="Need fresh water for your ship?" message={WATER_MESSAGE} />
+      <CtaBand image={PHOTOS.shipRedSky} title="Need fresh water for your ship?" text="Send the vessel, position and quantity, and we give you a delivery time."
+        message={WATER_MESSAGE} number={WHATSAPP_NUMBER} phone={PHONE_DISPLAY} phoneLink={PHONE_LINK} />
     </>
   )
 }
