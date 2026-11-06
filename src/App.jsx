@@ -5,6 +5,7 @@ import { usePageTransition } from './components/Motion.jsx'
 import Footer from './components/Footer.jsx'
 import { WhatsAppIcon } from './components/Icons.jsx'
 import WaLink from './components/WaLink.jsx'
+import { AGENT_WHATSAPP } from './content.js'
 import Home from './pages/Home.jsx'
 import Services from './pages/Services.jsx'
 import ServiceDetail from './pages/ServiceDetail.jsx'
@@ -15,11 +16,13 @@ import NotFound from './pages/NotFound.jsx'
 import PortsFaq from './pages/PortsFaq.jsx'
 
 const TITLES = {
-  '/': 'Sea Shark Shipping Services LLC | Khorfakkan, UAE',
+  '/': 'Sea Shark Shipping Services LLC | Ship agency, Khorfakkan, UAE',
   '/services': 'Services | Sea Shark Shipping',
   '/services/fresh-water': 'Fresh water supply | Sea Shark Shipping',
   '/services/crew-boats': 'Crew boat service | Sea Shark Shipping',
   '/services/ship-agency': 'Ship agency | Sea Shark Shipping',
+  '/services/marine-survey': 'Marine survey | Sea Shark Shipping',
+  '/services/underwater-services': 'Underwater services | Sea Shark Shipping',
   '/our-barge': 'Our barge Malik | Sea Shark Shipping',
   '/ports-and-faq': 'Ports & FAQ | Sea Shark Shipping',
   '/about': 'About us | Sea Shark Shipping',
@@ -41,7 +44,7 @@ function useFloatVisible(pathname) {
   useEffect(() => {
     setShow(false)
     const main = document.getElementById('main')
-    const ends = [main && main.firstElementChild, ...document.querySelectorAll('#main .band, footer')].filter(Boolean)
+    const ends = [main && main.firstElementChild, ...document.querySelectorAll('#main .cta, footer')].filter(Boolean)
     if (!ends.length || !('IntersectionObserver' in window)) { setShow(true); return }
     const seen = new Map()
     const io = new IntersectionObserver((list) => {
@@ -75,7 +78,7 @@ export default function App() {
         </Routes>
       </main>
       <Footer />
-      <WaLink className={`wa-float${floatOn ? ' is-on' : ''}`} message="Hello Sea Shark, I have an enquiry." aria-label="Chat with us on WhatsApp" aria-hidden={!floatOn} tabIndex={floatOn ? undefined : -1}>
+      <WaLink className={`wa-float${floatOn ? ' is-on' : ''}`} message="Hello Sea Shark, I have an enquiry." number={AGENT_WHATSAPP} aria-label="Chat with us on WhatsApp" aria-hidden={!floatOn} tabIndex={floatOn ? undefined : -1}>
         <WhatsAppIcon />
       </WaLink>
     </>

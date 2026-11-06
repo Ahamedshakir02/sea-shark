@@ -1,141 +1,194 @@
 import { Link } from 'react-router-dom'
-import { PHONE_DISPLAY, PHONE_LINK, SERVICES, STATS, STEPS, PLACES, PHOTOS, WHY, FAQ, photo, WATER_MESSAGE } from '../content.js'
+import { MAIN_SERVICES, MINOR_SERVICES, STATS, PHOTOS, WHY, FAQ, CLIENTS, PORTS, photo, AGENT_PHONE_DISPLAY, AGENT_PHONE_LINK, AGENT_WHATSAPP, EMAIL, HOURS_ROWS } from '../content.js'
 import { ServiceIcon, WhatsAppIcon } from '../components/Icons.jsx'
 import Reveal from '../components/Reveal.jsx'
-import CountUp from '../components/CountUp.jsx'
 import WaLink from '../components/WaLink.jsx'
 import CtaBand from '../components/CtaBand.jsx'
+import { Head, Timeline, Faq } from '../components/Blocks.jsx'
 import malik from '../assets/boat-malik.jpg'
 
-const img = (s, w) => (s === 'malik' ? malik : photo(s, w))
-const HEADLINE = 'Fresh water, crew boats and ship agency on the UAE east coast.'
+const agency = MAIN_SERVICES.find((s) => s.slug === 'ship-agency')
+const port = PORTS[0]
+const GROUP_ICONS = ['port', 'people', 'doc', 'gear']
+const CLIENT_ICONS = ['ship', 'compass', 'anchor', 'doc']
+const imgOf = (s, w) => (s === 'malik' ? malik : photo(s, w))
+const agencyCount = agency.groups.reduce((n, g) => n + g.items.length, 0)
 
 export default function Home() {
   return (
     <>
-      <section className="hero" style={{ '--img': `url(${photo(PHOTOS.tankerSunset, 2200)})` }}>
-        <div className="hero__shade" />
+      <section className="hero on-dark" style={{ '--img': `url(${photo(PHOTOS.portAerial, 2200)})` }}>
         <div className="wrap hero__in">
-          <p className="tag hero__a">[ Khorfakkan Port · UAE ]</p>
-          <h1 className="words" aria-label={HEADLINE}>
-            {HEADLINE.split(' ').map((w, i) => (
-              <span key={i} aria-hidden="true"><span style={{ '--d': `${120 + i * 55}ms` }}>{w}</span></span>
+          <div className="hero__copy">
+            <p className="eyebrow hero__a">Ship agency · Khorfakkan Port, UAE</p>
+            <h1 className="hero__a" style={{ '--d': '120ms' }}>Your agent at Khorfakkan. <span className="accent">Every port call, handled.</span></h1>
+            <p className="lead hero__a" style={{ '--d': '260ms' }}>
+              Port agency, marine survey and underwater services for owners, operators and charterers. One team looks after your vessel from the first ETA notice to the sailing report.
+            </p>
+            <div className="btns hero__a" style={{ '--d': '380ms' }}>
+              <WaLink className="btn btn--amber" message={agency.wa} number={AGENT_WHATSAPP}><WhatsAppIcon />Appoint us as agent</WaLink>
+              <a className="btn btn--ghost" href="#services">Explore our services</a>
+            </div>
+          </div>
+        </div>
+        <div className="portbar hero__a" style={{ '--d': '520ms' }}>
+          <dl className="wrap portbar__in">
+            <div><dt>Port</dt><dd>{port.name}, Gulf of Oman</dd></div>
+            <div><dt>Position</dt><dd>{port.coords}</dd></div>
+            <div><dt>Core services</dt><dd>Agency · Survey · Diving</dd></div>
+            <div><dt>Agency desk</dt><dd><a href={AGENT_PHONE_LINK}>{AGENT_PHONE_DISPLAY}</a></dd></div>
+          </dl>
+        </div>
+      </section>
+
+      <section className="sec">
+        <div className="wrap intro">
+          <Reveal>
+            <p className="eyebrow">Sea Shark Shipping Services</p>
+            <p className="intro__big">We act for the vessel and her owners while she is in port. <span>We prepare the call, coordinate every party involved and report back at each stage, so the ship turns around without avoidable delay.</span></p>
+          </Reveal>
+          <Reveal className="figures" delay={120}>
+            {STATS.map((s) => <div key={s.label}><strong>{s.value}</strong><span>{s.label}</span></div>)}
+          </Reveal>
+        </div>
+      </section>
+
+      <section className="sec sec--mist" id="services">
+        <div className="wrap">
+          <Head split eyebrow="Core services" title="Three core services, one team in port."
+            lead="Book each service on its own, or let us coordinate all three for the same port call." />
+          <div className="core">
+            {MAIN_SERVICES.map((s, i) => (
+              <Reveal as={Link} key={s.slug} delay={i * 100} className="core__card" to={`/services/${s.slug}`}>
+                <img src={imgOf(i === 0 ? s.banner : s.tile, i === 0 ? 1400 : 1000)} alt="" loading="lazy" decoding="async" />
+                <div className="core__top"><span className="core__num">0{i + 1}</span><span className="core__tag">{i === 0 ? 'Our core service' : 'Core service'}</span></div>
+                <div className="core__body">
+                  <span className="core__icon"><ServiceIcon id={s.icon} /></span>
+                  <h3>{s.title}</h3>
+                  <p>{s.short}</p>
+                  {i === 0 && <ul className="core__list">{agency.groups.map((g) => <li key={g.title}><ServiceIcon id="check" />{g.title}</li>)}</ul>}
+                  <span className="arrow">Explore {s.title.toLowerCase()} <ServiceIcon id="arrow" /></span>
+                </div>
+              </Reveal>
             ))}
-          </h1>
-          <p className="hero__lead hero__a" style={{ '--d': '800ms' }}>
-            We run our own water barge, Malik, and act as your agent at Khorfakkan. Send us your vessel name and what you need on WhatsApp, and we take it from there.
-          </p>
-          <div className="hero__cta hero__a" style={{ '--d': '950ms' }}>
-            <WaLink className="pill pill--light" message="Hello Sea Shark, I need help with a vessel. Vessel name: ... Port: ...">
-              <span className="wa-ic"><WhatsAppIcon /></span>Chat on WhatsApp
-            </WaLink>
-            <a className="pill pill--ghost" href={PHONE_LINK}>Call {PHONE_DISPLAY}</a>
           </div>
         </div>
       </section>
 
-      <section className="intro">
-        <div className="wrap intro__in">
-          <Reveal as="p" className="intro__big">
-            Our own barge, three services we know inside out, and <span>a quick reply</span> when a ship needs us.
+      <section className="sec sec--navy on-dark">
+        <div className="wrap scope">
+          <Reveal className="scope__side">
+            <p className="eyebrow">Ship agency scope</p>
+            <h2>Everything your vessel needs in port.</h2>
+            <p className="lead">From pre-arrival planning to the final account, our agency desk handles the call so you deal with one contact, not ten.</p>
+            <div className="scope__count">
+              <div><strong>{agency.groups.length}</strong><span>areas of work</span></div>
+              <div><strong>{agencyCount}</strong><span>agency services</span></div>
+            </div>
+            <Link className="btn btn--amber" to="/services/ship-agency">See the full agency scope</Link>
           </Reveal>
-          <Reveal className="stats" delay={120}>
-            {STATS.map((s) => <div key={s.label}><dd><CountUp value={s.value} /></dd><dt>{s.label}</dt></div>)}
+          <div className="scope__groups">
+            {agency.groups.map((g, i) => (
+              <Reveal className="group group--compact" key={g.title} delay={i * 80}>
+                <div className="group__head">
+                  <span className="group__icon"><ServiceIcon id={GROUP_ICONS[i]} /></span>
+                  <h3>{g.title}</h3>
+                  <small>{g.items.length} services</small>
+                </div>
+                <ul>{g.items.map((x) => <li key={x.title}><ServiceIcon id="check" /><strong>{x.title}</strong></li>)}</ul>
+              </Reveal>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section className="sec">
+        <div className="wrap">
+          <Head split eyebrow="How a port call works" title="Four stages. One point of contact."
+            lead="You hear from us at every stage, from the appointment to the moment the ship sails." />
+          <Timeline steps={agency.process} ends={['ETA notice', 'Sailing report']} />
+        </div>
+      </section>
+
+      <section className="sec sec--mist">
+        <div className="wrap">
+          <Reveal className="appoint">
+            <div className="appoint__img" style={{ '--img': `url(${photo(PHOTOS.terminalDusk, 1400)})` }}>
+              <p className="appoint__quote">A ship in port has one question: <span>who is looking after us here?</span> At Khorfakkan, that is our job.</p>
+            </div>
+            <div className="appoint__body">
+              <p className="eyebrow">Appoint us</p>
+              <h2>Vessel calling soon? Start with one message.</h2>
+              <p>Send these details to our agency desk and we confirm the call plan with you.</p>
+              <ol className="checklist">{agency.send.map((x) => <li key={x}>{x}</li>)}</ol>
+              <WaLink className="btn btn--wa btn--block" message={agency.wa} number={AGENT_WHATSAPP}><WhatsAppIcon />Send on WhatsApp</WaLink>
+              <div className="contact-rows">
+                <a href={AGENT_PHONE_LINK}><ServiceIcon id="phone" />{AGENT_PHONE_DISPLAY}</a>
+                <a href={`mailto:${EMAIL}`}><ServiceIcon id="mail" />{EMAIL}</a>
+                <span><ServiceIcon id="clock" />{HOURS_ROWS.map(([d, t]) => `${d} ${t}`).join(' · ')}</span>
+              </div>
+            </div>
           </Reveal>
         </div>
       </section>
 
-      <section className="section" id="services">
+      <section className="sec">
         <div className="wrap">
-          <Reveal className="head head--row">
-            <div><p className="tag tag--dark">[ What we do ]</p><h2>Three services, one team.</h2></div>
-            <Link className="more" to="/services">All services <ServiceIcon id="arrow" /></Link>
+          <Head eyebrow="Who we act for" title="On behalf of every party in the call." />
+          <div className="cards">
+            {CLIENTS.map((w, i) => (
+              <Reveal className="card" key={w.title} delay={i * 80}>
+                <span className="card__icon"><ServiceIcon id={CLIENT_ICONS[i]} /></span>
+                <h3>{w.title}</h3><p>{w.text}</p>
+              </Reveal>
+            ))}
+          </div>
+          <Reveal className="why-title"><p className="eyebrow">Why Sea Shark</p></Reveal>
+          <Reveal className="why">
+            {WHY.map((w, i) => (
+              <div key={w.title}><strong>0{i + 1}</strong><h3>{w.title}</h3><p>{w.text}</p></div>
+            ))}
           </Reveal>
-          <div className="tiles">
-            {SERVICES.map((s, i) => (
-              <Reveal key={s.slug} delay={i * 110}>
-                <Link className="tile" to={`/services/${s.slug}`}>
-                  <img src={img(s.photo, 900)} alt="" loading="lazy" decoding="async" />
-                  <div className="tile__body">
-                    <span className="tile__num">0{i + 1}</span>
+        </div>
+      </section>
+
+      <section className="sec sec--mist">
+        <div className="wrap">
+          <Head split eyebrow="Marine support" title="Supporting services."
+            lead="Available on their own, or arranged together with your port call." />
+          <div className="support">
+            {MINOR_SERVICES.map((s, i) => (
+              <Reveal key={s.slug} delay={i * 100}>
+                <Link className="support__card" to={`/services/${s.slug}`}>
+                  <div className="support__img"><img src={imgOf(s.photo, 700)} alt="" loading="lazy" decoding="async" /></div>
+                  <div className="support__body">
                     <h3>{s.title}</h3>
                     <p>{s.short}</p>
-                    <span className="tile__go">Learn more <ServiceIcon id="arrow" /></span>
+                    <span className="arrow">Learn more <ServiceIcon id="arrow" /></span>
                   </div>
                 </Link>
               </Reveal>
             ))}
           </div>
+          <p className="support-note">Malik is the one vessel we own. <Link to="/our-barge">Meet our barge</Link></p>
         </div>
       </section>
 
-      <section className="feature">
-        <div className="wrap feature__in">
-          <Reveal className="feature__img">
-            <img src={malik} alt="Malik, our fresh water barge, alongside in port" loading="lazy" decoding="async" />
-            <span className="feature__badge">Owned and run by us</span>
-          </Reveal>
-          <Reveal className="feature__text" delay={120}>
-            <p className="tag tag--dark">[ Our barge ]</p>
-            <h2>Meet Malik.</h2>
-            <p>Malik is our own fresh water barge. It delivers clean drinking water to ships at Khorfakkan. Because the barge is ours, we control the schedule, the upkeep and the standard of every delivery.</p>
-            <div className="feature__cta">
-              <Link className="pill pill--dark" to="/our-barge">About the barge</Link>
-              <WaLink className="link" message={WATER_MESSAGE}>Check water availability &rarr;</WaLink>
+      <section className="sec">
+        <div className="wrap faqs">
+          <Reveal className="faqs__side">
+            <p className="eyebrow">Questions</p>
+            <h2>Before you appoint us.</h2>
+            <p className="lead">Short answers to what owners and operators ask first.</p>
+            <Link className="arrow" to="/ports-and-faq">All questions <ServiceIcon id="arrow" /></Link>
+            <div className="desk">
+              <h4>Can't find your answer?</h4>
+              <p>Our agency desk replies on WhatsApp and phone.</p>
+              <WaLink className="btn btn--navy btn--block" message="Hello Sea Shark, I have a question: ..." number={AGENT_WHATSAPP}>Ask our desk</WaLink>
+              <dl>{HOURS_ROWS.map(([d, t]) => <div key={d}><dt>{d}</dt><dd>{t}</dd></div>)}</dl>
             </div>
           </Reveal>
-        </div>
-      </section>
-
-      <section className="section">
-        <div className="wrap">
-          <Reveal className="head"><p className="tag tag--dark">[ How it works ]</p><h2>From message to done.</h2></Reveal>
-          <ol className="steps">
-            {STEPS.map((s, i) => (
-              <Reveal as="li" key={s.title} delay={i * 110}>
-                <span className="steps__n">0{i + 1}</span>
-                <h3>{s.title}</h3>
-                <p>{s.text}</p>
-              </Reveal>
-            ))}
-          </ol>
-        </div>
-      </section>
-
-      <section className="section section--navy">
-        <div className="wrap">
-          <Reveal className="head head--row">
-            <div><p className="tag">[ Where we work ]</p><h2>On the UAE east coast.</h2></div>
-            <p className="head__note">Khorfakkan for our ships, Sharjah and Dubai for our clients.</p>
-          </Reveal>
-          <div className="places">
-            {PLACES.map((p, i) => (
-              <Reveal className="place" key={p.name} delay={i * 90}>
-                <ServiceIcon id="pin" />
-                <span className="place__type">{p.type}</span>
-                <h3>{p.name}</h3>
-                <p>{p.text}</p>
-              </Reveal>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      <section className="section">
-        <div className="wrap why-faq">
-          <div>
-            <Reveal className="head"><p className="tag tag--dark">[ Why ships call us ]</p><h2>Clear answers, no runaround.</h2></Reveal>
-            <div className="why why--two">
-              {WHY.map((w, i) => (
-                <Reveal className="why__item" key={w.title} delay={i * 80}><span className="steps__n">0{i + 1}</span><h3>{w.title}</h3><p>{w.text}</p></Reveal>
-              ))}
-            </div>
-          </div>
-          <Reveal className="faq-peek">
-            <p className="tag tag--dark">[ Quick answers ]</p>
-            {FAQ.slice(0, 3).map((f) => <div className="faq-peek__item" key={f.q}><h3>{f.q}</h3><p>{f.a}</p></div>)}
-            <Link className="more" to="/ports-and-faq">All questions <ServiceIcon id="arrow" /></Link>
-          </Reveal>
+          <Reveal delay={100}><Faq items={FAQ.slice(0, 6)} /></Reveal>
         </div>
       </section>
 
