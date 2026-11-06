@@ -4,7 +4,7 @@ import { ServiceIcon, WhatsAppIcon } from '../components/Icons.jsx'
 import Reveal from '../components/Reveal.jsx'
 import WaLink from '../components/WaLink.jsx'
 import CtaBand from '../components/CtaBand.jsx'
-import { Head, Timeline, Faq, sentences } from '../components/Blocks.jsx'
+import { Head, Timeline, Faq, HoursLine, sentences } from '../components/Blocks.jsx'
 import malik from '../assets/boat-malik.jpg'
 
 const agency = MAIN_SERVICES.find((s) => s.slug === 'ship-agency')
@@ -80,7 +80,7 @@ export default function Home() {
           <Reveal className="scope__side">
             <p className="eyebrow">Ship agency scope</p>
             <h2>One desk for everything your vessel needs in port.</h2>
-            <p className="lead">From pre-arrival planning to the final account, our agency desk handles the call so you deal with one contact, not ten.</p>
+            <p className="lead">From <span className="nw">pre-arrival</span> planning to the final account, our agency desk handles the call so you deal with one contact, not ten.</p>
             <div className="scope__count">
               <div><strong>{agency.groups.length}</strong><span>areas of work</span></div>
               <div><strong>{agencyCount}</strong><span>agency services</span></div>
@@ -125,7 +125,7 @@ export default function Home() {
               <div className="contact-rows">
                 <a href={AGENT_PHONE_LINK}><ServiceIcon id="phone" />{AGENT_PHONE_DISPLAY}</a>
                 <a href={`mailto:${EMAIL}`}><ServiceIcon id="mail" />{EMAIL}</a>
-                <span><ServiceIcon id="clock" />{HOURS_ROWS.map(([d, t]) => `${d} ${t}`).join(' · ')}</span>
+                <span><ServiceIcon id="clock" /><span><HoursLine /></span></span>
               </div>
             </div>
           </Reveal>

@@ -1,4 +1,5 @@
 import { Fragment } from 'react'
+import { HOURS_ROWS } from '../content.js'
 import { ServiceIcon } from './Icons.jsx'
 import Reveal from './Reveal.jsx'
 
@@ -10,6 +11,11 @@ export function sentences(text) {
   if (parts.length < 2) return text
   return parts.map((p, i) => <Fragment key={i}>{i > 0 && ' '}<span className="sent">{p}</span></Fragment>)
 }
+
+// Working hours on one line; each part stays whole if the line has to wrap.
+export const HoursLine = () => HOURS_ROWS.map(([d, t], i) => (
+  <Fragment key={d}>{i > 0 && ' · '}<span className="nw">{d} {t}</span></Fragment>
+))
 
 // Section heading: eyebrow, title and an optional lead, side by side when `split`.
 export function Head({ eyebrow, title, lead, split, center, light, children }) {
