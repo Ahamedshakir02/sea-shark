@@ -1,6 +1,7 @@
 import { photo, PHOTOS, AGENT_WHATSAPP, AGENT_PHONE_DISPLAY, AGENT_PHONE_LINK } from '../content.js'
 import { WhatsAppIcon } from './Icons.jsx'
 import WaLink from './WaLink.jsx'
+import { sentences } from './Blocks.jsx'
 
 // Closing call to action on every page. Defaults to the ship agency desk.
 export default function CtaBand({
@@ -17,7 +18,7 @@ export default function CtaBand({
       <div className="wrap cta__in">
         <div>
           <p className="eyebrow">Talk to our desk</p>
-          <h2>{title}</h2>
+          <h2>{sentences(title)}</h2>
           <p className="lead">{text}</p>
         </div>
         <div className="btns">

@@ -4,7 +4,7 @@ import { ServiceIcon, WhatsAppIcon } from '../components/Icons.jsx'
 import Reveal from '../components/Reveal.jsx'
 import WaLink from '../components/WaLink.jsx'
 import CtaBand from '../components/CtaBand.jsx'
-import { Head, Timeline, Faq } from '../components/Blocks.jsx'
+import { Head, Timeline, Faq, sentences } from '../components/Blocks.jsx'
 import malik from '../assets/boat-malik.jpg'
 
 const agency = MAIN_SERVICES.find((s) => s.slug === 'ship-agency')
@@ -114,11 +114,11 @@ export default function Home() {
         <div className="wrap">
           <Reveal className="appoint">
             <div className="appoint__img" style={{ '--img': `url(${photo(PHOTOS.terminalDusk, 1400)})` }}>
-              <p className="appoint__quote">A ship in port has one question: <span>who is looking after us here?</span> At Khorfakkan, that is our job.</p>
+              <p className="appoint__quote"><span className="sent">A ship in port has one question: <span className="accent">who is looking after us here?</span></span> <span className="sent">At Khorfakkan, that is our job.</span></p>
             </div>
             <div className="appoint__body">
               <p className="eyebrow">Appoint us</p>
-              <h2>Vessel calling soon? Start with one message.</h2>
+              <h2>{sentences('Vessel calling soon? Start with one message.')}</h2>
               <p>Send these details to our agency desk and we confirm the call plan with you.</p>
               <ol className="checklist">{agency.send.map((x) => <li key={x}>{x}</li>)}</ol>
               <WaLink className="btn btn--wa btn--block" message={agency.wa} number={AGENT_WHATSAPP}><WhatsAppIcon />Send on WhatsApp</WaLink>
