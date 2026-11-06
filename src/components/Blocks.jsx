@@ -1,0 +1,53 @@
+import { ServiceIcon } from './Icons.jsx'
+import Reveal from './Reveal.jsx'
+
+// Section heading: eyebrow, title and an optional lead, side by side when `split`.
+export function Head({ eyebrow, title, lead, split, center, light, children }) {
+  const cls = `head${split ? ' head--split' : ''}${center ? ' head--center' : ''}`
+  return (
+    <Reveal className={cls}>
+      <div>
+        {eyebrow && <p className={`eyebrow${light ? ' eyebrow--light' : ''}`}>{eyebrow}</p>}
+        <h2>{title}</h2>
+      </div>
+      {lead && <p className="lead">{lead}</p>}
+      {children}
+    </Reveal>
+  )
+}
+
+// Numbered stages joined by a dotted line (stacks into a vertical line on phones).
+export function Timeline({ steps, ends }) {
+  return (
+    <>
+      <ol className="timeline" style={{ '--n': steps.length }}>
+        {steps.map((st, i) => (
+          <Reveal as="li" key={st.title} delay={i * 100}>
+            <span className="timeline__node">{String(i + 1).padStart(2, '0')}</span>
+            <h3>{st.title}</h3>
+            <p>{st.text}</p>
+          </Reveal>
+        ))}
+      </ol>
+      {ends && <div className="timeline__ends" aria-hidden="true"><span>{ends[0]}</span><span>{ends[1]}</span></div>}
+    </>
+  )
+}
+
+// Questions that open one at a time; the first one starts open.
+export function Faq({ items }) {
+  return (
+    <div className="acc">
+      {items.map((f, i) => (
+        <details key={f.q} open={i === 0}>
+          <summary><small>{String(i + 1).padStart(2, '0')}</small>{f.q}<i aria-hidden="true" /></summary>
+          <p>{f.a}</p>
+        </details>
+      ))}
+    </div>
+  )
+}
+
+export function Ticks({ items }) {
+  return <ul className="ticks">{items.map((t) => <li key={t}><ServiceIcon id="check" /><span>{t}</span></li>)}</ul>
+}

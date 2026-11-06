@@ -23,6 +23,10 @@ export const ServiceIcon = ({ id }) => (
     {id === 'phone' && <path d="M6.5 3.5h3l1.5 4-2 1.5a11 11 0 0 0 6 6l1.5-2 4 1.5v3a2 2 0 0 1-2.2 2A16.5 16.5 0 0 1 4.5 5.7a2 2 0 0 1 2-2.2z" {...stroke} strokeLinejoin="round" />}
     {id === 'mail' && <><rect x="3" y="5" width="18" height="14" rx="2" {...stroke} /><path d="M3.5 6.5 12 13l8.5-6.5" {...stroke} strokeLinejoin="round" /></>}
     {id === 'clock' && <><circle cx="12" cy="12" r="9" {...stroke} /><path d="M12 7v5l3 2" {...stroke} strokeLinecap="round" /></>}
+    {id === 'anchor' && <><circle cx="12" cy="5" r="2" {...stroke} /><path d="M12 7v14M8 11h8M4.5 13.5A7.5 7.5 0 0 0 12 21a7.5 7.5 0 0 0 7.5-7.5" {...stroke} strokeLinecap="round" /></>}
+    {id === 'shield' && <><path d="M12 3 5 6v5.5c0 4.4 3 8 7 9.5 4-1.5 7-5.1 7-9.5V6z" {...stroke} strokeLinejoin="round" /><path d="m9 12 2.2 2.2L15.5 10" {...stroke} strokeLinecap="round" strokeLinejoin="round" /></>}
+    {id === 'ship' && <><path d="M3 15h18l-2.2 4.2a2 2 0 0 1-1.8 1.1H7a2 2 0 0 1-1.8-1.1z" {...stroke} strokeLinejoin="round" /><path d="M6 15V9h12v6M9 9V5h6v4" {...stroke} strokeLinejoin="round" /></>}
+    {id === 'compass' && <><circle cx="12" cy="12" r="9" {...stroke} /><path d="m15.5 8.5-2 5-5 2 2-5z" {...stroke} strokeLinejoin="round" /></>}
     {id === 'agency' && (
       <>
         <path d="M12 3v15M7 7h10M5 14a7 7 0 0 0 14 0M12 18v3" {...stroke} strokeLinecap="round" />
