@@ -60,7 +60,7 @@ export default function Home() {
           <div className="core">
             {MAIN_SERVICES.map((s, i) => (
               <Reveal as={Link} key={s.slug} delay={i * 100} className="core__card" to={`/services/${s.slug}`}>
-                <img src={imgOf(i === 0 ? s.photo : s.tile, i === 0 ? 1400 : 1000)} alt="" loading="lazy" decoding="async" />
+                <img src={imgOf(i === 0 ? s.banner : s.tile, i === 0 ? 1400 : 1000)} alt="" loading="lazy" decoding="async" />
                 <div className="core__top"><span className="core__num">0{i + 1}</span><span className="core__tag">{i === 0 ? 'Our core service' : 'Core service'}</span></div>
                 <div className="core__body">
                   <span className="core__icon"><ServiceIcon id={s.icon} /></span>
@@ -125,7 +125,7 @@ export default function Home() {
               <div className="contact-rows">
                 <a href={AGENT_PHONE_LINK}><ServiceIcon id="phone" />{AGENT_PHONE_DISPLAY}</a>
                 <a href={`mailto:${EMAIL}`}><ServiceIcon id="mail" />{EMAIL}</a>
-                <span><ServiceIcon id="clock" />{HOURS_ROWS.map(([d, t]) => `${d} ${t.toLowerCase()}`).join(' · ')}</span>
+                <span><ServiceIcon id="clock" />{HOURS_ROWS.map(([d, t]) => `${d} ${t}`).join(' · ')}</span>
               </div>
             </div>
           </Reveal>

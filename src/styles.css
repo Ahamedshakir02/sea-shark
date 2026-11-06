@@ -151,7 +151,7 @@ ul,ol{margin:0;padding:0;list-style:none}
 .core__card{position:relative;display:flex;flex-direction:column;justify-content:space-between;min-height:330px;border-radius:var(--r-l);overflow:hidden;color:#fff;background:var(--navy);isolation:isolate;transition:transform .5s var(--ease),box-shadow .5s var(--ease)}
 .core__card:first-child{grid-row:span 2;min-height:680px}
 .core__card img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:-2;transition:transform 1.2s var(--ease)}
-.core__card::before{content:'';position:absolute;inset:0;z-index:-1;background:linear-gradient(0deg,rgba(6,26,46,.95) 0%,rgba(6,26,46,.6) 45%,rgba(6,26,46,.1) 100%)}
+.core__card::before{content:'';position:absolute;inset:0;z-index:-1;background:linear-gradient(0deg,rgba(6,26,46,.96) 0%,rgba(6,26,46,.82) 40%,rgba(6,26,46,.35) 75%,rgba(6,26,46,.2) 100%)}
 .core__card:hover{transform:translateY(-4px);box-shadow:var(--shadow-lg)}
 .core__card:hover img{transform:scale(1.05)}
 .core__body{padding:clamp(24px,3vw,40px)}
