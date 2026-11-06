@@ -161,7 +161,7 @@ export const SERVICES = [
   },
   {
     slug: 'marine-survey',
-    icon: 'agency',
+    icon: 'survey',
     photo: PHOTOS.tankerDeckDusk,
     row: PHOTOS.shipDeck,
     tile: PHOTOS.shipDeck,
@@ -204,7 +204,7 @@ export const SERVICES = [
   },
   {
     slug: 'underwater-services',
-    icon: 'water',
+    icon: 'diver',
     photo: PHOTOS.diver,
     row: PHOTOS.diverPair,
     tile: PHOTOS.diverPair,
