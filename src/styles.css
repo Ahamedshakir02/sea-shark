@@ -640,16 +640,32 @@ h2{font-weight:600;letter-spacing:-.015em}
 .group li strong{font-weight:600;font-size:1rem}
 .group li span{color:var(--muted);font-size:.93rem;line-height:1.55}
 
-/* Marine support: secondary, compact cards */
-.support{display:grid;grid-template-columns:1fr 1fr;gap:22px}
-.support__card{display:grid;grid-template-columns:200px 1fr;background:#fff;border:1px solid var(--line);border-radius:8px;overflow:hidden;text-decoration:none;color:inherit;height:100%;transition:border-color .2s,box-shadow .2s}
-.support__card:hover{border-color:var(--teal);box-shadow:0 12px 30px -20px rgba(10,37,64,.5)}
-.support__img{background:#0a2540}
-.support__img img{width:100%;height:100%;object-fit:cover;min-height:220px}
-.support__body{padding:26px 28px}
-.support__kicker{font-size:.76rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--teal-d)}
-.support__body h3{font-size:1.3rem;margin:6px 0 8px}
-.support__body p{color:var(--muted);font-size:.95rem;margin-bottom:14px}
+/* Core service pillars */
+.pillars{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
+.pillar{position:relative;display:flex;flex-direction:column;justify-content:flex-end;min-height:600px;border-radius:8px;overflow:hidden;color:#fff;text-decoration:none;background:#0a2540;isolation:isolate}
+.pillar img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:-2;transition:transform 1.2s cubic-bezier(.2,.7,.2,1)}
+.pillar::after{content:"";position:absolute;inset:0;z-index:-1;background:linear-gradient(0deg,rgba(6,22,40,.96) 0%,rgba(6,22,40,.82) 45%,rgba(6,22,40,.15) 100%);transition:background .4s}
+.pillar:hover img{transform:scale(1.04)}
+.pillar:hover::after{background:linear-gradient(0deg,rgba(6,22,40,.97) 0%,rgba(8,60,72,.86) 55%,rgba(6,22,40,.25) 100%)}
+.pillar__body{padding:34px 32px 30px}
+.pillar__n{display:block;font-size:.8rem;font-weight:700;letter-spacing:.14em;color:#7fc4ca;margin-bottom:10px}
+.pillar h3{font-size:1.75rem;letter-spacing:-.015em;margin-bottom:10px}
+.pillar p{opacity:.82;font-size:.96rem;margin-bottom:18px}
+.pillar ul{border-top:1px solid rgba(255,255,255,.18);margin-bottom:22px}
+.pillar li{padding:10px 0;border-bottom:1px solid rgba(255,255,255,.12);font-size:.93rem;font-weight:500}
+.pillar__go{display:inline-flex;align-items:center;gap:8px;font-weight:600;font-size:.95rem}
+.pillar__go svg{width:18px;height:18px;transition:transform .2s}.pillar:hover .pillar__go svg{transform:translateX(4px)}
+.also{margin-top:26px;color:var(--muted);font-size:.95rem}
+.also a{color:var(--teal-d);font-weight:600}
+
+/* Statement band */
+.statement{background:var(--navy-d);color:#fff;padding:120px 0}
+.statement__in{display:grid;grid-template-columns:1.4fr 1fr;gap:70px;align-items:end}
+.statement__big{font-size:clamp(1.8rem,3.4vw,3rem);line-height:1.2;font-weight:500;letter-spacing:-.02em}
+.statement__big span{color:#7fc4ca}
+.statement__side p{color:rgba(255,255,255,.72);margin-bottom:22px}
+.more--light{color:#fff}
+.hero h1 em{font-style:normal;color:#9fd3d8}
 
 /* Contact block on home */
 .office{display:grid;grid-template-columns:1fr 1.3fr;gap:60px;align-items:start}
@@ -671,7 +687,10 @@ h2{font-weight:600;letter-spacing:-.015em}
   .groups{grid-template-columns:1fr}
   .group,.group+.group{padding:28px 0 6px;border-left:0}
   .group+.group{border-top:1px solid var(--line)}
-  .support{grid-template-columns:1fr}
+  .pillars{grid-template-columns:1fr}
+  .pillar{min-height:520px}
+  .statement__in{grid-template-columns:1fr;gap:30px}
+  .statement{padding:90px 0}
   .office{grid-template-columns:1fr;gap:30px}
   .hero__facts-in{grid-template-columns:1fr 1fr}
   .hero__facts-in div:nth-child(3){padding-left:0;border-left:0}
@@ -684,8 +703,9 @@ h2{font-weight:600;letter-spacing:-.015em}
   .hero__facts-in div+div{padding-left:14px}
   .hero__facts-in div:nth-child(3){padding-left:0}
   .hero__facts strong{font-size:1.1rem}
-  .support__card{grid-template-columns:1fr}
-  .support__img img{min-height:0;height:180px}
+  .pillar{min-height:500px}
+  .pillar__body{padding:28px 22px 24px}
+  .statement{padding:70px 0}
   .office__grid{grid-template-columns:1fr}
   .office__grid div:nth-child(even){padding-left:0}
 }

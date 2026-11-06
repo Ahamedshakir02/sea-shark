@@ -1,14 +1,11 @@
 import { Link } from 'react-router-dom'
-import { SERVICES, STATS, PLACES, PHOTOS, WHY, FAQ, CLIENTS, photo, AGENT_PHONE_DISPLAY, AGENT_PHONE_LINK, AGENT_WHATSAPP, EMAIL, HOURS_ROWS } from '../content.js'
+import { MAIN_SERVICES, MINOR_SERVICES, STATS, PLACES, PHOTOS, WHY, FAQ, CLIENTS, photo, AGENT_PHONE_DISPLAY, AGENT_PHONE_LINK, AGENT_WHATSAPP, EMAIL, HOURS_ROWS } from '../content.js'
 import { ServiceIcon } from '../components/Icons.jsx'
 import Reveal from '../components/Reveal.jsx'
 import WaLink from '../components/WaLink.jsx'
 import CtaBand from '../components/CtaBand.jsx'
-import malik from '../assets/boat-malik.jpg'
 
-const img = (s, w) => (s === 'malik' ? malik : photo(s, w))
-const agency = SERVICES.find((s) => s.slug === 'ship-agency')
-const marine = SERVICES.filter((s) => s.slug !== 'ship-agency')
+const agency = MAIN_SERVICES.find((s) => s.slug === 'ship-agency')
 
 export default function Home() {
   return (
@@ -16,14 +13,14 @@ export default function Home() {
       <section className="hero" style={{ '--img': `url(${photo(PHOTOS.portAerial, 2200)})` }}>
         <div className="hero__shade" />
         <div className="wrap hero__in">
-          <p className="tag hero__a">Ship agency · Khorfakkan Port, UAE</p>
-          <h1 className="hero__a" style={{ '--d': '120ms' }}>Your ship agent at Khorfakkan, from ETA to sailing.</h1>
+          <p className="tag hero__a">Sea Shark Shipping Services LLC · Khorfakkan, UAE</p>
+          <h1 className="hero__a" style={{ '--d': '120ms' }}>Ship agency and marine services, <em>handled end to end.</em></h1>
           <p className="hero__lead hero__a" style={{ '--d': '260ms' }}>
-            Sea Shark Shipping Services represents owners, operators and charterers calling at Khorfakkan: port call coordination, clearance, husbandry and crew support, handled by one local team.
+            Port agency, marine survey and underwater services for owners, operators and charterers calling at Khorfakkan. One team, from the first ETA notice to the sailing report.
           </p>
           <div className="hero__cta hero__a" style={{ '--d': '400ms' }}>
             <WaLink className="pill pill--light" message={agency.wa} number={AGENT_WHATSAPP}>Appoint us as agent</WaLink>
-            <a className="pill pill--ghost" href={AGENT_PHONE_LINK}>Agency desk {AGENT_PHONE_DISPLAY}</a>
+            <Link className="pill pill--ghost" to="/services">Our services</Link>
           </div>
         </div>
         <div className="hero__facts">
@@ -36,7 +33,45 @@ export default function Home() {
       <section className="section">
         <div className="wrap">
           <Reveal className="head head--row">
-            <div><p className="tag tag--dark">Ship agency services</p><h2>Everything your vessel needs in port, coordinated by one agent.</h2></div>
+            <div><p className="tag tag--dark">Core services</p><h2>Three services. One standard.</h2></div>
+            <p className="head__note">Each service can be booked on its own, or coordinated together for the same port call.</p>
+          </Reveal>
+          <div className="pillars">
+            {MAIN_SERVICES.map((s, i) => (
+              <Reveal key={s.slug} delay={i * 110}>
+                <Link className="pillar" to={`/services/${s.slug}`}>
+                  <img src={photo(s.tile, 900)} alt="" loading="lazy" decoding="async" />
+                  <div className="pillar__body">
+                    <span className="pillar__n">0{i + 1}</span>
+                    <h3>{s.title}</h3>
+                    <p>{s.short}</p>
+                    <ul>{(s.groups ? s.groups.map((g) => g.title) : s.includes.slice(0, 3).map((x) => x.title)).map((t) => <li key={t}>{t}</li>)}</ul>
+                    <span className="pillar__go">Explore {s.title.toLowerCase()} <ServiceIcon id="arrow" /></span>
+                  </div>
+                </Link>
+              </Reveal>
+            ))}
+          </div>
+          <p className="also">Also available on request: {MINOR_SERVICES.map((m, i) => <span key={m.slug}>{i ? ' and ' : ''}<Link to={`/services/${m.slug}`}>{m.title.toLowerCase()}</Link></span>)}.</p>
+        </div>
+      </section>
+
+      <section className="statement">
+        <div className="wrap statement__in">
+          <Reveal as="p" className="statement__big">
+            A ship in port has one question: <span>who is looking after us here?</span> At Khorfakkan, that is our job.
+          </Reveal>
+          <Reveal className="statement__side" delay={120}>
+            <p>We act for the vessel and her owners while she is in port: we prepare the call, coordinate every party involved and report back at each stage, to the standard owners and operators expect from their agent anywhere in the world.</p>
+            <Link className="more more--light" to="/about">About Sea Shark <ServiceIcon id="arrow" /></Link>
+          </Reveal>
+        </div>
+      </section>
+
+      <section className="section">
+        <div className="wrap">
+          <Reveal className="head head--row">
+            <div><p className="tag tag--dark">Ship agency in full</p><h2>Everything your vessel needs in port, coordinated by one agent.</h2></div>
             <Link className="more" to="/services/ship-agency">Ship agency in detail <ServiceIcon id="arrow" /></Link>
           </Reveal>
           <div className="groups">
@@ -55,7 +90,7 @@ export default function Home() {
         <div className="wrap">
           <Reveal className="head head--row">
             <div><p className="tag tag--dark">How we handle a port call</p><h2>A clear process, every call.</h2></div>
-            <p className="head__note">You deal with one agency team, and you always know where your vessel stands.</p>
+            <p className="head__note">You deal with one team, and you always know where your vessel stands.</p>
           </Reveal>
           <ol className="steps steps--flow" style={{ '--n': agency.process.length }}>
             {agency.process.map((st, i) => (
@@ -69,7 +104,7 @@ export default function Home() {
 
       <section className="section">
         <div className="wrap">
-          <Reveal className="head"><p className="tag tag--dark">Who we act for</p><h2>Agency for every party behind the call.</h2></Reveal>
+          <Reveal className="head"><p className="tag tag--dark">Who we act for</p><h2>Trusted with the vessel, on behalf of every party.</h2></Reveal>
           <div className="why">
             {CLIENTS.map((w, i) => (
               <Reveal className="why__item" key={w.title} delay={i * 80}><span className="steps__n">0{i + 1}</span><h3>{w.title}</h3><p>{w.text}</p></Reveal>
@@ -79,33 +114,9 @@ export default function Home() {
       </section>
 
       <section className="section section--tint">
-        <div className="wrap">
-          <Reveal className="head head--row">
-            <div><p className="tag tag--dark">Marine support</p><h2>Supporting services at Khorfakkan.</h2></div>
-            <p className="head__note">Available on their own, or arranged together with your port call.</p>
-          </Reveal>
-          <div className="support">
-            {marine.map((s, i) => (
-              <Reveal key={s.slug} delay={i * 100}>
-                <Link className="support__card" to={`/services/${s.slug}`}>
-                  <div className="support__img"><img src={img(s.photo, 900)} alt="" loading="lazy" decoding="async" /></div>
-                  <div className="support__body">
-                    <span className="support__kicker">{s.kicker.replace('Marine support · ', '')}</span>
-                    <h3>{s.title}</h3>
-                    <p>{s.short}</p>
-                    <span className="more">Learn more <ServiceIcon id="arrow" /></span>
-                  </div>
-                </Link>
-              </Reveal>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      <section className="section">
         <div className="wrap why-faq">
           <div>
-            <Reveal className="head"><p className="tag tag--dark">Why Sea Shark</p><h2>A dependable local agent.</h2></Reveal>
+            <Reveal className="head"><p className="tag tag--dark">Why Sea Shark</p><h2>A dependable partner in port.</h2></Reveal>
             <div className="why why--two">
               {WHY.map((w, i) => (
                 <Reveal className="why__item" key={w.title} delay={i * 80}><span className="steps__n">0{i + 1}</span><h3>{w.title}</h3><p>{w.text}</p></Reveal>
@@ -123,12 +134,12 @@ export default function Home() {
       <section className="section section--navy">
         <div className="wrap office">
           <Reveal>
-            <p className="tag">Contact the agency desk</p>
+            <p className="tag">Contact our operations desk</p>
             <h2>Khorfakkan Port, UAE.</h2>
             <p className="office__lead">Port operations at Khorfakkan, with offices in Sharjah and Dubai.</p>
           </Reveal>
           <Reveal className="office__grid" delay={100}>
-            <div><span>Ship agency</span><a href={AGENT_PHONE_LINK}>{AGENT_PHONE_DISPLAY}</a></div>
+            <div><span>Agency desk</span><a href={AGENT_PHONE_LINK}>{AGENT_PHONE_DISPLAY}</a></div>
             <div><span>Email</span><a href={`mailto:${EMAIL}`}>{EMAIL}</a></div>
             {HOURS_ROWS.map(([d, t]) => <div key={d}><span>{d === 'Office' ? 'Office hours' : d}</span><p>{t}</p></div>)}
             {PLACES.filter((p) => p.type === 'Office').map((p) => <div key={p.name}><span>Office</span><p>{p.name}</p></div>)}
@@ -136,7 +147,7 @@ export default function Home() {
         </div>
       </section>
 
-      <CtaBand variant="plain" title="Vessel calling at Khorfakkan?" text="Send the vessel name, ETA and what the call involves, and our agency desk will confirm."
+      <CtaBand variant="plain" title="Vessel calling at Khorfakkan?" text="Send the vessel name, ETA and what the call involves, and our team will confirm."
         message={agency.wa} number={AGENT_WHATSAPP} phone={AGENT_PHONE_DISPLAY} phoneLink={AGENT_PHONE_LINK} />
     </>
   )
