@@ -59,7 +59,7 @@ export default function ServiceDetail() {
         <div className="wrap">
           {s.groups ? (
             <>
-              <Head split eyebrow="What's included" title="The full agency scope."
+              <Head split eyebrow="What's included" title="Every part of the port call, covered."
                 lead="Grouped the way a port call runs. Tell us which parts your call needs and we take care of them." />
               <div className="groups">
                 {s.groups.map((g, i) => (
@@ -75,7 +75,7 @@ export default function ServiceDetail() {
             </>
           ) : (
             <>
-              <Head eyebrow="What's included" title={`${s.title}, done properly.`} />
+              <Head eyebrow="What's included" title={s.includesTitle || `${s.title}, done properly.`} />
               <div className="cards cards--3">
                 {s.includes.map((x, i) => (
                   <Reveal className="card" key={x.title} delay={(i % 3) * 90}>
@@ -101,7 +101,7 @@ export default function ServiceDetail() {
 
       <section className="sec">
         <div className="wrap">
-          <Head split eyebrow="How it works" title="From first message to done."
+          <Head split eyebrow="How it works" title="From first message to job done."
             lead="One contact follows the job from start to finish and keeps you updated." />
           <Timeline steps={s.process} />
         </div>

@@ -40,7 +40,7 @@ export default function About() {
 
       <section className="sec">
         <div className="wrap">
-          <Head eyebrow="Why Sea Shark" title="Why ships work with us." />
+          <Head eyebrow="Why Sea Shark" title="Why owners and operators choose us." />
           <Reveal className="why">
             {WHY.map((w, i) => <div key={w.title}><strong>0{i + 1}</strong><h3>{w.title}</h3><p>{w.text}</p></div>)}
           </Reveal>

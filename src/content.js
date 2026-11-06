@@ -192,6 +192,7 @@ export const SERVICES = [
     send: ['Vessel name and IMO', 'Type of survey needed', 'Port position and ETA', 'Who the report is for'],
     wa: 'Hello Sea Shark, I need a marine survey. Vessel: ... Survey type: ... When: ...',
     cta: 'Request a survey',
+    includesTitle: 'Surveys you can rely on, reports you can use.',
     number: AGENT_WHATSAPP,
     phone: AGENT_PHONE_DISPLAY,
     phoneLink: AGENT_PHONE_LINK,
@@ -235,6 +236,7 @@ export const SERVICES = [
     send: ['Vessel name and IMO', 'Work needed (inspection, cleaning, polishing)', 'Port position and ETA', 'Time available in port'],
     wa: 'Hello Sea Shark, I need underwater services. Vessel: ... Work: ... When: ...',
     cta: 'Request diving services',
+    includesTitle: 'Hull and propeller work, below the waterline.',
     number: AGENT_WHATSAPP,
     phone: AGENT_PHONE_DISPLAY,
     phoneLink: AGENT_PHONE_LINK,
@@ -280,6 +282,7 @@ export const SERVICES = [
     send: ['Vessel name and IMO', 'Position (port, berth or anchorage)', 'Quantity of water', 'Date and time needed', 'Agent or master contact'],
     wa: WATER_MESSAGE,
     cta: 'Check water availability',
+    includesTitle: 'Drinking water, delivered to your ship.',
     urgent: 'Need water today?',
     faq: [
       { q: 'Do you deliver water to ships at anchor?', a: 'Yes. Malik takes water out to ships at anchor at Khorfakkan.' },
@@ -323,6 +326,7 @@ export const SERVICES = [
     send: ['Vessel name', 'Ship position', 'Number of people', 'Cargo weight or size', 'Pickup point, date and time'],
     wa: 'Hello Sea Shark, I need a crew boat. Vessel: ... Position: ... People: ... Cargo: ... When: ...',
     cta: 'Book a crew boat',
+    includesTitle: 'The right boat for every transfer.',
     urgent: 'Need a boat today?',
     faq: [
       { q: 'Do you own crew boats?', a: 'No. We own one vessel, the water barge Malik. For crew boats we act as your agent and book the right boat for the job.' },

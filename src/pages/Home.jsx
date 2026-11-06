@@ -21,7 +21,7 @@ export default function Home() {
         <div className="wrap hero__in">
           <div className="hero__copy">
             <p className="eyebrow hero__a">Ship agency · Khorfakkan Port, UAE</p>
-            <h1 className="hero__a" style={{ '--d': '120ms' }}>Your agent at Khorfakkan. <span className="accent">Every port call, handled.</span></h1>
+            <h1 className="hero__a" style={{ '--d': '120ms' }}>Your agent at Khorfakkan. <span className="accent">Every port call, handled end to end.</span></h1>
             <p className="lead hero__a" style={{ '--d': '260ms' }}>
               Port agency, marine survey and underwater services for owners, operators and charterers. One team looks after your vessel from the first ETA notice to the sailing report.
             </p>
@@ -55,7 +55,7 @@ export default function Home() {
 
       <section className="sec sec--mist" id="services">
         <div className="wrap">
-          <Head split eyebrow="Core services" title="Three core services, one team in port."
+          <Head split eyebrow="Core services" title="Agency, survey and diving. One team in port."
             lead="Book each service on its own, or let us coordinate all three for the same port call." />
           <div className="core">
             {MAIN_SERVICES.map((s, i) => (
@@ -79,7 +79,7 @@ export default function Home() {
         <div className="wrap scope">
           <Reveal className="scope__side">
             <p className="eyebrow">Ship agency scope</p>
-            <h2>Everything your vessel needs in port.</h2>
+            <h2>One desk for everything your vessel needs in port.</h2>
             <p className="lead">From pre-arrival planning to the final account, our agency desk handles the call so you deal with one contact, not ten.</p>
             <div className="scope__count">
               <div><strong>{agency.groups.length}</strong><span>areas of work</span></div>
@@ -134,7 +134,7 @@ export default function Home() {
 
       <section className="sec">
         <div className="wrap">
-          <Head eyebrow="Who we act for" title="On behalf of every party in the call." />
+          <Head eyebrow="Who we act for" title="Acting for every party in the call." />
           <div className="cards">
             {CLIENTS.map((w, i) => (
               <Reveal className="card" key={w.title} delay={i * 80}>
@@ -154,7 +154,7 @@ export default function Home() {
 
       <section className="sec sec--mist">
         <div className="wrap">
-          <Head split eyebrow="Marine support" title="Supporting services."
+          <Head split eyebrow="Marine support" title="Water and boats, when the call needs them."
             lead="Available on their own, or arranged together with your port call." />
           <div className="support">
             {MINOR_SERVICES.map((s, i) => (

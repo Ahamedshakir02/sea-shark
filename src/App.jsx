@@ -16,13 +16,13 @@ import NotFound from './pages/NotFound.jsx'
 import PortsFaq from './pages/PortsFaq.jsx'
 
 const TITLES = {
-  '/': 'Sea Shark Shipping Services LLC | Ship agency, Khorfakkan, UAE',
+  '/': 'Sea Shark Shipping Services LLC | Ship agent at Khorfakkan Port, UAE',
   '/services': 'Services | Sea Shark Shipping',
   '/services/fresh-water': 'Fresh water supply | Sea Shark Shipping',
   '/services/crew-boats': 'Crew boat service | Sea Shark Shipping',
-  '/services/ship-agency': 'Ship agency | Sea Shark Shipping',
-  '/services/marine-survey': 'Marine survey | Sea Shark Shipping',
-  '/services/underwater-services': 'Underwater services | Sea Shark Shipping',
+  '/services/ship-agency': 'Ship agency at Khorfakkan | Sea Shark Shipping',
+  '/services/marine-survey': 'Marine survey at Khorfakkan | Sea Shark Shipping',
+  '/services/underwater-services': 'Underwater hull services at Khorfakkan | Sea Shark Shipping',
   '/our-barge': 'Our barge Malik | Sea Shark Shipping',
   '/ports-and-faq': 'Ports & FAQ | Sea Shark Shipping',
   '/about': 'About us | Sea Shark Shipping',

@@ -16,7 +16,7 @@ export default function Services() {
   return (
     <>
       <PageHead variant="split" image={PHOTOS.tugWaves} eyebrow="Services"
-        title="Ship agency, marine survey and underwater services."
+        title="Agency, survey and diving under one roof."
         lead="Three core services for vessels calling at Khorfakkan, supported by fresh water supply and crew boats, all coordinated by one team."
         crumbs={[{ label: 'Services' }]}>
         <div className="index">
@@ -51,7 +51,7 @@ export default function Services() {
 
       <section className="sec sec--mist">
         <div className="wrap">
-          <Head split eyebrow="Marine support" title="Supporting services."
+          <Head split eyebrow="Marine support" title="Water and boats, when the call needs them."
             lead="Available on their own, or arranged together with your port call." />
           <div className="support">
             {MINOR_SERVICES.map((s, i) => (
