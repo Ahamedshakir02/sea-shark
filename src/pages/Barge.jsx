@@ -17,7 +17,7 @@ const BENEFITS = [
 export default function Barge() {
   return (
     <>
-      <PageHead variant="photo" image={PHOTOS.bargeAerial} eyebrow="Our barge" title="Our own barge, not hired."
+      <PageHead variant="photo" image={malik} eyebrow="Our barge" title="Our own barge, not hired."
         lead="Malik is the fresh water barge we own and run ourselves." crumbs={[{ label: 'Our barge' }]}>
         <dl className="facts" style={{ '--n': 3 }}>{BARGE_SPECS.slice(1, 4).map((f) => <div key={f.k}><dt>{f.k}</dt><dd>{f.v}</dd></div>)}</dl>
       </PageHead>
