@@ -7,13 +7,13 @@ import WaLink from '../components/WaLink.jsx'
 export default function PortsFaq() {
   return (
     <>
-      <PageBanner variant="navy" tag="[ Ports & FAQ ]" title="Where we work, and what ships ask us."
+      <PageBanner variant="navy" tag="Ports & FAQ" title="Where we work, and what ships ask us."
         lead="Khorfakkan on the UAE east coast, and straight answers to the questions we hear most." crumbs={[{ label: 'Ports & FAQ' }]}>
         <div className="hb__coords">{PORTS.map((p) => <a key={p.id} href={`#${p.id}`}><ServiceIcon id="pin" /><span><strong>{p.name}</strong>{p.coords}</span></a>)}</div>
       </PageBanner>
       <section className="section">
         <div className="wrap">
-          <Reveal className="head head--row"><div><p className="tag tag--dark">[ Our ports ]</p><h2>Khorfakkan, on the Gulf of Oman.</h2></div>
+          <Reveal className="head head--row"><div><p className="tag tag--dark">Our ports</p><h2>Khorfakkan, on the Gulf of Oman.</h2></div>
             <p className="head__note">One port, covered by one team from the first message to the moment the ship sails.</p></Reveal>
           <div className="ports">
             {PORTS.map((p, i) => (
@@ -39,7 +39,7 @@ export default function PortsFaq() {
       </section>
       <section className="section">
         <div className="wrap">
-          <Reveal className="head"><p className="tag tag--dark">[ Planning a call ]</p><h2>Getting the most from your call at Khorfakkan.</h2></Reveal>
+          <Reveal className="head"><p className="tag tag--dark">Planning a call</p><h2>Getting the most from your call at Khorfakkan.</h2></Reveal>
           <div className="why">
             {CALL_TIPS.map((w, i) => (
               <Reveal className="why__item" key={w.title} delay={i * 90}>
@@ -52,7 +52,7 @@ export default function PortsFaq() {
       <section className="section section--tint">
         <div className="wrap faq__in">
           <Reveal>
-            <p className="tag tag--dark">[ FAQ ]</p><h2>Questions ships ask us.</h2>
+            <p className="tag tag--dark">FAQ</p><h2>Questions ships ask us.</h2>
             <p className="head__note faq__note">Not here? Ask us on WhatsApp and we will reply during office hours.</p>
             <WaLink className="pill pill--wa faq__ask" message="Hello Sea Shark, I have a question: ..."><span className="wa-ic"><WhatsAppIcon /></span>Ask us on WhatsApp</WaLink>
             <dl className="hours">{HOURS_ROWS.map(([d, t]) => <div key={d}><dt>{d}</dt><dd>{t}</dd></div>)}</dl>

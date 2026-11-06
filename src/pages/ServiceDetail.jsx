@@ -19,7 +19,7 @@ export default function ServiceDetail() {
 
   return (
     <>
-      <PageBanner variant="panel" image={s.banner} tag={`[ Service 0${SERVICES.indexOf(s) + 1} of 03 ]`} title={s.title} lead={s.short}
+      <PageBanner variant="panel" image={s.banner} tag={s.slug === 'ship-agency' ? 'Core service' : 'Marine support'} title={s.title} lead={s.short}
         crumbs={[{ label: 'Services', to: '/services' }, { label: s.title }]} />
 
       <section className="section">
@@ -28,9 +28,17 @@ export default function ServiceDetail() {
             <p className="detail__intro">{s.intro}</p>
             {s.more && <p className="detail__more">{s.more}</p>}
             <h2>What's included</h2>
+            {s.groups ? s.groups.map((g) => (
+              <div className="incl-group" key={g.title}>
+                <h3 className="incl-group__title">{g.title}</h3>
+                <ul className="incl">{g.items.map((x) => (
+                  <li key={x.title}><span className="incl__n"><ServiceIcon id="check" /></span><h3>{x.title}</h3><p>{x.text}</p></li>
+                ))}</ul>
+              </div>
+            )) : (
             <ul className="incl">{s.includes.map((x, i) => (
               <li key={x.title}><span className="incl__n">{String(i + 1).padStart(2, '0')}</span><h3>{x.title}</h3><p>{x.text}</p></li>
-            ))}</ul>
+            ))}</ul>)}
             {s.who && <><h2 className="detail__who">Who it's for</h2>
             <ul className="ticks">{s.who.map((w) => <li key={w}><ServiceIcon id="check" /><span>{w}</span></li>)}</ul></>}
           </Reveal>
@@ -47,14 +55,14 @@ export default function ServiceDetail() {
 
       <section className="urgent">
         <div className="wrap urgent__in">
-          <p><strong>{s.urgent}</strong> Our crews work 24 hours. Call us or send a WhatsApp message.</p>
+          <p><strong>{s.urgent}</strong> {s.slug === 'ship-agency' ? 'Contact our agency desk by phone or WhatsApp.' : 'Our crews work 24 hours. Call us or send a WhatsApp message.'}</p>
           <div className="urgent__cta"><a className="pill pill--light" href={s.phoneLink || PHONE_LINK}>Call {s.phone || PHONE_DISPLAY}</a><WaLink className="pill pill--ghost" message={s.wa} number={s.number}>WhatsApp us</WaLink></div>
         </div>
       </section>
 
       <section className="section section--tint">
         <div className="wrap">
-          <Reveal className="head"><p className="tag tag--dark">[ How it works ]</p><h2>From first message to done.</h2></Reveal>
+          <Reveal className="head"><p className="tag tag--dark">How it works</p><h2>From first message to done.</h2></Reveal>
           <ol className="steps steps--flow" style={{ '--n': s.process.length }}>
             {s.process.map((st, i) => (
               <Reveal as="li" key={st.title} delay={i * 110}>
@@ -67,7 +75,7 @@ export default function ServiceDetail() {
 
       <section className="section">
         <div className="wrap qa">
-          <Reveal><p className="tag tag--dark">[ Quick answers ]</p><h2>Asked about {s.title.toLowerCase()}.</h2><Link className="link" to="/ports-and-faq">All questions &rarr;</Link></Reveal>
+          <Reveal><p className="tag tag--dark">Quick answers</p><h2>Asked about {s.title.toLowerCase()}.</h2><Link className="link" to="/ports-and-faq">All questions &rarr;</Link></Reveal>
           <div className="faq">{s.faq.map((f, i) => (
             <Reveal className="faq__item" key={f.q} delay={i * 80}><h3><span className="faq__n">0{i + 1}</span>{f.q}</h3><p>{f.a}</p></Reveal>
           ))}</div>
@@ -76,7 +84,7 @@ export default function ServiceDetail() {
 
       <section className="section section--tint">
         <div className="wrap">
-          <Reveal className="head"><p className="tag tag--dark">[ More services ]</p><h2>We can also help with</h2></Reveal>
+          <Reveal className="head"><p className="tag tag--dark">More services</p><h2>{s.slug === 'ship-agency' ? 'Marine support at Khorfakkan' : 'We can also help with'}</h2></Reveal>
           <div className="tiles tiles--two">
             {others.map((o, i) => (
               <Reveal key={o.slug} delay={i * 110}>

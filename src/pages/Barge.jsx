@@ -16,7 +16,7 @@ const FACTS = [
 export default function Barge() {
   return (
     <>
-      <PageBanner image={PHOTOS.bargeAerial} tag="[ Our barge ]" title="Our own barge, not hired."
+      <PageBanner image={PHOTOS.bargeAerial} tag="Our barge" title="Our own barge, not hired."
         lead="Malik is the fresh water barge we own and run ourselves." crumbs={[{ label: 'Our barge' }]}>
         <dl className="hb__chips">{BARGE_SPECS.slice(1, 4).map((f) => <div key={f.k}><dt>{f.k}</dt><dd>{f.v}</dd></div>)}</dl>
       </PageBanner>
@@ -24,7 +24,7 @@ export default function Barge() {
         <div className="wrap feature__in">
           <Reveal className="feature__img"><img src={malik} alt="Malik, our fresh water barge, alongside in port" loading="lazy" decoding="async" /></Reveal>
           <Reveal className="feature__text" delay={120}>
-            <p className="tag tag--dark">[ Malik ]</p>
+            <p className="tag tag--dark">Malik</p>
             <h2>Why owning the barge matters.</h2>
             <p>Most of the delays in fresh water supply come from waiting on someone else's boat. We own Malik, so when you book water we plan the delivery around your ship, not around a third party's timetable.</p>
             <p>We also look after the barge ourselves, which means we know its condition and keep it to the standard our clients expect.</p>
@@ -36,7 +36,7 @@ export default function Barge() {
       </section>
       <section className="section section--navy">
         <div className="wrap specs__in">
-          <Reveal className="head"><p className="tag">[ Malik at a glance ]</p><h2>The barge in numbers.</h2>
+          <Reveal className="head"><p className="tag">Malik at a glance</p><h2>The barge in numbers.</h2>
             <p className="head__note">Need capacity or pump details for your ship? Ask us on WhatsApp.</p></Reveal>
           <dl className="specs">
             {BARGE_SPECS.map((f, i) => (
@@ -47,7 +47,7 @@ export default function Barge() {
       </section>
       <section className="section section--tint">
         <div className="wrap">
-          <Reveal className="head"><p className="tag tag--dark">[ What it means for you ]</p><h2>Water on your schedule.</h2></Reveal>
+          <Reveal className="head"><p className="tag tag--dark">What it means for you</p><h2>Water on your schedule.</h2></Reveal>
           <div className="cards">
             {[
               ['Book ahead or same day', 'Tell us when your ship needs water and we plan Malik around it.'],
@@ -65,7 +65,7 @@ export default function Barge() {
       </section>
       <section className="section">
         <div className="wrap">
-          <Reveal className="head"><p className="tag tag--dark">[ A delivery, step by step ]</p><h2>How Malik delivers your water.</h2></Reveal>
+          <Reveal className="head"><p className="tag tag--dark">A delivery, step by step</p><h2>How Malik delivers your water.</h2></Reveal>
           <ol className="steps steps--flow" style={{ '--n': SERVICES[0].process.length }}>
             {SERVICES[0].process.map((st, i) => (
               <Reveal as="li" key={st.title} delay={i * 110}>

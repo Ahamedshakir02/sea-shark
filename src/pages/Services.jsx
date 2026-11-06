@@ -15,9 +15,9 @@ export default function Services() {
     <>
       <PageBanner variant="split"
         image={PHOTOS.tugWaves}
-        tag="[ Services ]"
-        title="Everything a ship needs on the east coast."
-        lead="Fresh water from our own barge, crew boats arranged as your agent, and full ship agency at Khorfakkan."
+        tag="Services"
+        title="Ship agency, with marine support on hand."
+        lead="Port agency at Khorfakkan is our core service. Fresh water from our own barge and crew boats arranged as your agent support every call."
         crumbs={[{ label: 'Services' }]}>
         <ol className="hb__index">{SERVICES.map((s, i) => <li key={s.slug}><Link to={`/services/${s.slug}`}><span>0{i + 1}</span>{s.title}<ServiceIcon id="arrow" /></Link></li>)}</ol>
       </PageBanner>
@@ -43,7 +43,7 @@ export default function Services() {
       </section>
       <section className="section section--tint">
         <div className="wrap">
-          <Reveal className="head"><p className="tag tag--dark">[ Who we work with ]</p><h2>Built for the people behind every port call.</h2></Reveal>
+          <Reveal className="head"><p className="tag tag--dark">Who we work with</p><h2>Built for the people behind every port call.</h2></Reveal>
           <div className="why">
             {CLIENTS.map((w, i) => (
               <Reveal className="why__item" key={w.title} delay={i * 90}>
@@ -55,7 +55,7 @@ export default function Services() {
       </section>
       <section className="section">
         <div className="wrap">
-          <Reveal className="head"><p className="tag tag--dark">[ How it works ]</p><h2>Three steps, whatever the job.</h2></Reveal>
+          <Reveal className="head"><p className="tag tag--dark">How it works</p><h2>One process, whatever the job.</h2></Reveal>
           <ol className="steps">
             {STEPS.map((st, i) => (
               <Reveal as="li" key={st.title} delay={i * 110}>
@@ -65,7 +65,7 @@ export default function Services() {
           </ol>
         </div>
       </section>
-      <CtaBand image={PHOTOS.shipBlueSea} title="Not sure which service you need?" text="Tell us the ship and the job on WhatsApp, and we'll sort out the rest." />
+      <CtaBand image={PHOTOS.shipBlueSea} title="Not sure which service you need?" text="Tell us the vessel and the job, and our team will advise." />
     </>
   )
 }

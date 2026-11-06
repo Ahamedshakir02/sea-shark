@@ -3,8 +3,8 @@ import { WhatsAppIcon } from './Icons.jsx'
 import WaLink from './WaLink.jsx'
 
 export default function CtaBand({
-  title = 'Need water, a crew boat or an agent today?',
-  text = "Send us your vessel name and location on WhatsApp, and we'll sort it out.",
+  title = 'Vessel calling at Khorfakkan?',
+  text = 'Send us the vessel name, ETA or position and what you need, and our team will confirm.',
   message = 'Hello Sea Shark, I have an enquiry.',
   variant,
   number,

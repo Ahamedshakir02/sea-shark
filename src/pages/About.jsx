@@ -7,21 +7,22 @@ import CtaBand from '../components/CtaBand.jsx'
 export default function About() {
   return (
     <>
-      <PageBanner variant="editorial" image={PHOTOS.tankerDeckDusk} image2={PHOTOS.ropeDeck} tag="[ About us ]" title="Young company, experienced hands."
-        lead="A UAE marine services company built on local knowledge and our own vessel." crumbs={[{ label: 'About' }]}>
+      <PageBanner variant="editorial" image={PHOTOS.tankerDeckDusk} image2={PHOTOS.ropeDeck} tag="About us" title="A ship agency built on marine experience."
+        lead="A UAE ship agency at Khorfakkan, supported by our own fresh water barge." crumbs={[{ label: 'About' }]}>
         <p className="hb__since"><strong>2023</strong>founded, with 20+ years of combined marine experience behind it</p>
       </PageBanner>
 
       <section className="section">
         <div className="wrap about">
           <Reveal>
-            <p className="tag tag--dark">[ Our story ]</p>
-            <h2>Built for ships calling on the east coast.</h2>
+            <p className="tag tag--dark">Our story</p>
+            <h2>Built for vessels calling on the east coast.</h2>
           </Reveal>
           <Reveal className="about__text" delay={120}>
             <p>Sea Shark Shipping Services LLC was founded in 2023 by people who have spent their careers around ships. Between them, our founders bring more than 20 years of combined marine experience.</p>
-            <p>We work from Khorfakkan Port on the UAE east coast, with offices in Sharjah and Dubai. We run our own vessel, the fresh water barge Malik, so water deliveries never wait on someone else's boat. We also arrange crew boats and act as ship agent for owners, operators and masters.</p>
-            <p>We keep our list of services short on purpose, so we can do each one properly and answer quickly when a ship needs us.</p>
+            <p>We act as ship agent at Khorfakkan Port on the UAE east coast, with offices in Sharjah and Dubai. Owners, operators, charterers and masters appoint us to handle their port calls, from pre-arrival planning and clearance to husbandry and crew support.</p>
+            <p>Alongside agency we run our own vessel, the fresh water barge Malik, and arrange crew boats, so the practical needs of a call can be handled by the same team.</p>
+            <p>We keep our services focused, so each port call gets proper attention and a prompt response.</p>
           </Reveal>
         </div>
       </section>
@@ -30,16 +31,16 @@ export default function About() {
         <div className="split__img" style={{ '--img': `url(${photo(PHOTOS.boatWake, 1600)})` }} />
         <div className="split__text">
           <Reveal>
-            <p className="tag">[ Mission ]</p>
-            <h2>Fast, dependable support for every ship we serve.</h2>
-            <p>Our aim is simple: when a vessel at Khorfakkan needs water, a crew transfer or an agent, it gets a quick answer and a job done properly.</p>
+            <p className="tag">Mission</p>
+            <h2>Dependable agency for every vessel we represent.</h2>
+            <p>Our aim is simple: every vessel we represent at Khorfakkan gets a well-prepared port call, clear communication and a job done properly.</p>
           </Reveal>
         </div>
       </section>
 
       <section className="section">
         <div className="wrap">
-          <Reveal className="head"><p className="tag tag--dark">[ Why Sea Shark ]</p><h2>Why ships work with us.</h2></Reveal>
+          <Reveal className="head"><p className="tag tag--dark">Why Sea Shark</p><h2>Why ships work with us.</h2></Reveal>
           <div className="why">
             {WHY.map((w, i) => (
               <Reveal className="why__item" key={w.title} delay={i * 90}>
@@ -52,7 +53,7 @@ export default function About() {
 
       <section className="section section--tint">
         <div className="wrap">
-          <Reveal className="head"><p className="tag tag--dark">[ Our promise ]</p><h2>What you can expect from us.</h2></Reveal>
+          <Reveal className="head"><p className="tag tag--dark">Our promise</p><h2>What you can expect from us.</h2></Reveal>
           <ol className="steps">
             {PRINCIPLES.map((st, i) => (
               <Reveal as="li" key={st.title} delay={i * 110}>
@@ -64,7 +65,7 @@ export default function About() {
       </section>
       <section className="section section--navy">
         <div className="wrap">
-          <Reveal className="head head--row"><div><p className="tag">[ Safety ]</p><h2>Safety comes first, on every job.</h2></div>
+          <Reveal className="head head--row"><div><p className="tag">Safety</p><h2>Safety comes first, on every job.</h2></div>
             <p className="head__note">Ships, crews and water: how we keep each one safe.</p></Reveal>
           <div className="safety">
             {SAFETY.map((x, i) => (
@@ -78,7 +79,7 @@ export default function About() {
 
       <section className="section section--tint">
         <div className="wrap">
-          <Reveal className="head"><p className="tag tag--dark">[ Our values ]</p><h2>How we work.</h2></Reveal>
+          <Reveal className="head"><p className="tag tag--dark">Our values</p><h2>How we work.</h2></Reveal>
           <div className="values">
             {VALUES.map((v, i) => (
               <Reveal className="value" key={v.name} delay={i * 90}><h3>{v.name}</h3><p>{v.text}</p></Reveal>

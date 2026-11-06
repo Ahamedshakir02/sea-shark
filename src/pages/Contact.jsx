@@ -7,7 +7,7 @@ import WaLink from '../components/WaLink.jsx'
 export default function Contact() {
   return (
     <>
-      <PageBanner variant="tint" tag="[ Contact ]" title="Get in touch."
+      <PageBanner variant="tint" tag="Contact" title="Get in touch."
         lead="WhatsApp is the fastest way to reach us. Pick what you need and your message is ready to send."
         crumbs={[{ label: 'Contact' }]}>
         <div className="quick hb__quick">
