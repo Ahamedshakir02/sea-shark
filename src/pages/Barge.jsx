@@ -1,4 +1,6 @@
 import { PHOTOS, BARGE_SPECS, WATER_MESSAGE, SERVICES } from '../content.js'
+
+const water = SERVICES.find((s) => s.slug === 'fresh-water')
 import { ServiceIcon, WhatsAppIcon } from '../components/Icons.jsx'
 import PageBanner from '../components/PageBanner.jsx'
 import Reveal from '../components/Reveal.jsx'
@@ -66,8 +68,8 @@ export default function Barge() {
       <section className="section">
         <div className="wrap">
           <Reveal className="head"><p className="tag tag--dark">A delivery, step by step</p><h2>How Malik delivers your water.</h2></Reveal>
-          <ol className="steps steps--flow" style={{ '--n': SERVICES[0].process.length }}>
-            {SERVICES[0].process.map((st, i) => (
+          <ol className="steps steps--flow" style={{ '--n': water.process.length }}>
+            {water.process.map((st, i) => (
               <Reveal as="li" key={st.title} delay={i * 110}>
                 <span className="steps__n">0{i + 1}</span><h3>{st.title}</h3><p>{st.text}</p>
               </Reveal>

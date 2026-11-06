@@ -20,6 +20,8 @@ const TITLES = {
   '/services/fresh-water': 'Fresh water supply | Sea Shark Shipping',
   '/services/crew-boats': 'Crew boat service | Sea Shark Shipping',
   '/services/ship-agency': 'Ship agency | Sea Shark Shipping',
+  '/services/marine-survey': 'Marine survey | Sea Shark Shipping',
+  '/services/underwater-services': 'Underwater services | Sea Shark Shipping',
   '/our-barge': 'Our barge Malik | Sea Shark Shipping',
   '/ports-and-faq': 'Ports & FAQ | Sea Shark Shipping',
   '/about': 'About us | Sea Shark Shipping',

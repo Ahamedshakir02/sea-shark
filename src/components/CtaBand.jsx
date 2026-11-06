@@ -4,7 +4,7 @@ import WaLink from './WaLink.jsx'
 
 export default function CtaBand({
   title = 'Vessel calling at Khorfakkan?',
-  text = 'Send us the vessel name, ETA or position and what you need, and our team will confirm.',
+  text = 'Send us the vessel name, ETA and what the call involves, and our team will confirm.',
   message = 'Hello Sea Shark, I have an enquiry.',
   variant,
   number,

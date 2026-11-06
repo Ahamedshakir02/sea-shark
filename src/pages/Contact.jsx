@@ -1,4 +1,4 @@
-import { CONTACTS, HOURS_ROWS, SERVICES, PHOTOS } from '../content.js'
+import { CONTACTS, HOURS_ROWS, MAIN_SERVICES as SERVICES, PHOTOS } from '../content.js'
 import { WhatsAppIcon } from '../components/Icons.jsx'
 import PageBanner from '../components/PageBanner.jsx'
 import Reveal from '../components/Reveal.jsx'

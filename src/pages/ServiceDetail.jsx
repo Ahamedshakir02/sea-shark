@@ -1,6 +1,6 @@
 import { itemText } from '../components/Tbc.jsx'
 import { Link, useParams } from 'react-router-dom'
-import { SERVICES, STEPS, photo, PHONE_DISPLAY, PHONE_LINK } from '../content.js'
+import { SERVICES, MAIN_SERVICES, STEPS, photo, PHONE_DISPLAY, PHONE_LINK } from '../content.js'
 import { ServiceIcon, WhatsAppIcon } from '../components/Icons.jsx'
 import PageBanner from '../components/PageBanner.jsx'
 import Reveal from '../components/Reveal.jsx'
@@ -15,11 +15,11 @@ export default function ServiceDetail() {
   const { slug } = useParams()
   const s = SERVICES.find((x) => x.slug === slug)
   if (!s) return <NotFound />
-  const others = SERVICES.filter((x) => x.slug !== slug)
+  const others = MAIN_SERVICES.filter((x) => x.slug !== slug)
 
   return (
     <>
-      <PageBanner variant="panel" image={s.banner} tag={s.slug === 'ship-agency' ? 'Core service' : 'Marine support'} title={s.title} lead={s.short}
+      <PageBanner variant="panel" image={s.banner} tag={s.minor ? 'Marine support' : 'Core service'} title={s.title} lead={s.short}
         crumbs={[{ label: 'Services', to: '/services' }, { label: s.title }]} />
 
       <section className="section">
@@ -55,7 +55,7 @@ export default function ServiceDetail() {
 
       <section className="urgent">
         <div className="wrap urgent__in">
-          <p><strong>{s.urgent}</strong> {s.slug === 'ship-agency' ? 'Contact our agency desk by phone or WhatsApp.' : 'Our crews work 24 hours. Call us or send a WhatsApp message.'}</p>
+          <p><strong>{s.urgent}</strong> {s.minor ? 'Our crews work 24 hours. Call us or send a WhatsApp message.' : 'Contact our desk by phone or WhatsApp.'}</p>
           <div className="urgent__cta"><a className="pill pill--light" href={s.phoneLink || PHONE_LINK}>Call {s.phone || PHONE_DISPLAY}</a><WaLink className="pill pill--ghost" message={s.wa} number={s.number}>WhatsApp us</WaLink></div>
         </div>
       </section>
@@ -84,7 +84,7 @@ export default function ServiceDetail() {
 
       <section className="section section--tint">
         <div className="wrap">
-          <Reveal className="head"><p className="tag tag--dark">More services</p><h2>{s.slug === 'ship-agency' ? 'Marine support at Khorfakkan' : 'We can also help with'}</h2></Reveal>
+          <Reveal className="head"><p className="tag tag--dark">More services</p><h2>{s.minor ? 'Our core services' : 'Our other core services'}</h2></Reveal>
           <div className="tiles tiles--two">
             {others.map((o, i) => (
               <Reveal key={o.slug} delay={i * 110}>

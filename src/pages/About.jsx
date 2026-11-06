@@ -8,7 +8,7 @@ export default function About() {
   return (
     <>
       <PageBanner variant="editorial" image={PHOTOS.tankerDeckDusk} image2={PHOTOS.ropeDeck} tag="About us" title="A ship agency built on marine experience."
-        lead="A UAE ship agency at Khorfakkan, supported by our own fresh water barge." crumbs={[{ label: 'About' }]}>
+        lead="Ship agency, marine survey and underwater services at Khorfakkan, UAE." crumbs={[{ label: 'About' }]}>
         <p className="hb__since"><strong>2023</strong>founded, with 20+ years of combined marine experience behind it</p>
       </PageBanner>
 
@@ -21,7 +21,7 @@ export default function About() {
           <Reveal className="about__text" delay={120}>
             <p>Sea Shark Shipping Services LLC was founded in 2023 by people who have spent their careers around ships. Between them, our founders bring more than 20 years of combined marine experience.</p>
             <p>We act as ship agent at Khorfakkan Port on the UAE east coast, with offices in Sharjah and Dubai. Owners, operators, charterers and masters appoint us to handle their port calls, from pre-arrival planning and clearance to husbandry and crew support.</p>
-            <p>Alongside agency we run our own vessel, the fresh water barge Malik, and arrange crew boats, so the practical needs of a call can be handled by the same team.</p>
+            <p>Alongside agency we carry out marine surveys and underwater services such as hull inspection and cleaning, so the main needs of a vessel in port are handled by one team.</p>
             <p>We keep our services focused, so each port call gets proper attention and a prompt response.</p>
           </Reveal>
         </div>
@@ -66,7 +66,7 @@ export default function About() {
       <section className="section section--navy">
         <div className="wrap">
           <Reveal className="head head--row"><div><p className="tag">Safety</p><h2>Safety comes first, on every job.</h2></div>
-            <p className="head__note">Ships, crews and water: how we keep each one safe.</p></Reveal>
+            <p className="head__note">Vessels, crews and divers: how we keep each one safe.</p></Reveal>
           <div className="safety">
             {SAFETY.map((x, i) => (
               <Reveal className="safety__item" key={x.title} delay={i * 90}>
