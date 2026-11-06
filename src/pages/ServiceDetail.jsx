@@ -1,103 +1,144 @@
-import { itemText } from '../components/Tbc.jsx'
 import { Link, useParams } from 'react-router-dom'
-import { SERVICES, MAIN_SERVICES, STEPS, photo, PHONE_DISPLAY, PHONE_LINK } from '../content.js'
+import { SERVICES, MAIN_SERVICES, photo, PHONE_DISPLAY, PHONE_LINK, WHATSAPP_NUMBER } from '../content.js'
 import { ServiceIcon, WhatsAppIcon } from '../components/Icons.jsx'
-import PageBanner from '../components/PageBanner.jsx'
+import PageHead from '../components/PageHead.jsx'
 import Reveal from '../components/Reveal.jsx'
 import WaLink from '../components/WaLink.jsx'
 import CtaBand from '../components/CtaBand.jsx'
+import { Head, Timeline, Faq } from '../components/Blocks.jsx'
 import NotFound from './NotFound.jsx'
 import malik from '../assets/boat-malik.jpg'
 
 const img = (s, w) => (s === 'malik' ? malik : photo(s, w))
+const GROUP_ICONS = ['port', 'people', 'doc', 'gear']
 
 export default function ServiceDetail() {
   const { slug } = useParams()
   const s = SERVICES.find((x) => x.slug === slug)
   if (!s) return <NotFound />
   const others = MAIN_SERVICES.filter((x) => x.slug !== slug)
+  const phone = s.phone || PHONE_DISPLAY
+  const phoneLink = s.phoneLink || PHONE_LINK
+  const [lead, ...rest] = s.intro.split(/(?<=\.)\s/)
 
   return (
     <>
-      <PageBanner variant="panel" image={s.banner} tag={s.minor ? 'Marine support' : 'Core service'} title={s.title} lead={s.short}
-        crumbs={[{ label: 'Services', to: '/services' }, { label: s.title }]} />
+      <PageHead variant="photo" image={s.banner} eyebrow={s.minor ? 'Marine support' : (s.groups ? 'Our core service' : 'Core service')} title={s.title} lead={s.short}
+        crumbs={[{ label: 'Services', to: '/services' }, { label: s.title }]}>
+        <div className="btns">
+          <WaLink className="btn btn--amber" message={s.wa} number={s.number}><WhatsAppIcon />{s.cta}</WaLink>
+          <a className="btn btn--ghost" href={phoneLink}>Call {phone}</a>
+        </div>
+      </PageHead>
 
-      <section className="section">
-        <div className="wrap detail">
-          <Reveal className="detail__main">
-            <p className="detail__intro">{s.intro}</p>
-            {s.more && <p className="detail__more">{s.more}</p>}
-            <h2>What's included</h2>
-            {s.groups ? s.groups.map((g) => (
-              <div className="incl-group" key={g.title}>
-                <h3 className="incl-group__title">{g.title}</h3>
-                <ul className="incl">{g.items.map((x) => (
-                  <li key={x.title}><span className="incl__n"><ServiceIcon id="check" /></span><h3>{x.title}</h3><p>{x.text}</p></li>
-                ))}</ul>
+      <section className="sec">
+        <div className="wrap overview">
+          <Reveal className="overview__text">
+            <p className="eyebrow">Overview</p>
+            <p className="intro__big">{lead}</p>
+            {rest.length > 0 && <p>{rest.join(' ')}</p>}
+            {s.more && <p>{s.more}</p>}
+            {s.who && (
+              <div className="who-row">
+                <h3>Who it's for</h3>
+                <ul className="chips">{s.who.map((w) => <li key={w}>{w}</li>)}</ul>
               </div>
-            )) : (
-            <ul className="incl">{s.includes.map((x, i) => (
-              <li key={x.title}><span className="incl__n">{String(i + 1).padStart(2, '0')}</span><h3>{x.title}</h3><p>{x.text}</p></li>
-            ))}</ul>)}
-            {s.who && <><h2 className="detail__who">Who it's for</h2>
-            <ul className="ticks">{s.who.map((w) => <li key={w}><ServiceIcon id="check" /><span>{w}</span></li>)}</ul></>}
+            )}
           </Reveal>
-          <aside className="detail__side">
-            <Reveal className="sendbox" delay={120}>
-              <h3>What to send us</h3>
-              <p>Put these in your WhatsApp message and we can confirm faster:</p>
-              <ol>{s.send.map((x) => <li key={x}>{x}</li>)}</ol>
-              <WaLink className="pill pill--wa" message={s.wa} number={s.number}><span className="wa-ic"><WhatsAppIcon /></span>{s.cta}</WaLink>
-            </Reveal>
-          </aside>
+          <Reveal as="aside" className="request" delay={120}>
+            <h3>What to send us</h3>
+            <p>Put these in your message and we can confirm faster.</p>
+            <ol>{s.send.map((x) => <li key={x}>{x}</li>)}</ol>
+            <WaLink className="btn btn--wa btn--block" message={s.wa} number={s.number}><WhatsAppIcon />Send on WhatsApp</WaLink>
+            <a className="btn btn--ghost btn--block" href={phoneLink}>Call {phone}</a>
+          </Reveal>
+        </div>
+      </section>
+
+      <section className="sec sec--mist">
+        <div className="wrap">
+          {s.groups ? (
+            <>
+              <Head split eyebrow="What's included" title="The full agency scope."
+                lead="Grouped the way a port call runs. Tell us which parts your call needs and we take care of them." />
+              <div className="groups">
+                {s.groups.map((g, i) => (
+                  <Reveal className="group" key={g.title} delay={(i % 2) * 100}>
+                    <div className="group__head">
+                      <span className="group__icon"><ServiceIcon id={GROUP_ICONS[i]} /></span>
+                      <h3>{g.title}</h3><small>{g.items.length} services</small>
+                    </div>
+                    <ul>{g.items.map((x) => <li key={x.title}><strong>{x.title}</strong><span>{x.text}</span></li>)}</ul>
+                  </Reveal>
+                ))}
+              </div>
+            </>
+          ) : (
+            <>
+              <Head eyebrow="What's included" title={`${s.title}, done properly.`} />
+              <div className="cards cards--3">
+                {s.includes.map((x, i) => (
+                  <Reveal className="card" key={x.title} delay={(i % 3) * 90}>
+                    <span className="card__n">{String(i + 1).padStart(2, '0')}</span>
+                    <h3>{x.title}</h3><p>{x.text}</p>
+                  </Reveal>
+                ))}
+              </div>
+            </>
+          )}
         </div>
       </section>
 
       <section className="urgent">
         <div className="wrap urgent__in">
           <p><strong>{s.urgent}</strong> {s.minor ? 'Our crews work 24 hours. Call us or send a WhatsApp message.' : 'Contact our desk by phone or WhatsApp.'}</p>
-          <div className="urgent__cta"><a className="pill pill--light" href={s.phoneLink || PHONE_LINK}>Call {s.phone || PHONE_DISPLAY}</a><WaLink className="pill pill--ghost" message={s.wa} number={s.number}>WhatsApp us</WaLink></div>
+          <div className="btns">
+            <a className="btn btn--navy" href={phoneLink}>Call {phone}</a>
+            <WaLink className="btn btn--outline" message={s.wa} number={s.number}>WhatsApp us</WaLink>
+          </div>
         </div>
       </section>
 
-      <section className="section section--tint">
+      <section className="sec">
         <div className="wrap">
-          <Reveal className="head"><p className="tag tag--dark">How it works</p><h2>From first message to done.</h2></Reveal>
-          <ol className="steps steps--flow" style={{ '--n': s.process.length }}>
-            {s.process.map((st, i) => (
-              <Reveal as="li" key={st.title} delay={i * 110}>
-                <span className="steps__n">0{i + 1}</span><h3>{st.title}</h3><p>{st.text}</p>
-              </Reveal>
-            ))}
-          </ol>
+          <Head split eyebrow="How it works" title="From first message to done."
+            lead="One contact follows the job from start to finish and keeps you updated." />
+          <Timeline steps={s.process} />
         </div>
       </section>
 
-      <section className="section">
-        <div className="wrap qa">
-          <Reveal><p className="tag tag--dark">Quick answers</p><h2>Asked about {s.title.toLowerCase()}.</h2><Link className="link" to="/ports-and-faq">All questions &rarr;</Link></Reveal>
-          <div className="faq">{s.faq.map((f, i) => (
-            <Reveal className="faq__item" key={f.q} delay={i * 80}><h3><span className="faq__n">0{i + 1}</span>{f.q}</h3><p>{f.a}</p></Reveal>
-          ))}</div>
+      <section className="sec sec--mist">
+        <div className="wrap faqs">
+          <Reveal className="faqs__side">
+            <p className="eyebrow">Quick answers</p>
+            <h2>Asked about {s.title.toLowerCase()}.</h2>
+            <p className="lead">Not covered here? Ask us directly.</p>
+            <Link className="arrow" to="/ports-and-faq">All questions <ServiceIcon id="arrow" /></Link>
+          </Reveal>
+          <Reveal delay={100}><Faq items={s.faq} /></Reveal>
         </div>
       </section>
 
-      <section className="section section--tint">
+      <section className="sec">
         <div className="wrap">
-          <Reveal className="head"><p className="tag tag--dark">More services</p><h2>{s.minor ? 'Our core services' : 'Our other core services'}</h2></Reveal>
-          <div className="tiles tiles--two">
+          <Head eyebrow="More services" title={s.minor ? 'Our core services.' : 'Our other core services.'} />
+          <div className="core more">
             {others.map((o, i) => (
-              <Reveal key={o.slug} delay={i * 110}>
-                <Link className="tile" to={`/services/${o.slug}`}>
-                  <img src={img(o.tile, 900)} alt="" loading="lazy" decoding="async" />
-                  <div className="tile__body"><h3>{o.title}</h3><p>{o.short}</p><span className="tile__go">Learn more <ServiceIcon id="arrow" /></span></div>
-                </Link>
+              <Reveal as={Link} className="core__card" to={`/services/${o.slug}`} key={o.slug} delay={i * 100}>
+                <img src={img(o.tile, 1000)} alt="" loading="lazy" decoding="async" />
+                <div className="core__top"><span className="core__num">{o.kicker}</span></div>
+                <div className="core__body">
+                  <span className="core__icon"><ServiceIcon id={o.icon} /></span>
+                  <h3>{o.title}</h3><p>{o.short}</p>
+                  <span className="arrow">Learn more <ServiceIcon id="arrow" /></span>
+                </div>
               </Reveal>
             ))}
           </div>
         </div>
       </section>
-      <CtaBand message={s.wa} number={s.number} phone={s.phone} phoneLink={s.phoneLink} image={s.band} />
+      <CtaBand title={s.urgent} message={s.wa} number={s.number || WHATSAPP_NUMBER} phone={phone} phoneLink={phoneLink} image={s.band}
+        text={`Send the details on WhatsApp or call us, and we confirm what we can arrange for your ship.`} />
     </>
   )
 }

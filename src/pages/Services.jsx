@@ -1,71 +1,95 @@
-import { itemText } from '../components/Tbc.jsx'
 import { Link } from 'react-router-dom'
-import { ALL_SERVICES as SERVICES, PHOTOS, CLIENTS, STEPS, photo } from '../content.js'
+import { MAIN_SERVICES, MINOR_SERVICES, PHOTOS, CLIENTS, STEPS, photo } from '../content.js'
 import { ServiceIcon } from '../components/Icons.jsx'
-import PageBanner from '../components/PageBanner.jsx'
+import PageHead from '../components/PageHead.jsx'
 import Reveal from '../components/Reveal.jsx'
 import WaLink from '../components/WaLink.jsx'
 import CtaBand from '../components/CtaBand.jsx'
+import { Head, Timeline, Ticks } from '../components/Blocks.jsx'
 import malik from '../assets/boat-malik.jpg'
 
 const img = (s, w) => (s === 'malik' ? malik : photo(s, w))
+const all = [...MAIN_SERVICES, ...MINOR_SERVICES]
+const CLIENT_ICONS = ['ship', 'compass', 'anchor', 'doc']
 
 export default function Services() {
   return (
     <>
-      <PageBanner variant="split"
-        image={PHOTOS.tugWaves}
-        tag="Services"
+      <PageHead variant="split" image={PHOTOS.tugWaves} eyebrow="Services"
         title="Ship agency, marine survey and underwater services."
         lead="Three core services for vessels calling at Khorfakkan, supported by fresh water supply and crew boats, all coordinated by one team."
         crumbs={[{ label: 'Services' }]}>
-        <ol className="hb__index">{SERVICES.map((s, i) => <li key={s.slug}><Link to={`/services/${s.slug}`}><span>0{i + 1}</span>{s.title}<ServiceIcon id="arrow" /></Link></li>)}</ol>
-      </PageBanner>
-      <section className="section">
-        <div className="wrap rows">
-          {SERVICES.map((s, i) => (
-            <div className={`row${i % 2 ? ' row--flip' : ''}`} key={s.slug}>
-              <Reveal className="row__img"><img src={img(s.row, 1200)} alt="" loading="lazy" decoding="async" /></Reveal>
-              <Reveal className="row__text" delay={120}>
-                <div className="card__icon"><ServiceIcon id={s.icon} /></div>
-                <span className="tile__num">0{i + 1} · {s.kicker}</span>
-                <h2>{s.title}</h2>
-                <p>{s.intro}</p>
-                <ul className="ticks">{s.includes.slice(0, 4).map((x) => <li key={itemText(x)}><ServiceIcon id="check" /><span>{itemText(x)}</span></li>)}</ul>
-                <div className="feature__cta">
-                  <Link className="pill pill--dark" to={`/services/${s.slug}`}>See details</Link>
-                  <WaLink className="link" message={s.wa} number={s.number}>{s.cta} &rarr;</WaLink>
-                </div>
-              </Reveal>
-            </div>
+        <div className="index">
+          {all.map((s, i) => (
+            <Link key={s.slug} to={`/services/${s.slug}`}><small>0{i + 1}</small>{s.title}<em>{s.minor ? 'Support' : 'Core'}</em><ServiceIcon id="arrow" /></Link>
           ))}
         </div>
-      </section>
-      <section className="section section--tint">
+      </PageHead>
+
+      <section className="sec">
         <div className="wrap">
-          <Reveal className="head"><p className="tag tag--dark">Who we work with</p><h2>Built for the people behind every port call.</h2></Reveal>
-          <div className="why">
-            {CLIENTS.map((w, i) => (
-              <Reveal className="why__item" key={w.title} delay={i * 90}>
-                <span className="steps__n">0{i + 1}</span><h3>{w.title}</h3><p>{w.text}</p>
+          <Head eyebrow="Core services" title="What we do for vessels in port." />
+          <div className="rows">
+            {MAIN_SERVICES.map((s, i) => (
+              <div className={`row${i % 2 ? ' row--flip' : ''}`} key={s.slug}>
+                <Reveal className="row__img"><img src={img(s.row, 1200)} alt="" loading="lazy" decoding="async" /><span className="row__num">0{i + 1} · {s.kicker}</span></Reveal>
+                <Reveal className="row__text" delay={120}>
+                  <span className="card__icon"><ServiceIcon id={s.icon} /></span>
+                  <h2>{s.title}</h2>
+                  <p>{s.intro}</p>
+                  <Ticks items={(s.groups ? s.groups.map((g) => g.title) : s.includes.slice(0, 4).map((x) => x.title))} />
+                  <div className="row__cta">
+                    <Link className="btn btn--navy" to={`/services/${s.slug}`}>See details</Link>
+                    <WaLink className="arrow" message={s.wa} number={s.number}>{s.cta} <ServiceIcon id="arrow" /></WaLink>
+                  </div>
+                </Reveal>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section className="sec sec--mist">
+        <div className="wrap">
+          <Head split eyebrow="Marine support" title="Supporting services."
+            lead="Available on their own, or arranged together with your port call." />
+          <div className="support">
+            {MINOR_SERVICES.map((s, i) => (
+              <Reveal key={s.slug} delay={i * 100}>
+                <Link className="support__card" to={`/services/${s.slug}`}>
+                  <div className="support__img"><img src={img(s.photo, 700)} alt="" loading="lazy" decoding="async" /></div>
+                  <div className="support__body">
+                    <h3>{s.title}</h3><p>{s.short}</p>
+                    <span className="arrow">Learn more <ServiceIcon id="arrow" /></span>
+                  </div>
+                </Link>
               </Reveal>
             ))}
           </div>
         </div>
       </section>
-      <section className="section">
+
+      <section className="sec">
         <div className="wrap">
-          <Reveal className="head"><p className="tag tag--dark">How it works</p><h2>One process, whatever the job.</h2></Reveal>
-          <ol className="steps">
-            {STEPS.map((st, i) => (
-              <Reveal as="li" key={st.title} delay={i * 110}>
-                <span className="steps__n">0{i + 1}</span><h3>{st.title}</h3><p>{st.text}</p>
+          <Head eyebrow="Who we work with" title="Built for the people behind every port call." />
+          <div className="cards">
+            {CLIENTS.map((w, i) => (
+              <Reveal className="card" key={w.title} delay={i * 80}>
+                <span className="card__icon"><ServiceIcon id={CLIENT_ICONS[i]} /></span><h3>{w.title}</h3><p>{w.text}</p>
               </Reveal>
             ))}
-          </ol>
+          </div>
         </div>
       </section>
-      <CtaBand image={PHOTOS.shipBlueSea} title="Not sure which service you need?" text="Tell us the vessel and the job, and our team will advise." />
+
+      <section className="sec sec--navy on-dark">
+        <div className="wrap">
+          <Head split eyebrow="How it works" title="One process, whatever the job."
+            lead="Whether it is a full port call, a survey or a dive, it starts with one message to our desk." />
+          <Timeline steps={STEPS} />
+        </div>
+      </section>
+      <CtaBand image={PHOTOS.shipBlueSea} title="Not sure which service you need?" text="Tell us the vessel and the job, and our desk will advise." />
     </>
   )
 }
