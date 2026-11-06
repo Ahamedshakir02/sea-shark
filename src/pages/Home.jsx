@@ -15,7 +15,7 @@ export default function Home() {
         <div className="hero__shade" />
         <div className="wrap hero__in">
           <p className="tag hero__a">Sea Shark Shipping Services LLC · Khorfakkan, UAE</p>
-          <h1 className="hero__a" style={{ '--d': '120ms' }}>Ship agency and marine services, <em>handled end to end.</em></h1>
+          <h1 className="hero__a" style={{ '--d': '120ms' }}>Ship agency and marine services at <em>Khorfakkan.</em></h1>
           <p className="hero__lead hero__a" style={{ '--d': '260ms' }}>
             Port agency, marine survey and underwater services for owners, operators and charterers calling at Khorfakkan. One team, from the first ETA notice to the sailing report.
           </p>
@@ -24,6 +24,7 @@ export default function Home() {
             <Link className="pill pill--ghost" to="/services">Our services</Link>
           </div>
         </div>
+        <p className="hero__coords" aria-hidden="true">25°21′ N &nbsp;·&nbsp; 56°21′ E</p>
         <div className="hero__facts">
           <div className="wrap hero__facts-in">
             {STATS.map((s) => <div key={s.label}><strong>{s.value}</strong><span>{s.label}</span></div>)}
@@ -34,7 +35,7 @@ export default function Home() {
       <section className="section">
         <div className="wrap">
           <Reveal className="head head--row">
-            <div><p className="tag tag--dark">Core services</p><h2>Three services. One standard.</h2></div>
+            <div><p className="tag tag--dark">Core services</p><h2>Three services. <em>One standard.</em></h2></div>
             <p className="head__note">Each service can be booked on its own, or coordinated together for the same port call.</p>
           </Reveal>
           <div className="pillars">
@@ -89,7 +90,7 @@ export default function Home() {
       <section className="section section--tint">
         <div className="wrap">
           <Reveal className="head head--row">
-            <div><p className="tag tag--dark">How we handle a port call</p><h2>A clear process, every call.</h2></div>
+            <div><p className="tag tag--dark">How we handle a port call</p><h2>A clear process, <em>every call.</em></h2></div>
             <p className="head__note">You deal with one team, and you always know where your vessel stands.</p>
           </Reveal>
           <ol className="steps steps--flow" style={{ '--n': agency.process.length }}>
@@ -139,7 +140,7 @@ export default function Home() {
       <section className="section">
         <div className="wrap why-faq">
           <div>
-            <Reveal className="head"><p className="tag tag--dark">Why Sea Shark</p><h2>A dependable partner in port.</h2></Reveal>
+            <Reveal className="head"><p className="tag tag--dark">Why Sea Shark</p><h2>A dependable partner <em>in port.</em></h2></Reveal>
             <div className="why why--two">
               {WHY.map((w, i) => (
                 <Reveal className="why__item" key={w.title} delay={i * 80}><span className="steps__n">0{i + 1}</span><h3>{w.title}</h3><p>{w.text}</p></Reveal>

@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react'
 import { Link, NavLink, useLocation } from 'react-router-dom'
-import { NAV } from '../content.js'
+import { NAV, AGENT_PHONE_DISPLAY, AGENT_PHONE_LINK, EMAIL } from '../content.js'
 import WaLink from './WaLink.jsx'
 
 // Pages whose top section is light, so the header text starts dark
@@ -33,6 +33,15 @@ export default function Nav() {
 
   return (
     <header className={`nav${solid ? ' is-solid' : ''}${LIGHT_TOP.includes(pathname) ? ' nav--ink' : ''}`}>
+      <div className="topbar">
+        <div className="wrap topbar__in">
+          <span>Khorfakkan Port · United Arab Emirates</span>
+          <span className="topbar__links">
+            <a href={AGENT_PHONE_LINK}>Agency desk {AGENT_PHONE_DISPLAY}</a>
+            <a href={`mailto:${EMAIL}`}>{EMAIL}</a>
+          </span>
+        </div>
+      </div>
       <div className="wrap nav__in">
         <Link className="logo" to="/" aria-label="Sea Shark Shipping, home">
           <img className="logo__img logo__img--light" src="/logo-light.png" alt="Sea Shark Shipping Services LLC" width="992" height="211" />
