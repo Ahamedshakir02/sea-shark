@@ -5,6 +5,7 @@ import { usePageTransition } from './components/Motion.jsx'
 import Footer from './components/Footer.jsx'
 import { WhatsAppIcon } from './components/Icons.jsx'
 import WaLink from './components/WaLink.jsx'
+import { AGENT_WHATSAPP } from './content.js'
 import Home from './pages/Home.jsx'
 import Services from './pages/Services.jsx'
 import ServiceDetail from './pages/ServiceDetail.jsx'
@@ -43,7 +44,7 @@ function useFloatVisible(pathname) {
   useEffect(() => {
     setShow(false)
     const main = document.getElementById('main')
-    const ends = [main && main.firstElementChild, ...document.querySelectorAll('#main .band, footer')].filter(Boolean)
+    const ends = [main && main.firstElementChild, ...document.querySelectorAll('#main .cta, footer')].filter(Boolean)
     if (!ends.length || !('IntersectionObserver' in window)) { setShow(true); return }
     const seen = new Map()
     const io = new IntersectionObserver((list) => {
@@ -77,7 +78,7 @@ export default function App() {
         </Routes>
       </main>
       <Footer />
-      <WaLink className={`wa-float${floatOn ? ' is-on' : ''}`} message="Hello Sea Shark, I have an enquiry." aria-label="Chat with us on WhatsApp" aria-hidden={!floatOn} tabIndex={floatOn ? undefined : -1}>
+      <WaLink className={`wa-float${floatOn ? ' is-on' : ''}`} message="Hello Sea Shark, I have an enquiry." number={AGENT_WHATSAPP} aria-label="Chat with us on WhatsApp" aria-hidden={!floatOn} tabIndex={floatOn ? undefined : -1}>
         <WhatsAppIcon />
       </WaLink>
     </>
