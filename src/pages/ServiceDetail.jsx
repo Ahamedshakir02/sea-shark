@@ -76,10 +76,11 @@ export default function ServiceDetail() {
           ) : (
             <>
               <Head eyebrow="What's included" title={`${s.title}, done properly.`} />
-              <div className="cards cards--3">
+              <div className="inc">
                 {s.includes.map((x, i) => (
-                  <Reveal className="card" key={x.title} delay={(i % 3) * 90}>
-                    <span className="card__n">{String(i + 1).padStart(2, '0')}</span>
+                  <Reveal className="inc__item" key={x.title} delay={(i % 3) * 90}>
+                    <span className="inc__big" aria-hidden="true">{String(i + 1).padStart(2, '0')}</span>
+                    <span className="inc__icon"><ServiceIcon id={s.icon} /></span>
                     <h3>{x.title}</h3><p>{x.text}</p>
                   </Reveal>
                 ))}

@@ -619,3 +619,25 @@ img.fade.is-loaded{opacity:1}
 .core__num{text-transform:uppercase}
 @media (max-width:960px){.menu.is-open{box-shadow:var(--shadow-lg),0 0 0 100vmax rgba(6,26,46,.5)}}
 @media (prefers-reduced-motion:no-preference){html{scroll-behavior:smooth}}
+
+/* Service "what's included": staggered cards, big outlined numbers, navy sweep on hover */
+.inc{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:22px;padding-bottom:56px}
+.inc>:nth-child(3n+2){transform:translateY(56px)}
+.inc__item{position:relative;overflow:hidden;isolation:isolate;min-height:250px;display:flex;flex-direction:column;justify-content:flex-end;padding:30px 28px;border-radius:var(--r-m);background:#fff;border:1px solid var(--line);transition:border-color .4s,box-shadow .4s var(--ease)}
+.inc__item::before{content:'';position:absolute;inset:0;z-index:-1;background:linear-gradient(160deg,var(--navy),#0b2f52);transform:scaleY(0);transform-origin:bottom;transition:transform .5s var(--ease)}
+.inc__item::after{content:'';position:absolute;left:28px;top:0;width:44px;height:3px;background:var(--amber);transition:width .5s var(--ease)}
+.inc__big{position:absolute;right:18px;top:6px;font-size:5.6rem;font-weight:800;line-height:1;letter-spacing:-.04em;color:rgba(10,37,64,.07);transition:color .4s,transform .6s var(--ease)}
+.inc__icon{position:absolute;left:28px;top:30px;display:grid;place-items:center;width:44px;height:44px;border-radius:12px;background:var(--sky);color:var(--navy);transition:background .4s,color .4s}
+.inc__icon svg{width:22px;height:22px}
+.inc__item h3{margin:84px 0 10px;transition:color .4s}
+.inc__item p{font-size:.96rem;transition:color .4s}
+.inc__item:hover{border-color:transparent;box-shadow:var(--shadow)}
+.inc__item:hover::before{transform:scaleY(1)}
+.inc__item:hover::after{width:calc(100% - 56px)}
+.inc__item:hover .inc__big{color:rgba(240,168,58,.3);transform:translateY(-4px) scale(1.04)}
+.inc__item:hover .inc__icon{background:rgba(240,168,58,.16);color:var(--amber)}
+.inc__item:hover h3{color:#fff}
+.inc__item:hover p{color:rgba(255,255,255,.75)}
+@media (max-width:960px){.inc{grid-template-columns:repeat(2,minmax(0,1fr));padding-bottom:0}.inc>:nth-child(3n+2){transform:none}.inc>:nth-child(even){transform:translateY(40px)}.inc{padding-bottom:40px}}
+@media (max-width:640px){.inc{grid-template-columns:1fr;padding-bottom:0}.inc>:nth-child(even){transform:none}.inc__item{min-height:0}.inc__big{font-size:4.4rem}}
+@media (prefers-reduced-motion:reduce){.inc__item::before,.inc__item::after,.inc__big{transition:none}}
