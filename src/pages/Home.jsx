@@ -170,7 +170,7 @@ export default function Home() {
               </Reveal>
             ))}
           </div>
-          <p className="support-note">Malik is the one vessel we own. <Link to="/our-barge">Meet our barge</Link></p>
+          <p className="support-note">Fresh water comes from Malik, our own barge. <Link to="/our-barge">Meet Malik</Link></p>
         </div>
       </section>
 

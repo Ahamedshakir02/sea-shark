@@ -305,7 +305,7 @@ export const SERVICES = [
     short: 'We arrange the right boat to move crew, stores and light cargo between shore and ship.',
     banner: PHOTOS.tugCity,
     intro:
-      'We don\'t own crew boats, and we don\'t pretend to. As your agent, we book the right boat for the job at Khorfakkan, plan it around your ship and stay with it until everyone and everything is where it should be.',
+      'The right boat, booked and followed through. As your agent, we book the right boat for the job at Khorfakkan, plan it around your ship and stay with it until everyone and everything is where it should be.',
     more:
       'Moving people and goods between shore and ship takes planning: the right boat, the right time and the right sea conditions. We handle that planning, so your crew and your cargo get across safely.',
     who: ['Crews signing on or off', 'Surveyors and inspectors', 'Agents visiting the ship', 'Ships waiting for stores or spares'],
@@ -340,7 +340,7 @@ export const SERVICES = [
 export const STATS = [
   { label: 'Port of operation', value: 'Khorfakkan' },
   { label: 'Combined marine experience', value: '20+ yrs' },
-  { label: 'Core services', value: '3' },
+  { label: 'Crews on call', value: '24 hrs' },
   { label: 'Offices, Sharjah and Dubai', value: '2' },
 ]
 
@@ -352,7 +352,7 @@ export const MINOR_SERVICES = SERVICES.filter((s) => s.minor)
 export const STEPS = [
   { title: 'Contact our desk', text: 'Vessel name, ETA or position and what you need, by WhatsApp, phone or email.' },
   { title: 'We confirm', text: 'We confirm the scope and timing and keep you informed throughout.' },
-  { title: 'Completed and reported', text: 'Port call handled, water delivered or crew moved, with one contact all the way.' },
+  { title: 'Completed and reported', text: 'Port call handled, survey reported or dive completed, with one contact all the way.' },
 ]
 
 export const PLACES = [
@@ -365,7 +365,7 @@ export const VALUES = [
   { name: 'Safety', text: 'Every transfer and delivery is planned with people and vessels kept safe first.' },
   { name: 'Integrity', text: 'Clear answers, honest timings and no surprises on the job.' },
   { name: 'Professionalism', text: 'We work to the standard ship owners and masters expect.' },
-  { name: 'Always improving', text: 'We are a young company and we keep getting better at what we do.' },
+  { name: 'Always improving', text: 'We review every job and keep raising the standard of the next one.' },
 ]
 
 export const WHY = [
@@ -432,15 +432,15 @@ export const CLIENTS = [
 ]
 
 export const CALL_TIPS = [
-  { title: 'Send your ETA early', text: 'More notice means water, boats and paperwork can be ready before the ship arrives.' },
+  { title: 'Send your ETA early', text: 'More notice means paperwork, bookings and services are ready before the ship arrives.' },
   { title: 'Share the position', text: 'Anchorage or berth: tell us where the ship will be so we plan the right approach.' },
   { title: 'One message for everything', text: 'Agency, survey and underwater work for the same call can all go in one message.' },
   { title: 'Tell us when plans change', text: 'If the ETA moves, let us know and we move the plan with you.' },
 ]
 
 export const PRINCIPLES = [
-  { title: 'We answer quickly', text: 'Ships do not wait, so neither do we. Messages are answered as soon as we can, and urgent jobs are picked up by our crews around the clock.' },
-  { title: 'We say what we can do', text: 'We own our water barge, Malik, and arrange the rest as your agent. We tell you plainly what we will do and when.' },
+  { title: 'We answer quickly', text: 'Ships do not wait, so neither do we. Messages are answered promptly, and urgent jobs are picked up by our crews around the clock.' },
+  { title: 'We say what we can do', text: 'Before the job starts, we tell you plainly what we will do and when, and then we do it.' },
   { title: 'We follow through', text: 'The person who takes your message stays with the job until it is done and you have heard back from us.' },
 ]
 

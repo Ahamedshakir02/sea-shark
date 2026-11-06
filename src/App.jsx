@@ -24,7 +24,7 @@ const TITLES = {
   '/services/marine-survey': 'Marine survey at Khorfakkan | Sea Shark Shipping',
   '/services/underwater-services': 'Underwater hull services at Khorfakkan | Sea Shark Shipping',
   '/our-barge': 'Our barge Malik | Sea Shark Shipping',
-  '/ports-and-faq': 'Ports & FAQ | Sea Shark Shipping',
+  '/ports-and-faq': 'Port & FAQ | Sea Shark Shipping',
   '/about': 'About us | Sea Shark Shipping',
   '/contact': 'Contact | Sea Shark Shipping',
 }
