@@ -24,7 +24,6 @@ export default function Home() {
             <Link className="pill pill--ghost" to="/services">Our services</Link>
           </div>
         </div>
-        <p className="hero__coords" aria-hidden="true">25°21′ N &nbsp;·&nbsp; 56°21′ E</p>
         <div className="hero__facts">
           <div className="wrap hero__facts-in">
             {STATS.map((s) => <div key={s.label}><strong>{s.value}</strong><span>{s.label}</span></div>)}
