@@ -8,14 +8,14 @@ import { Head } from '../components/Blocks.jsx'
 export default function About() {
   return (
     <>
-      <PageHead variant="split" image={PHOTOS.tankerDeckDusk} eyebrow="About us" title="A ship agency built on marine experience."
+      <PageHead variant="split" image={PHOTOS.tankerDeckDusk} eyebrow="About us" title="A Ship Agency Built on Marine Experience."
         lead="Ship agency, marine survey and underwater services at Khorfakkan, UAE, with offices in Sharjah and Dubai." crumbs={[{ label: 'About' }]} />
 
       <section className="sec">
         <div className="wrap story">
           <Reveal>
             <p className="eyebrow">Our story</p>
-            <h2>Built for vessels calling on the east coast.</h2>
+            <h2>Built for Vessels Calling on the East Coast.</h2>
             <div className="since"><strong>2023</strong><span>Founded, with 20+ years of combined marine experience behind it</span></div>
           </Reveal>
           <Reveal className="story__text" delay={120}>
@@ -32,7 +32,7 @@ export default function About() {
         <div className="mission__text on-dark">
           <Reveal>
             <p className="eyebrow">Mission</p>
-            <h2>Dependable agency for every vessel we represent.</h2>
+            <h2>Dependable Agency for Every Vessel We Represent.</h2>
             <p className="lead">Every vessel we represent at Khorfakkan gets a <span className="nw">well-prepared</span> port call, clear communication and a job done properly.</p>
           </Reveal>
         </div>
@@ -40,7 +40,7 @@ export default function About() {
 
       <section className="sec">
         <div className="wrap">
-          <Head eyebrow="Why Sea Shark" title="Why owners and operators choose us." />
+          <Head eyebrow="Why Sea Shark" title="Why Owners and Operators Choose Us." />
           <Reveal className="why">
             {WHY.map((w, i) => <div key={w.title}><strong>0{i + 1}</strong><h3>{w.title}</h3><p>{w.text}</p></div>)}
           </Reveal>
@@ -49,7 +49,7 @@ export default function About() {
 
       <section className="sec sec--mist">
         <div className="wrap">
-          <Head eyebrow="Our promise" title="What you can expect from us." />
+          <Head eyebrow="Our promise" title="What You Can Expect From Us." />
           <div className="cards cards--3">
             {PRINCIPLES.map((st, i) => (
               <Reveal className="card" key={st.title} delay={i * 100}>
@@ -62,7 +62,7 @@ export default function About() {
 
       <section className="sec sec--navy on-dark">
         <div className="wrap">
-          <Head split eyebrow="Safety" title="Safety comes first, on every job." lead="Vessels, crews, divers and water: how we keep each one safe." />
+          <Head split eyebrow="Safety" title="Safety Comes First, on Every Job." lead="Vessels, crews, divers and water: how we keep each one safe." />
           <div className="cards cards--fit">
             {SAFETY.map((x, i) => (
               <Reveal className="card" key={x.title} delay={(i % 3) * 90}>
@@ -75,7 +75,7 @@ export default function About() {
 
       <section className="sec">
         <div className="wrap">
-          <Head eyebrow="Our values" title="How we work." />
+          <Head eyebrow="Our values" title="How We Work." />
           <div className="cards">
             {VALUES.map((v, i) => (
               <Reveal className="card" key={v.name} delay={i * 80}><span className="card__n">0{i + 1}</span><h3>{v.name}</h3><p>{v.text}</p></Reveal>
@@ -83,7 +83,7 @@ export default function About() {
           </div>
         </div>
       </section>
-      <CtaBand title="Want to work with us?" text="Tell us about your vessel and what the call needs. Our agency desk will reply." />
+      <CtaBand title="Want to Work With Us?" text="Tell us about your vessel and what the call needs. Our agency desk will reply." />
     </>
   )
 }

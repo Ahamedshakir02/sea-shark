@@ -65,16 +65,16 @@ export const PHOTOS = {
 
 export const NAV = [
   { to: '/', label: 'Home', end: true },
-  { to: '/services/ship-agency', label: 'Ship agency' },
-  { to: '/services/marine-survey', label: 'Marine survey' },
-  { to: '/services/underwater-services', label: 'Underwater services' },
+  { to: '/services/ship-agency', label: 'Ship Agency' },
+  { to: '/services/marine-survey', label: 'Marine Survey' },
+  { to: '/services/underwater-services', label: 'Underwater Services' },
   { to: '/about', label: 'About' },
   { to: '/contact', label: 'Contact' },
 ]
 
 // Extra links shown in the footer only.
 export const MORE_LINKS = [
-  { to: '/services', label: 'All services' },
+  { to: '/services', label: 'All Services' },
   { to: '/ports-and-faq', label: 'Port & FAQ' },
 ]
 
@@ -86,8 +86,8 @@ export const SERVICES = [
     row: PHOTOS.craneShip,
     tile: PHOTOS.tugContainer,
     band: PHOTOS.shipNight,
-    title: 'Ship agency',
-    kicker: 'Our core service',
+    title: 'Ship Agency',
+    kicker: 'Our Core Service',
     short: 'Port agency at Khorfakkan for owners, operators and charterers: clearance, husbandry, crew and reporting, from ETA to sailing.',
     banner: PHOTOS.containerTugs,
     intro:
@@ -95,62 +95,62 @@ export const SERVICES = [
     more:
       'A well-\u2060run port call depends on preparation. We plan ahead of arrival, coordinate the port, authorities and local suppliers during the call, and keep you informed at each stage, so the vessel turns around without avoidable delay.',
     groups: [
-      { title: 'Port call management', items: [
-        { title: 'Full port agency', text: 'We represent the vessel in port and act as the single contact for every party involved in the call.' },
-        { title: 'Pre-\u2060arrival planning', text: 'ETA, berth or anchorage and port requirements prepared before the vessel arrives.' },
-        { title: 'Berth, pilot and tug bookings', text: 'Berthing, pilotage, towage and mooring arranged with the port.' },
-        { title: 'Clearance and documentation', text: 'Inward and outward clearance with port, customs and immigration, prepared and filed for you.' },
-        { title: 'Port cost estimates and accounts', text: 'A proforma estimate (PDA) before arrival and a final account (FDA) after sailing, with supporting invoices.' },
-        { title: 'Updates and sailing report', text: 'Progress updates during the call and a statement of facts when the ship sails.' },
+      { title: 'Port Call Management', items: [
+        { title: 'Full Port Agency', text: 'We represent the vessel in port and act as the single contact for every party involved in the call.' },
+        { title: 'Pre-\u2060Arrival Planning', text: 'ETA, berth or anchorage and port requirements prepared before the vessel arrives.' },
+        { title: 'Berth, Pilot and Tug Bookings', text: 'Berthing, pilotage, towage and mooring arranged with the port.' },
+        { title: 'Clearance and Documentation', text: 'Inward and outward clearance with port, customs and immigration, prepared and filed for you.' },
+        { title: 'Port Cost Estimates and Accounts', text: 'A proforma estimate (PDA) before arrival and a final account (FDA) after sailing, with supporting invoices.' },
+        { title: 'Updates and Sailing Report', text: 'Progress updates during the call and a statement of facts when the ship sails.' },
       ] },
-      { title: 'Husbandry and crew', items: [
-        { title: 'Crew change support', text: 'Sign-\u2060on and sign-\u2060off, with transport and hotel arranged for the crew.' },
-        { title: 'Crew visas and travel', text: 'Shore passes, visas and travel arrangements coordinated for joining and leaving crew.' },
-        { title: 'Medical assistance', text: 'Doctor and hospital visits arranged for crew members who need care ashore.' },
-        { title: 'Stores and provisions', text: 'Ship stores and provisions arranged and delivered to the vessel.' },
-        { title: 'Cash to master', text: 'Cash delivered to the master on request.' },
-        { title: 'Mail and documents', text: 'Ship mail and documents collected and delivered on board.' },
+      { title: 'Husbandry and Crew', items: [
+        { title: 'Crew Change Support', text: 'Sign-\u2060on and sign-\u2060off, with transport and hotel arranged for the crew.' },
+        { title: 'Crew Visas and Travel', text: 'Shore passes, visas and travel arrangements coordinated for joining and leaving crew.' },
+        { title: 'Medical Assistance', text: 'Doctor and hospital visits arranged for crew members who need care ashore.' },
+        { title: 'Stores and Provisions', text: 'Ship stores and provisions arranged and delivered to the vessel.' },
+        { title: 'Cash to Master', text: 'Cash delivered to the master on request.' },
+        { title: 'Mail and Documents', text: 'Ship mail and documents collected and delivered on board.' },
       ] },
       { title: 'Owners\' and cargo interests', items: [
-        { title: 'Protective agency', text: 'When the charterer appoints the port agent, we look after the owner\'s interests during the call.' },
-        { title: 'Cargo documentation', text: 'Cargo papers, manifests and notices prepared and exchanged with the right parties.' },
-        { title: 'Bunker call coordination', text: 'Bunker deliveries coordinated with the supplier, the port and the vessel.' },
-        { title: 'Spare parts clearance and delivery', text: 'Spares cleared through customs and delivered to the ship on time for her call.' },
-        { title: 'Technical and commercial support', text: 'Practical help for owners and operators with what the call requires.' },
+        { title: 'Protective Agency', text: 'When the charterer appoints the port agent, we look after the owner\'s interests during the call.' },
+        { title: 'Cargo Documentation', text: 'Cargo papers, manifests and notices prepared and exchanged with the right parties.' },
+        { title: 'Bunker Call Coordination', text: 'Bunker deliveries coordinated with the supplier, the port and the vessel.' },
+        { title: 'Spare Parts Clearance and Delivery', text: 'Spares cleared through customs and delivered to the ship on time for her call.' },
+        { title: 'Technical and Commercial Support', text: 'Practical help for owners and operators with what the call requires.' },
       ] },
-      { title: 'Vessel services', items: [
-        { title: 'Marine surveys', text: 'On-\u2060hire, off-\u2060hire, draft and condition surveys carried out on board.' },
-        { title: 'Underwater services', text: 'Hull inspection, hull cleaning and propeller polishing by divers.' },
-        { title: 'Repair and dry dock coordination', text: 'Repair teams and workshops lined up for work during the call.' },
-        { title: 'Waste removal', text: 'Garbage and sludge removal arranged with licensed contractors.' },
-        { title: 'Fresh water and crew boats', text: 'Fresh water from our own barge, Malik, and crew boats arranged with the call.' },
+      { title: 'Vessel Services', items: [
+        { title: 'Marine Surveys', text: 'On-\u2060hire, off-\u2060hire, draft and condition surveys carried out on board.' },
+        { title: 'Underwater Services', text: 'Hull inspection, hull cleaning and propeller polishing by divers.' },
+        { title: 'Repair and Dry Dock Coordination', text: 'Repair teams and workshops lined up for work during the call.' },
+        { title: 'Waste Removal', text: 'Garbage and sludge removal arranged with licensed contractors.' },
+        { title: 'Fresh Water and Crew Boats', text: 'Fresh water from our own barge, Malik, and crew boats arranged with the call.' },
       ] },
     ],
     who: ['Ship owners', 'Operators and ship managers', 'Charterers', 'Masters and crews'],
     includes: [
-      { title: 'Port call coordination', text: 'We line up the port, authorities and local parties before the ship arrives.' },
-      { title: 'Documents and clearance', text: 'Arrival and departure paperwork prepared and filed for you.' },
-      { title: 'Husbandry and supplies', text: 'Stores, provisions, spare parts and mail arranged and brought to the ship.' },
-      { title: 'Crew change support', text: 'Sign-\u2060on and sign-\u2060off, transport and hotel for the crew.' },
-      { title: 'Surveys arranged', text: 'We book surveyors and inspectors and get them out to the vessel.' },
-      { title: 'Technical and commercial support', text: 'Help for owners and operators with what the call needs.' },
-      { title: 'Cash to master', text: 'Cash delivered to the master on request.' },
-      { title: 'Waste removal', text: 'Garbage and sludge removal arranged with licensed contractors.' },
+      { title: 'Port Call Coordination', text: 'We line up the port, authorities and local parties before the ship arrives.' },
+      { title: 'Documents and Clearance', text: 'Arrival and departure paperwork prepared and filed for you.' },
+      { title: 'Husbandry and Supplies', text: 'Stores, provisions, spare parts and mail arranged and brought to the ship.' },
+      { title: 'Crew Change Support', text: 'Sign-\u2060on and sign-\u2060off, transport and hotel for the crew.' },
+      { title: 'Surveys Arranged', text: 'We book surveyors and inspectors and get them out to the vessel.' },
+      { title: 'Technical and Commercial Support', text: 'Help for owners and operators with what the call needs.' },
+      { title: 'Cash to Master', text: 'Cash delivered to the master on request.' },
+      { title: 'Waste Removal', text: 'Garbage and sludge removal arranged with licensed contractors.' },
     ],
     process: [
       { title: 'Appointment', text: 'Send the vessel, ETA and what the call involves. We confirm and open the file.' },
-      { title: 'Pre-\u2060arrival', text: 'Documents prepared, port and authorities informed, services booked.' },
-      { title: 'Vessel in port', text: 'We coordinate every party on the call and keep you updated.' },
-      { title: 'Sailing and report', text: 'Departure cleared and a short port call report sent to you.' },
+      { title: 'Pre-\u2060Arrival', text: 'Documents prepared, port and authorities informed, services booked.' },
+      { title: 'Vessel in Port', text: 'We coordinate every party on the call and keep you updated.' },
+      { title: 'Sailing and Report', text: 'Departure cleared and a short port call report sent to you.' },
     ],
     send: ['Vessel name and IMO', 'Port and ETA', 'What the call involves', 'Owner or operator contact'],
     wa: 'Hello Sea Shark, I need ship agency support. Vessel: ... Port: ... ETA: ...',
-    cta: 'Appoint us as agent',
-    ctaShort: 'Appoint us',
+    cta: 'Appoint Us as Agent',
+    ctaShort: 'Appoint Us',
     number: AGENT_WHATSAPP,
     phone: AGENT_PHONE_DISPLAY,
     phoneLink: AGENT_PHONE_LINK,
-    urgent: 'Ship arriving soon?',
+    urgent: 'Ship Arriving Soon?',
     faq: [
       { q: 'Which port do you cover?', a: 'Khorfakkan, on the UAE east coast.' },
       { q: 'Can you arrange a crew change?', a: 'Yes, as part of our agency service. Send us the details and we will confirm what is needed for the call.' },
@@ -167,8 +167,8 @@ export const SERVICES = [
     row: PHOTOS.shipDeck,
     tile: PHOTOS.shipDeck,
     band: PHOTOS.shipRedSky,
-    title: 'Marine survey',
-    kicker: 'Core service',
+    title: 'Marine Survey',
+    kicker: 'Core Service',
     short: 'Marine surveys for vessels at Khorfakkan: on-\u2060hire and off-\u2060hire, draft and condition surveys, with clear written reports.',
     banner: PHOTOS.shipDeck,
     intro:
@@ -177,27 +177,27 @@ export const SERVICES = [
       'Surveys can be booked on their own or together with your port call, so the surveyor boards at the right time without delaying cargo work or sailing.',
     who: ['Ship owners', 'Charterers', 'Operators and ship managers', 'Masters'],
     includes: [
-      { title: 'On-\u2060hire and off-\u2060hire surveys', text: 'Condition and bunkers on board recorded at delivery and redelivery.' },
-      { title: 'Draft surveys', text: 'Cargo quantity worked out from the vessel\'s draft readings.' },
-      { title: 'Condition surveys', text: 'The vessel\'s general condition inspected and recorded.' },
-      { title: 'Clear written reports', text: 'Findings, photographs and figures set out in a report you can use.' },
-      { title: 'Planned with the port call', text: 'Timed around berthing, cargo work and sailing, with our agency team.' },
-      { title: 'At anchor or alongside', text: 'Surveyor taken out to the vessel wherever she is in port.' },
+      { title: 'On-\u2060Hire and Off-\u2060Hire Surveys', text: 'Condition and bunkers on board recorded at delivery and redelivery.' },
+      { title: 'Draft Surveys', text: 'Cargo quantity worked out from the vessel\'s draft readings.' },
+      { title: 'Condition Surveys', text: 'The vessel\'s general condition inspected and recorded.' },
+      { title: 'Clear Written Reports', text: 'Findings, photographs and figures set out in a report you can use.' },
+      { title: 'Planned With the Port Call', text: 'Timed around berthing, cargo work and sailing, with our agency team.' },
+      { title: 'At Anchor or Alongside', text: 'Surveyor taken out to the vessel wherever she is in port.' },
     ],
     process: [
       { title: 'Request', text: 'Tell us the vessel, the type of survey and when it is needed.' },
       { title: 'Scheduled', text: 'We agree the time and arrange access to the vessel.' },
-      { title: 'Survey on board', text: 'The survey is carried out and readings recorded.' },
+      { title: 'Survey on Board', text: 'The survey is carried out and readings recorded.' },
       { title: 'Report', text: 'A written report is sent to you.' },
     ],
     send: ['Vessel name and IMO', 'Type of survey needed', 'Port position and ETA', 'Who the report is for'],
     wa: 'Hello Sea Shark, I need a marine survey. Vessel: ... Survey type: ... When: ...',
-    cta: 'Request a survey',
-    includesTitle: 'Surveys you can rely on, reports you can use.',
+    cta: 'Request a Survey',
+    includesTitle: 'Surveys You Can Rely On, Reports You Can Use.',
     number: AGENT_WHATSAPP,
     phone: AGENT_PHONE_DISPLAY,
     phoneLink: AGENT_PHONE_LINK,
-    urgent: 'Survey needed at short notice?',
+    urgent: 'Survey Needed at Short Notice?',
     faq: [
       { q: 'Which surveys do you carry out?', a: 'On-\u2060hire and off-\u2060hire, draft and condition surveys. Tell us what you need and we will confirm.' },
       { q: 'Can a survey be done during the port call?', a: 'Yes. We plan it around berthing, cargo work and sailing so the vessel is not delayed.' },
@@ -211,8 +211,8 @@ export const SERVICES = [
     row: PHOTOS.diverPair,
     tile: PHOTOS.diverPair,
     band: PHOTOS.shipBlueSea,
-    title: 'Underwater services',
-    kicker: 'Core service',
+    title: 'Underwater Services',
+    kicker: 'Core Service',
     short: 'Diving services for vessels at Khorfakkan: underwater hull inspection, hull cleaning and propeller polishing.',
     banner: PHOTOS.diver,
     intro:
@@ -221,12 +221,12 @@ export const SERVICES = [
       'Diving work is planned with the port call, so it fits around cargo operations and the vessel\'s sailing time, and the findings are reported back to you.',
     who: ['Ship owners', 'Operators and ship managers', 'Technical superintendents', 'Masters'],
     includes: [
-      { title: 'Underwater hull inspection', text: 'The hull, rudder and propeller checked by divers, with findings reported.' },
-      { title: 'Hull cleaning', text: 'Marine growth removed to help the vessel keep her speed and fuel use.' },
-      { title: 'Propeller polishing', text: 'Propeller blades cleaned and polished while the vessel is in port.' },
-      { title: 'Reported to you', text: 'What was found and what was done, set out after the job.' },
-      { title: 'Planned with the port call', text: 'Timed around cargo work and sailing, with our agency team.' },
-      { title: 'Safety first', text: 'Diving only goes ahead when the vessel, port and conditions allow it.' },
+      { title: 'Underwater Hull Inspection', text: 'The hull, rudder and propeller checked by divers, with findings reported.' },
+      { title: 'Hull Cleaning', text: 'Marine growth removed to help the vessel keep her speed and fuel use.' },
+      { title: 'Propeller Polishing', text: 'Propeller blades cleaned and polished while the vessel is in port.' },
+      { title: 'Reported to You', text: 'What was found and what was done, set out after the job.' },
+      { title: 'Planned With the Port Call', text: 'Timed around cargo work and sailing, with our agency team.' },
+      { title: 'Safety First', text: 'Diving only goes ahead when the vessel, port and conditions allow it.' },
     ],
     process: [
       { title: 'Request', text: 'Tell us the vessel, the work needed and the time in port.' },
@@ -236,12 +236,12 @@ export const SERVICES = [
     ],
     send: ['Vessel name and IMO', 'Work needed (inspection, cleaning, polishing)', 'Port position and ETA', 'Time available in port'],
     wa: 'Hello Sea Shark, I need underwater services. Vessel: ... Work: ... When: ...',
-    cta: 'Request diving services',
-    includesTitle: 'Hull and propeller work, below the waterline.',
+    cta: 'Request Diving Services',
+    includesTitle: 'Hull and Propeller Work, Below the Waterline.',
     number: AGENT_WHATSAPP,
     phone: AGENT_PHONE_DISPLAY,
     phoneLink: AGENT_PHONE_LINK,
-    urgent: 'Need divers during this call?',
+    urgent: 'Need Divers During This Call?',
     faq: [
       { q: 'What underwater work do you do?', a: 'Underwater hull inspection, hull cleaning and propeller polishing.' },
       { q: 'Can the work be done while the ship is in port?', a: 'Yes. We plan the dive around the port call. Tell us the vessel position and time in port and we will confirm.' },
@@ -255,8 +255,8 @@ export const SERVICES = [
     row: PHOTOS.tankerAerialGreen,
     tile: PHOTOS.tankerAerialRed,
     band: PHOTOS.wakeAerial,
-    title: 'Fresh water supply',
-    kicker: 'Marine support',
+    title: 'Fresh Water Supply',
+    kicker: 'Marine Support',
     minor: true,
     short: 'Drinking water delivered by Malik, the barge we own and run, to ships at Khorfakkan.',
     banner: PHOTOS.tankerAerial,
@@ -266,25 +266,25 @@ export const SERVICES = [
       'Fresh water is one of the first things a crew checks before the next passage. Whether you are topping up at anchor before sailing on or running low after a long voyage, tell us what you need and we plan Malik around your ship.',
     who: ['Ships waiting at anchor', 'Ships about to sail on', 'Owners and operators planning a call', 'Agents booking for their principals'],
     includes: [
-      { title: 'Our own barge', text: 'Every delivery is made by Malik, which we own and look after ourselves.' },
-      { title: 'At anchor', text: 'We take the water out to ships waiting at anchor.' },
-      { title: 'Alongside on request', text: 'Ship at a berth? Ask us on WhatsApp and we will tell you what we can arrange.' },
+      { title: 'Our Own Barge', text: 'Every delivery is made by Malik, which we own and look after ourselves.' },
+      { title: 'At Anchor', text: 'We take the water out to ships waiting at anchor.' },
+      { title: 'Alongside on Request', text: 'Ship at a berth? Ask us on WhatsApp and we will tell you what we can arrange.' },
       { title: 'At Khorfakkan', text: 'Deliveries to ships calling at Khorfakkan.' },
-      { title: 'Ahead or short notice', text: 'Book days ahead, or message us when the need comes up.' },
-      { title: 'Clear paperwork', text: 'A delivery note signed on board for the quantity supplied.' },
+      { title: 'Ahead or Short Notice', text: 'Book days ahead, or message us when the need comes up.' },
+      { title: 'Clear Paperwork', text: 'A delivery note signed on board for the quantity supplied.' },
     ],
     process: [
-      { title: 'You message us', text: 'Vessel, position, quantity and when you need it.' },
-      { title: 'We confirm', text: 'Time, place and quantity agreed with you or your agent.' },
-      { title: 'Malik comes alongside', text: 'The barge moors to your ship and the hose is connected.' },
-      { title: 'Water delivered', text: 'The agreed quantity is pumped across and measured.' },
-      { title: 'Signed off', text: 'Paperwork signed and the barge casts off.' },
+      { title: 'You Message Us', text: 'Vessel, position, quantity and when you need it.' },
+      { title: 'We Confirm', text: 'Time, place and quantity agreed with you or your agent.' },
+      { title: 'Malik Comes Alongside', text: 'The barge moors to your ship and the hose is connected.' },
+      { title: 'Water Delivered', text: 'The agreed quantity is pumped across and measured.' },
+      { title: 'Signed Off', text: 'Paperwork signed and the barge casts off.' },
     ],
     send: ['Vessel name and IMO', 'Position (port, berth or anchorage)', 'Quantity of water', 'Date and time needed', 'Agent or master contact'],
     wa: WATER_MESSAGE,
-    cta: 'Check water availability',
-    includesTitle: 'Drinking water, delivered to your ship.',
-    urgent: 'Need water today?',
+    cta: 'Check Water Availability',
+    includesTitle: 'Drinking Water, Delivered to Your Ship.',
+    urgent: 'Need Water Today?',
     faq: [
       { q: 'Do you deliver water to ships at anchor?', a: 'Yes. Malik takes water out to ships at anchor at Khorfakkan.' },
       { q: 'How quickly can you deliver?', a: 'It depends on where the ship is and how much water is needed. Send us the vessel, position and quantity and we give you a time straight away.' },
@@ -300,8 +300,8 @@ export const SERVICES = [
     row: PHOTOS.redTug,
     tile: PHOTOS.tugHarbour,
     band: PHOTOS.shipFrontSea,
-    title: 'Crew boats',
-    kicker: 'Marine support',
+    title: 'Crew Boats',
+    kicker: 'Marine Support',
     minor: true,
     short: 'We arrange the right boat to move crew, stores and light cargo between shore and ship.',
     banner: PHOTOS.tugCity,
@@ -311,24 +311,24 @@ export const SERVICES = [
       'Moving people and goods between shore and ship takes planning: the right boat, the right time and the right sea conditions. We handle that planning, so your crew and your cargo get across safely.',
     who: ['Crews signing on or off', 'Surveyors and inspectors', 'Agents visiting the ship', 'Ships waiting for stores or spares'],
     includes: [
-      { title: 'Crew changes at anchor', text: 'People moved safely between shore and ship.' },
-      { title: 'Stores and spares', text: 'Ship stores and spare parts delivered to the vessel.' },
-      { title: 'Light cargo runs', text: 'Small loads taken out to ships at anchor.' },
-      { title: 'Surveyor and agent transfers', text: 'Inspectors, surveyors and agents taken out and back.' },
-      { title: 'The right boat', text: 'We pick a boat that suits the people, load and weather.' },
-      { title: 'Followed up', text: 'We track the job and tell you when it is done.' },
+      { title: 'Crew Changes at Anchor', text: 'People moved safely between shore and ship.' },
+      { title: 'Stores and Spares', text: 'Ship stores and spare parts delivered to the vessel.' },
+      { title: 'Light Cargo Runs', text: 'Small loads taken out to ships at anchor.' },
+      { title: 'Surveyor and Agent Transfers', text: 'Inspectors, surveyors and agents taken out and back.' },
+      { title: 'The Right Boat', text: 'We pick a boat that suits the people, load and weather.' },
+      { title: 'Followed Up', text: 'We track the job and tell you when it is done.' },
     ],
     process: [
-      { title: 'Tell us the job', text: 'How many people, what load, from where to where.' },
-      { title: 'We book the boat', text: 'Right size, right time, confirmed back to you.' },
+      { title: 'Tell Us the Job', text: 'How many people, what load, from where to where.' },
+      { title: 'We Book the Boat', text: 'Right size, right time, confirmed back to you.' },
       { title: 'Transfer', text: 'Boat goes out, people and goods move across.' },
       { title: 'Done', text: 'We confirm the job is complete.' },
     ],
     send: ['Vessel name', 'Ship position', 'Number of people', 'Cargo weight or size', 'Pickup point, date and time'],
     wa: 'Hello Sea Shark, I need a crew boat. Vessel: ... Position: ... People: ... Cargo: ... When: ...',
-    cta: 'Book a crew boat',
-    includesTitle: 'The right boat for every transfer.',
-    urgent: 'Need a boat today?',
+    cta: 'Book a Crew Boat',
+    includesTitle: 'The Right Boat for Every Transfer.',
+    urgent: 'Need a Boat Today?',
     faq: [
       { q: 'Do you own crew boats?', a: 'No. We own one vessel, the water barge Malik. For crew boats we act as your agent and book the right boat for the job.' },
       { q: 'How many people can a boat take?', a: 'It depends on the boat we book. Tell us how many people and how much cargo, and we pick a boat that fits.' },
@@ -339,9 +339,9 @@ export const SERVICES = [
 ]
 
 export const STATS = [
-  { label: 'Port of operation', value: 'Khorfakkan' },
-  { label: 'Combined marine experience', value: '20+ yrs' },
-  { label: 'Crews on call', value: '24 hrs' },
+  { label: 'Port of Operation', value: 'Khorfakkan' },
+  { label: 'Combined Marine Experience', value: '20+ yrs' },
+  { label: 'Crews on Call', value: '24 hrs' },
   { label: 'Offices, Sharjah and Dubai', value: '2' },
 ]
 
@@ -351,9 +351,9 @@ export const ALL_SERVICES = SERVICES
 export const MINOR_SERVICES = SERVICES.filter((s) => s.minor)
 
 export const STEPS = [
-  { title: 'Contact our desk', text: 'Vessel name, ETA or position and what you need, by WhatsApp, phone or email.' },
-  { title: 'We confirm', text: 'We confirm the scope and timing and keep you informed throughout.' },
-  { title: 'Completed and reported', text: 'Port call handled, survey reported or dive completed, with one contact all the way.' },
+  { title: 'Contact Our Desk', text: 'Vessel name, ETA or position and what you need, by WhatsApp, phone or email.' },
+  { title: 'We Confirm', text: 'We confirm the scope and timing and keep you informed throughout.' },
+  { title: 'Completed and Reported', text: 'Port call handled, survey reported or dive completed, with one contact all the way.' },
 ]
 
 export const PLACES = [
@@ -366,22 +366,22 @@ export const VALUES = [
   { name: 'Safety', text: 'Every transfer and delivery is planned with people and vessels kept safe first.' },
   { name: 'Integrity', text: 'Clear answers, honest timings and no surprises on the job.' },
   { name: 'Professionalism', text: 'We work to the standard ship owners and masters expect.' },
-  { name: 'Always improving', text: 'We review every job and keep raising the standard of the next one.' },
+  { name: 'Always Improving', text: 'We review every job and keep raising the standard of the next one.' },
 ]
 
 export const WHY = [
-  { title: 'One point of contact', text: 'A single agency team handles your vessel from appointment to sailing report.' },
-  { title: 'Local presence', text: 'We work at Khorfakkan every day, with offices in Sharjah and Dubai.' },
-  { title: 'Experienced team', text: 'Founders with more than 20 years of combined marine experience.' },
-  { title: 'Agency, survey and diving together', text: 'Three core services coordinated by one team for each port call.' },
+  { title: 'One Point of Contact', text: 'A single agency team handles your vessel from appointment to sailing report.' },
+  { title: 'Local Presence', text: 'We work at Khorfakkan every day, with offices in Sharjah and Dubai.' },
+  { title: 'Experienced Team', text: 'Founders with more than 20 years of combined marine experience.' },
+  { title: 'Agency, Survey and Diving Together', text: 'Three core services coordinated by one team for each port call.' },
 ]
 
 export const CONTACTS = [
-  { label: 'Ship agency desk', text: AGENT_PHONE_DISPLAY, href: AGENT_PHONE_LINK },
-  { label: 'Fresh water and crew boats', text: PHONE_DISPLAY, href: PHONE_LINK },
-  { label: 'Operations email', text: EMAIL, href: `mailto:${EMAIL}` },
-  { label: 'Sharjah office', text: 'Al Fisht 1, Sharjah', href: 'https://maps.google.com/?q=Al+Fisht+1+Sharjah', external: true },
-  { label: 'Dubai office', text: "Al Bada'a, Dubai", href: "https://maps.google.com/?q=Al+Bada'a+Dubai", external: true },
+  { label: 'Ship Agency Desk', text: AGENT_PHONE_DISPLAY, href: AGENT_PHONE_LINK },
+  { label: 'Fresh Water and Crew Boats', text: PHONE_DISPLAY, href: PHONE_LINK },
+  { label: 'Operations Email', text: EMAIL, href: `mailto:${EMAIL}` },
+  { label: 'Sharjah Office', text: 'Al Fisht 1, Sharjah', href: 'https://maps.google.com/?q=Al+Fisht+1+Sharjah', external: true },
+  { label: 'Dubai Office', text: "Al Bada'a, Dubai", href: "https://maps.google.com/?q=Al+Bada'a+Dubai", external: true },
 ]
 
 export const HOURS_ROWS = [
@@ -396,18 +396,18 @@ export const PORTS = [
 ]
 
 export const SAFETY = [
-  { title: 'Safe transfers', text: 'Every crew move and boarding is planned around people first, then weather and sea state.' },
-  { title: 'Safe diving', text: 'Underwater work only goes ahead when the vessel, port and sea conditions allow it.' },
-  { title: 'Clean water handling', text: "Malik's tanks and hoses are kept for drinking water only and looked after by us." },
-  { title: 'Port rules followed', text: 'We work inside the port rules and keep the right people informed.' },
-  { title: 'Clear paperwork', text: 'Quantities, times and jobs recorded, so there are no surprises later.' },
+  { title: 'Safe Transfers', text: 'Every crew move and boarding is planned around people first, then weather and sea state.' },
+  { title: 'Safe Diving', text: 'Underwater work only goes ahead when the vessel, port and sea conditions allow it.' },
+  { title: 'Clean Water Handling', text: "Malik's tanks and hoses are kept for drinking water only and looked after by us." },
+  { title: 'Port Rules Followed', text: 'We work inside the port rules and keep the right people informed.' },
+  { title: 'Clear Paperwork', text: 'Quantities, times and jobs recorded, so there are no surprises later.' },
 ]
 
 export const BARGE_SPECS = [
   { k: 'Name', v: 'Malik' },
   { k: 'Type', v: 'Fresh water supply barge' },
   { k: 'Owner', v: 'Sea Shark Shipping Services LLC' },
-  { k: 'Works at', v: 'Khorfakkan' },
+  { k: 'Works At', v: 'Khorfakkan' },
 ]
 
 export const FAQ = [
@@ -426,30 +426,30 @@ export const FAQ = [
 ]
 
 export const CLIENTS = [
-  { title: 'Ship owners', text: 'A local agent at Khorfakkan looking after your vessel and your interests while she is in port.' },
-  { title: 'Operators and managers', text: 'Port calls, surveys and hull work coordinated, with updates at each step.' },
-  { title: 'Masters and crews', text: 'A direct line to our desk for what the vessel needs, when it needs it.' },
+  { title: 'Ship Owners', text: 'A local agent at Khorfakkan looking after your vessel and your interests while she is in port.' },
+  { title: 'Operators and Managers', text: 'Port calls, surveys and hull work coordinated, with updates at each step.' },
+  { title: 'Masters and Crews', text: 'A direct line to our desk for what the vessel needs, when it needs it.' },
   { title: 'Charterers', text: 'A reliable agent and surveyors at Khorfakkan acting on your instructions.' },
 ]
 
 export const CALL_TIPS = [
-  { title: 'Send your ETA early', text: 'More notice means paperwork, bookings and services are ready before the ship arrives.' },
-  { title: 'Share the position', text: 'Anchorage or berth: tell us where the ship will be so we plan the right approach.' },
-  { title: 'One message for everything', text: 'Agency, survey and underwater work for the same call can all go in one message.' },
-  { title: 'Tell us when plans change', text: 'If the ETA moves, let us know and we move the plan with you.' },
+  { title: 'Send Your ETA Early', text: 'More notice means paperwork, bookings and services are ready before the ship arrives.' },
+  { title: 'Share the Position', text: 'Anchorage or berth: tell us where the ship will be so we plan the right approach.' },
+  { title: 'One Message for Everything', text: 'Agency, survey and underwater work for the same call can all go in one message.' },
+  { title: 'Tell Us When Plans Change', text: 'If the ETA moves, let us know and we move the plan with you.' },
 ]
 
 export const PRINCIPLES = [
-  { title: 'We answer quickly', text: 'Ships do not wait, so neither do we. Messages are answered promptly, and urgent jobs are picked up by our crews around the clock.' },
-  { title: 'We say what we can do', text: 'Before the job starts, we tell you plainly what we will do and when, and then we do it.' },
-  { title: 'We follow through', text: 'The person who takes your message stays with the job until it is done and you have heard back from us.' },
+  { title: 'We Answer Quickly', text: 'Ships do not wait, so neither do we. Messages are answered promptly, and urgent jobs are picked up by our crews around the clock.' },
+  { title: 'We Say What We Can Do', text: 'Before the job starts, we tell you plainly what we will do and when, and then we do it.' },
+  { title: 'We Follow Through', text: 'The person who takes your message stays with the job until it is done and you have heard back from us.' },
 ]
 
 // Which service runs at which port (shown as a table on Ports & FAQ).
 export const PORT_TABLE = [
-  { service: 'Ship agency', khorfakkan: 'yes' },
-  { service: 'Marine survey', khorfakkan: 'yes' },
-  { service: 'Underwater services', khorfakkan: 'yes' },
-  { service: 'Fresh water at anchor', khorfakkan: 'yes' },
-  { service: 'Crew boats (arranged)', khorfakkan: 'yes' },
+  { service: 'Ship Agency', khorfakkan: 'yes' },
+  { service: 'Marine Survey', khorfakkan: 'yes' },
+  { service: 'Underwater Services', khorfakkan: 'yes' },
+  { service: 'Fresh Water at Anchor', khorfakkan: 'yes' },
+  { service: 'Crew Boats (Arranged)', khorfakkan: 'yes' },
 ]

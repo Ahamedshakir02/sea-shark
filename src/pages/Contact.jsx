@@ -10,7 +10,7 @@ const ICONS = ['phone', 'phone', 'mail', 'pin', 'pin']
 export default function Contact() {
   return (
     <>
-      <PageHead eyebrow="Contact" title="Talk to our desk."
+      <PageHead eyebrow="Contact" title="Talk to Our Desk."
         lead="WhatsApp is the fastest way to reach us. Pick what you need and your message is ready to send."
         crumbs={[{ label: 'Contact' }]}>
         <div className="quick quick--core">
@@ -27,7 +27,7 @@ export default function Contact() {
 
       <section className="sec">
         <div className="wrap">
-          <Head eyebrow="Offices and lines" title="Every way to reach us." />
+          <Head eyebrow="Offices and lines" title="Every Way to Reach Us." />
           <div className="reach">
             <div className="reach__list">
               {CONTACTS.map((c, i) => (
