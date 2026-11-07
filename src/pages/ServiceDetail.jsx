@@ -40,13 +40,13 @@ export default function ServiceDetail() {
             {s.more && <p>{s.more}</p>}
             {s.who && (
               <div className="who-row">
-                <h3>Who it's for</h3>
+                <h3>Who It's For</h3>
                 <ul className="chips">{s.who.map((w) => <li key={w}>{w}</li>)}</ul>
               </div>
             )}
           </Reveal>
           <Reveal as="aside" className="request" delay={120}>
-            <h3>What to send us</h3>
+            <h3>What to Send Us</h3>
             <p>Put these in your message and we can confirm faster.</p>
             <ol>{s.send.map((x) => <li key={x}>{x}</li>)}</ol>
             <WaLink className="btn btn--wa btn--block" message={s.wa} number={s.number}><WhatsAppIcon />Send on WhatsApp</WaLink>
@@ -59,7 +59,7 @@ export default function ServiceDetail() {
         <div className="wrap">
           {s.groups ? (
             <>
-              <Head split eyebrow="What's included" title="The full agency scope."
+              <Head split eyebrow="What's included" title="Every Part of the Port Call, Covered."
                 lead="Grouped the way a port call runs. Tell us which parts your call needs and we take care of them." />
               <div className="groups">
                 {s.groups.map((g, i) => (
@@ -75,7 +75,7 @@ export default function ServiceDetail() {
             </>
           ) : (
             <>
-              <Head eyebrow="What's included" title={`${s.title}, done properly.`} />
+              <Head eyebrow="What's included" title={s.includesTitle || `${s.title}, Done Properly.`} />
               <div className="cards cards--3">
                 {s.includes.map((x, i) => (
                   <Reveal className="card" key={x.title} delay={(i % 3) * 90}>
@@ -94,14 +94,14 @@ export default function ServiceDetail() {
           <p><strong>{s.urgent}</strong> {s.minor ? 'Our crews work 24 hours. Call us or send a WhatsApp message.' : 'Contact our desk by phone or WhatsApp.'}</p>
           <div className="btns">
             <a className="btn btn--navy" href={phoneLink}>Call {phone}</a>
-            <WaLink className="btn btn--outline" message={s.wa} number={s.number}>WhatsApp us</WaLink>
+            <WaLink className="btn btn--outline" message={s.wa} number={s.number}>WhatsApp Us</WaLink>
           </div>
         </div>
       </section>
 
       <section className="sec">
         <div className="wrap">
-          <Head split eyebrow="How it works" title="From first message to done."
+          <Head split eyebrow="How it works" title="From First Message to Job Done."
             lead="One contact follows the job from start to finish and keeps you updated." />
           <Timeline steps={s.process} />
         </div>
@@ -111,9 +111,9 @@ export default function ServiceDetail() {
         <div className="wrap faqs">
           <Reveal className="faqs__side">
             <p className="eyebrow">Quick answers</p>
-            <h2>Asked about {s.title.toLowerCase()}.</h2>
+            <h2>Asked About {s.title}.</h2>
             <p className="lead">Not covered here? Ask us directly.</p>
-            <Link className="arrow" to="/ports-and-faq">All questions <ServiceIcon id="arrow" /></Link>
+            <Link className="arrow" to="/ports-and-faq">All Questions <ServiceIcon id="arrow" /></Link>
           </Reveal>
           <Reveal delay={100}><Faq items={s.faq} /></Reveal>
         </div>
@@ -121,7 +121,7 @@ export default function ServiceDetail() {
 
       <section className="sec">
         <div className="wrap">
-          <Head eyebrow="More services" title={s.minor ? 'Our core services.' : 'Our other core services.'} />
+          <Head eyebrow="More services" title={s.minor ? 'Our Core Services.' : 'Our other core services.'} />
           <div className="core more">
             {others.map((o, i) => (
               <Reveal as={Link} className="core__card" to={`/services/${o.slug}`} key={o.slug} delay={i * 100}>
@@ -130,7 +130,7 @@ export default function ServiceDetail() {
                 <div className="core__body">
                   <span className="core__icon"><ServiceIcon id={o.icon} /></span>
                   <h3>{o.title}</h3><p>{o.short}</p>
-                  <span className="arrow">Learn more <ServiceIcon id="arrow" /></span>
+                  <span className="arrow">Learn More <ServiceIcon id="arrow" /></span>
                 </div>
               </Reveal>
             ))}

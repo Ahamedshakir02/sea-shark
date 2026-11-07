@@ -4,7 +4,7 @@ import { ServiceIcon, WhatsAppIcon } from '../components/Icons.jsx'
 import Reveal from '../components/Reveal.jsx'
 import WaLink from '../components/WaLink.jsx'
 import CtaBand from '../components/CtaBand.jsx'
-import { Head, Timeline, Faq } from '../components/Blocks.jsx'
+import { Head, Timeline, Faq, HoursLine, sentences } from '../components/Blocks.jsx'
 import malik from '../assets/boat-malik.jpg'
 
 const agency = MAIN_SERVICES.find((s) => s.slug === 'ship-agency')
@@ -21,13 +21,13 @@ export default function Home() {
         <div className="wrap hero__in">
           <div className="hero__copy">
             <p className="eyebrow hero__a">Ship agency · Khorfakkan Port, UAE</p>
-            <h1 className="hero__a" style={{ '--d': '120ms' }}>Your agent at Khorfakkan. <span className="accent">Every port call, handled.</span></h1>
+            <h1 className="hero__a" style={{ '--d': '120ms' }}>Your Agent at Khorfakkan. <span className="accent">Every Port Call, Handled End to End.</span></h1>
             <p className="lead hero__a" style={{ '--d': '260ms' }}>
               Port agency, marine survey and underwater services for owners, operators and charterers. One team looks after your vessel from the first ETA notice to the sailing report.
             </p>
             <div className="btns hero__a" style={{ '--d': '380ms' }}>
-              <WaLink className="btn btn--amber" message={agency.wa} number={AGENT_WHATSAPP}><WhatsAppIcon />Appoint us as agent</WaLink>
-              <a className="btn btn--ghost" href="#services">Explore our services</a>
+              <WaLink className="btn btn--amber" message={agency.wa} number={AGENT_WHATSAPP}><WhatsAppIcon />Appoint Us as Agent</WaLink>
+              <a className="btn btn--ghost" href="#services">Explore Our Services</a>
             </div>
           </div>
         </div>
@@ -55,7 +55,7 @@ export default function Home() {
 
       <section className="sec sec--mist" id="services">
         <div className="wrap">
-          <Head split eyebrow="Core services" title="Three core services, one team in port."
+          <Head split eyebrow="Core services" title="Agency, Survey and Diving. One Team in Port."
             lead="Book each service on its own, or let us coordinate all three for the same port call." />
           <div className="core">
             {MAIN_SERVICES.map((s, i) => (
@@ -67,7 +67,7 @@ export default function Home() {
                   <h3>{s.title}</h3>
                   <p>{s.short}</p>
                   {i === 0 && <ul className="core__list">{agency.groups.map((g) => <li key={g.title}><ServiceIcon id="check" />{g.title}</li>)}</ul>}
-                  <span className="arrow">Explore {s.title.toLowerCase()} <ServiceIcon id="arrow" /></span>
+                  <span className="arrow">Explore {s.title} <ServiceIcon id="arrow" /></span>
                 </div>
               </Reveal>
             ))}
@@ -79,13 +79,13 @@ export default function Home() {
         <div className="wrap scope">
           <Reveal className="scope__side">
             <p className="eyebrow">Ship agency scope</p>
-            <h2>Everything your vessel needs in port.</h2>
-            <p className="lead">From pre-arrival planning to the final account, our agency desk handles the call so you deal with one contact, not ten.</p>
+            <h2>One Desk for Everything Your Vessel Needs in Port.</h2>
+            <p className="lead">From <span className="nw">pre-arrival</span> planning to the final account, our agency desk handles the call so you deal with one contact, not ten.</p>
             <div className="scope__count">
               <div><strong>{agency.groups.length}</strong><span>areas of work</span></div>
               <div><strong>{agencyCount}</strong><span>agency services</span></div>
             </div>
-            <Link className="btn btn--amber" to="/services/ship-agency">See the full agency scope</Link>
+            <Link className="btn btn--amber" to="/services/ship-agency">See the Full Agency Scope</Link>
           </Reveal>
           <div className="scope__groups">
             {agency.groups.map((g, i) => (
@@ -104,7 +104,7 @@ export default function Home() {
 
       <section className="sec">
         <div className="wrap">
-          <Head split eyebrow="How a port call works" title="Four stages. One point of contact."
+          <Head split eyebrow="How a port call works" title="Four Stages. One Point of Contact."
             lead="You hear from us at every stage, from the appointment to the moment the ship sails." />
           <Timeline steps={agency.process} ends={['ETA notice', 'Sailing report']} />
         </div>
@@ -114,18 +114,18 @@ export default function Home() {
         <div className="wrap">
           <Reveal className="appoint">
             <div className="appoint__img" style={{ '--img': `url(${photo(PHOTOS.terminalDusk, 1400)})` }}>
-              <p className="appoint__quote">A ship in port has one question: <span>who is looking after us here?</span> At Khorfakkan, that is our job.</p>
+              <p className="appoint__quote"><span className="sent">A ship in port has one question: <span className="accent">who is looking after us here?</span></span> <span className="sent">At Khorfakkan, that is our job.</span></p>
             </div>
             <div className="appoint__body">
               <p className="eyebrow">Appoint us</p>
-              <h2>Vessel calling soon? Start with one message.</h2>
+              <h2>{sentences('Vessel Calling Soon? Start With One Message.')}</h2>
               <p>Send these details to our agency desk and we confirm the call plan with you.</p>
               <ol className="checklist">{agency.send.map((x) => <li key={x}>{x}</li>)}</ol>
               <WaLink className="btn btn--wa btn--block" message={agency.wa} number={AGENT_WHATSAPP}><WhatsAppIcon />Send on WhatsApp</WaLink>
               <div className="contact-rows">
                 <a href={AGENT_PHONE_LINK}><ServiceIcon id="phone" />{AGENT_PHONE_DISPLAY}</a>
                 <a href={`mailto:${EMAIL}`}><ServiceIcon id="mail" />{EMAIL}</a>
-                <span><ServiceIcon id="clock" />{HOURS_ROWS.map(([d, t]) => `${d} ${t}`).join(' · ')}</span>
+                <span><ServiceIcon id="clock" /><span><HoursLine /></span></span>
               </div>
             </div>
           </Reveal>
@@ -134,7 +134,7 @@ export default function Home() {
 
       <section className="sec">
         <div className="wrap">
-          <Head eyebrow="Who we act for" title="On behalf of every party in the call." />
+          <Head eyebrow="Who we act for" title="Acting for Every Party in the Call." />
           <div className="cards">
             {CLIENTS.map((w, i) => (
               <Reveal className="card" key={w.title} delay={i * 80}>
@@ -154,7 +154,7 @@ export default function Home() {
 
       <section className="sec sec--mist">
         <div className="wrap">
-          <Head split eyebrow="Marine support" title="Supporting services."
+          <Head split eyebrow="Marine support" title="Water and Boats, When the Call Needs Them."
             lead="Available on their own, or arranged together with your port call." />
           <div className="support">
             {MINOR_SERVICES.map((s, i) => (
@@ -164,13 +164,13 @@ export default function Home() {
                   <div className="support__body">
                     <h3>{s.title}</h3>
                     <p>{s.short}</p>
-                    <span className="arrow">Learn more <ServiceIcon id="arrow" /></span>
+                    <span className="arrow">Learn More <ServiceIcon id="arrow" /></span>
                   </div>
                 </Link>
               </Reveal>
             ))}
           </div>
-          <p className="support-note">Malik is the one vessel we own. <Link to="/our-barge">Meet our barge</Link></p>
+          <p className="support-note">Fresh water comes from Malik, our own barge. <Link to="/our-barge">Meet Malik</Link></p>
         </div>
       </section>
 
@@ -178,13 +178,13 @@ export default function Home() {
         <div className="wrap faqs">
           <Reveal className="faqs__side">
             <p className="eyebrow">Questions</p>
-            <h2>Before you appoint us.</h2>
+            <h2>Before You Appoint Us.</h2>
             <p className="lead">Short answers to what owners and operators ask first.</p>
-            <Link className="arrow" to="/ports-and-faq">All questions <ServiceIcon id="arrow" /></Link>
+            <Link className="arrow" to="/ports-and-faq">All Questions <ServiceIcon id="arrow" /></Link>
             <div className="desk">
               <h4>Can't find your answer?</h4>
               <p>Our agency desk replies on WhatsApp and phone.</p>
-              <WaLink className="btn btn--navy btn--block" message="Hello Sea Shark, I have a question: ..." number={AGENT_WHATSAPP}>Ask our desk</WaLink>
+              <WaLink className="btn btn--navy btn--block" message="Hello Sea Shark, I have a question: ..." number={AGENT_WHATSAPP}>Ask Our Desk</WaLink>
               <dl>{HOURS_ROWS.map(([d, t]) => <div key={d}><dt>{d}</dt><dd>{t}</dd></div>)}</dl>
             </div>
           </Reveal>

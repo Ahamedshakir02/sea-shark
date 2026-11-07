@@ -1,5 +1,6 @@
 import { Link } from 'react-router-dom'
 import { photo } from '../content.js'
+import { sentences } from './Blocks.jsx'
 
 const src = (image, w) => (image && image.startsWith('photo-') ? photo(image, w) : image)
 
@@ -25,7 +26,7 @@ export default function PageHead({ variant = 'plain', image, eyebrow, title, lea
         </nav>
       )}
       {eyebrow && <p className="eyebrow ph__a" style={{ '--d': '60ms' }}>{eyebrow}</p>}
-      <h1 className="ph__a" style={{ '--d': '120ms' }}>{title}</h1>
+      <h1 className="ph__a" style={{ '--d': '120ms' }}>{sentences(title)}</h1>
       {lead && <p className="lead ph__a" style={{ '--d': '220ms' }}>{lead}</p>}
       {children && <div className="ph__extra ph__a" style={{ '--d': '320ms' }}>{children}</div>}
     </>

@@ -1,5 +1,21 @@
+import { Fragment } from 'react'
+import { HOURS_ROWS } from '../content.js'
 import { ServiceIcon } from './Icons.jsx'
 import Reveal from './Reveal.jsx'
+
+// Titles with two sentences: each sentence wraps as one piece, so a line never ends
+// with the first word or two of the next sentence.
+export function sentences(text) {
+  if (typeof text !== 'string') return text
+  const parts = text.replace(/([.?!])\s+/g, '$1\n').split('\n')
+  if (parts.length < 2) return text
+  return parts.map((p, i) => <Fragment key={i}>{i > 0 && ' '}<span className="sent">{p}</span></Fragment>)
+}
+
+// Working hours on one line; each part stays whole if the line has to wrap.
+export const HoursLine = () => HOURS_ROWS.map(([d, t], i) => (
+  <Fragment key={d}>{i > 0 && ' · '}<span className="nw">{d} {t}</span></Fragment>
+))
 
 // Section heading: eyebrow, title and an optional lead, side by side when `split`.
 export function Head({ eyebrow, title, lead, split, center, light, children }) {
@@ -8,7 +24,7 @@ export function Head({ eyebrow, title, lead, split, center, light, children }) {
     <Reveal className={cls}>
       <div>
         {eyebrow && <p className={`eyebrow${light ? ' eyebrow--light' : ''}`}>{eyebrow}</p>}
-        <h2>{title}</h2>
+        <h2>{sentences(title)}</h2>
       </div>
       {lead && <p className="lead">{lead}</p>}
       {children}

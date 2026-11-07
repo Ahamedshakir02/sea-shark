@@ -2,10 +2,10 @@ import { Link } from 'react-router-dom'
 import { MAIN_SERVICES, MINOR_SERVICES, PHONE_DISPLAY, PHONE_LINK, AGENT_PHONE_DISPLAY, AGENT_PHONE_LINK, EMAIL, HOURS_ROWS, PLACES } from '../content.js'
 
 const COMPANY = [
-  { to: '/about', label: 'About us' },
-  { to: '/services', label: 'All services' },
+  { to: '/about', label: 'About Us' },
+  { to: '/services', label: 'All Services' },
   { to: '/ports-and-faq', label: 'Port & FAQ' },
-  { to: '/our-barge', label: 'Our barge Malik' },
+  { to: '/our-barge', label: 'Our Barge Malik' },
   { to: '/contact', label: 'Contact' },
 ]
 

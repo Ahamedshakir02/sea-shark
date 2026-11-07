@@ -16,7 +16,7 @@ export default function Services() {
   return (
     <>
       <PageHead variant="split" image={PHOTOS.tugWaves} eyebrow="Services"
-        title="Ship agency, marine survey and underwater services."
+        title="Agency, Survey and Diving Under One Roof."
         lead="Three core services for vessels calling at Khorfakkan, supported by fresh water supply and crew boats, all coordinated by one team."
         crumbs={[{ label: 'Services' }]}>
         <div className="index">
@@ -28,7 +28,7 @@ export default function Services() {
 
       <section className="sec">
         <div className="wrap">
-          <Head eyebrow="Core services" title="What we do for vessels in port." />
+          <Head eyebrow="Core services" title="What We Do for Vessels in Port." />
           <div className="rows">
             {MAIN_SERVICES.map((s, i) => (
               <div className={`row${i % 2 ? ' row--flip' : ''}`} key={s.slug}>
@@ -39,7 +39,7 @@ export default function Services() {
                   <p>{s.intro}</p>
                   <Ticks items={(s.groups ? s.groups.map((g) => g.title) : s.includes.slice(0, 4).map((x) => x.title))} />
                   <div className="row__cta">
-                    <Link className="btn btn--navy" to={`/services/${s.slug}`}>See details</Link>
+                    <Link className="btn btn--navy" to={`/services/${s.slug}`}>See Details</Link>
                     <WaLink className="arrow" message={s.wa} number={s.number}>{s.cta} <ServiceIcon id="arrow" /></WaLink>
                   </div>
                 </Reveal>
@@ -51,7 +51,7 @@ export default function Services() {
 
       <section className="sec sec--mist">
         <div className="wrap">
-          <Head split eyebrow="Marine support" title="Supporting services."
+          <Head split eyebrow="Marine support" title="Water and Boats, When the Call Needs Them."
             lead="Available on their own, or arranged together with your port call." />
           <div className="support">
             {MINOR_SERVICES.map((s, i) => (
@@ -60,7 +60,7 @@ export default function Services() {
                   <div className="support__img"><img src={img(s.photo, 700)} alt="" loading="lazy" decoding="async" /></div>
                   <div className="support__body">
                     <h3>{s.title}</h3><p>{s.short}</p>
-                    <span className="arrow">Learn more <ServiceIcon id="arrow" /></span>
+                    <span className="arrow">Learn More <ServiceIcon id="arrow" /></span>
                   </div>
                 </Link>
               </Reveal>
@@ -71,7 +71,7 @@ export default function Services() {
 
       <section className="sec">
         <div className="wrap">
-          <Head eyebrow="Who we work with" title="Built for the people behind every port call." />
+          <Head eyebrow="Who we work with" title="Built for the People Behind Every Port Call." />
           <div className="cards">
             {CLIENTS.map((w, i) => (
               <Reveal className="card" key={w.title} delay={i * 80}>
@@ -84,12 +84,12 @@ export default function Services() {
 
       <section className="sec sec--navy on-dark">
         <div className="wrap">
-          <Head split eyebrow="How it works" title="One process, whatever the job."
+          <Head split eyebrow="How it works" title="One Process, Whatever the Job."
             lead="Whether it is a full port call, a survey or a dive, it starts with one message to our desk." />
           <Timeline steps={STEPS} />
         </div>
       </section>
-      <CtaBand image={PHOTOS.shipBlueSea} title="Not sure which service you need?" text="Tell us the vessel and the job, and our desk will advise." />
+      <CtaBand image={PHOTOS.shipBlueSea} title="Not Sure Which Service You Need?" text="Tell us the vessel and the job, and our desk will advise." />
     </>
   )
 }

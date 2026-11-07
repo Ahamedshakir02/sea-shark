@@ -10,7 +10,7 @@ export default function PortsFaq() {
   const p = PORTS[0]
   return (
     <>
-      <PageHead eyebrow="Port & FAQ" title="Where we work, and what ships ask us."
+      <PageHead eyebrow="Port & FAQ" title="Where We Work, and What Ships Ask Us."
         lead="Khorfakkan on the UAE east coast, and straight answers to the questions we hear most." crumbs={[{ label: 'Port & FAQ' }]}>
         <a className="coords" href={`#${p.id}`}><ServiceIcon id="pin" /><span><strong>{p.name}</strong><span>{p.coords}</span></span></a>
       </PageHead>
@@ -35,7 +35,7 @@ export default function PortsFaq() {
 
       <section className="sec sec--mist">
         <div className="wrap">
-          <Head eyebrow="Planning a call" title="Getting the most from your call at Khorfakkan." />
+          <Head eyebrow="Planning a call" title="Getting the Most From Your Call at Khorfakkan." />
           <div className="cards">
             {CALL_TIPS.map((w, i) => (
               <Reveal className="card" key={w.title} delay={i * 80}><span className="card__n">0{i + 1}</span><h3>{w.title}</h3><p>{w.text}</p></Reveal>
@@ -48,10 +48,10 @@ export default function PortsFaq() {
         <div className="wrap faqs">
           <Reveal className="faqs__side">
             <p className="eyebrow">FAQ</p>
-            <h2>Questions ships ask us.</h2>
+            <h2>Questions Ships Ask Us.</h2>
             <p className="lead">Not here? Ask our desk on WhatsApp.</p>
             <div className="desk">
-              <h4>Ask our desk</h4>
+              <h4>Ask Our Desk</h4>
               <p>We reply during office hours. Our crews work around the clock.</p>
               <WaLink className="btn btn--wa btn--block" message="Hello Sea Shark, I have a question: ..." number={AGENT_WHATSAPP}><WhatsAppIcon />Ask on WhatsApp</WaLink>
               <dl>{HOURS_ROWS.map(([d, t]) => <div key={d}><dt>{d}</dt><dd>{t}</dd></div>)}</dl>
